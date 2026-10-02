@@ -250,3 +250,105 @@ tr.clickable:hover td{background:var(--teal-100)}
   html{scroll-behavior:auto}
   *{transition:none!important;animation:none!important}
 }
+
+/* ==================================================================
+   MOTION AND DEPTH
+   One orchestrated moment per screen, nothing scattered. Everything
+   here is disabled under prefers-reduced-motion at the foot of the file.
+   ================================================================== */
+
+/* --- scroll reveal --- */
+.reveal{opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+.reveal-group > *{opacity:0;transform:translateY(10px);transition:opacity .45s ease,transform .45s ease}
+.reveal-group.in > *{opacity:1;transform:none}
+.reveal-group.in > *:nth-child(1){transition-delay:0ms}
+.reveal-group.in > *:nth-child(2){transition-delay:70ms}
+.reveal-group.in > *:nth-child(3){transition-delay:140ms}
+.reveal-group.in > *:nth-child(4){transition-delay:210ms}
+.reveal-group.in > *:nth-child(5){transition-delay:280ms}
+.reveal-group.in > *:nth-child(6){transition-delay:350ms}
+
+/* --- hero particle field --- */
+.hero{position:relative;overflow:hidden}
+#drift{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.hero .wrap{position:relative;z-index:1}
+
+/* --- hero mark: the bars resolve on load --- */
+@keyframes barIn{from{transform:scaleX(.2);opacity:0}to{transform:scaleX(1);opacity:1}}
+.hero-mark rect.b{transform-origin:16px center;animation:barIn .7s cubic-bezier(.2,.8,.2,1) both}
+.hero-mark rect.b2{animation-delay:.12s}
+.hero-mark rect.b3{animation-delay:.24s}
+
+/* --- phone status transition on the hero --- */
+@keyframes liftIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero .phone{animation:liftIn .7s cubic-bezier(.2,.8,.2,1) .15s both}
+
+/* --- counters --- */
+.stat .fig,.tile .v{font-variant-numeric:tabular-nums}
+
+/* --- dashboard triage ring --- */
+.ring{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;
+  background:conic-gradient(var(--teal-600) var(--pct,0%),var(--teal-100) 0);
+  transition:--pct 1.1s ease;margin-top:var(--space-2)}
+.ring span{width:54px;height:54px;border-radius:50%;background:var(--surface);
+  display:grid;place-items:center;font-family:var(--mono);font-weight:600;font-size:15px}
+@property --pct{syntax:'<percentage>';inherits:false;initial-value:0%}
+
+/* --- slow rotation on the architecture mid-node mark --- */
+@keyframes slowspin{to{transform:rotate(360deg)}}
+.spin{animation:slowspin 26s linear infinite}
+
+/* --- card lift, used only on the capability cards --- */
+.card.lift{transition:transform .22s ease,border-color .22s ease}
+.card.lift:hover{transform:translateY(-3px);border-color:var(--teal-600)}
+
+/* ==================================================================
+   KIRA BANK — fictional digital bank interface
+   Used on the first demo screen to show the "before" state: the bank's
+   own app, with no explanation. Dark theme, deliberately opaque.
+   Kira Bank does not exist. No real institution is represented.
+   ================================================================== */
+.kira{
+  --k-bg:#0A100D; --k-card:#151D18; --k-line:#243128;
+  --k-text:#EEF4EF; --k-mute:#8CA094; --k-accent:#C6F24E;
+  background:var(--k-bg);border-color:var(--k-bg);color:var(--k-text);
+}
+.kira .phone-top .inst{color:var(--k-mute)}
+.kira .k-brand{display:flex;align-items:center;gap:7px;font-weight:700;letter-spacing:-0.02em;font-size:16px}
+.kira .k-dot{width:18px;height:18px;border-radius:5px;background:var(--k-accent);display:block}
+.kira h2{color:var(--k-text)}
+.kira p{color:var(--k-mute)}
+.kira .k-bal{background:var(--k-card);border:1px solid var(--k-line);border-radius:var(--radius-lg);padding:var(--space-4);margin-bottom:var(--space-3)}
+.kira .k-bal .lab{font-size:12px;color:var(--k-mute)}
+.kira .k-bal .amt{font-family:var(--mono);font-size:27px;font-weight:600;color:var(--k-text);margin-top:4px}
+.kira .k-row{display:flex;gap:var(--space-2);margin-bottom:var(--space-3)}
+.kira .k-act{flex:1;background:var(--k-card);border:1px solid var(--k-line);border-radius:var(--radius-md);
+  padding:11px 8px;text-align:center;font-size:12px;color:var(--k-mute)}
+.kira .k-act.on{background:var(--k-accent);color:#0A100D;border-color:var(--k-accent);font-weight:600}
+.kira .k-err{background:#2A1416;border:1px solid #4A2126;border-radius:var(--radius-md);padding:var(--space-4);margin-top:var(--space-3)}
+.kira .k-err b{display:block;color:#FF9AA5;font-size:14px;margin-bottom:4px}
+.kira .k-err span{font-size:13px;color:#C08E95}
+.kira .btn-k{background:var(--k-accent);color:#0A100D;display:block;text-align:center;margin-top:auto}
+.kira .btn-k:hover{background:#D4FF62}
+
+/* the handoff moment: Jelas appearing over the bank's screen */
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.handoff{animation:slideUp .5s cubic-bezier(.2,.8,.2,1) both}
+.handoff-note{border-top:1px solid var(--border);margin-top:var(--space-4);padding-top:var(--space-3);
+  font-size:12px;color:var(--ink-muted);display:flex;align-items:center;gap:7px}
+.handoff-note svg{flex:0 0 auto}
+
+/* funding instruction block */
+.fund{background:var(--surface-subtle);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-4);margin:var(--space-3) 0}
+.fund dl{display:grid;grid-template-columns:auto 1fr;gap:6px var(--space-4);margin:0;font-size:13px}
+.fund dt{color:var(--ink-muted)}
+.fund dd{margin:0;font-family:var(--mono);font-weight:600}
+.fund .amt{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--teal-600)}
+
+@media (prefers-reduced-motion:reduce){
+  .reveal,.reveal-group > *{opacity:1!important;transform:none!important;transition:none!important}
+  .hero-mark rect.b,.hero .phone,.handoff,.spin{animation:none!important}
+  #drift{display:none}
+  .ring{transition:none}
+}

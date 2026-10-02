@@ -23,7 +23,6 @@ Semester 2 2026.
 ## What is in this folder
 
 ```
-index.html            Redirect into frontend/ (GitHub Pages entry point)
 frontend/
   index.html          All fourteen screens in one document
   assets/
@@ -69,14 +68,9 @@ then open `http://localhost:8000`.
 1. Create a new **public** repository on GitHub
 2. Upload the contents of this folder
 3. Repository **Settings** → **Pages**
-4. Under **Source**, choose **Deploy from a branch**, select `main`, folder
-   `/ (root)`
+4. Under **Source**, choose **Deploy from a branch**, select `main`, folder `/frontend`
 5. Save. The site appears at `https://<username>.github.io/<repo>/` within a
    few minutes
-
-GitHub Pages can only serve from the repository root or a `/docs` folder, so
-the root `index.html` is a one-line redirect into `frontend/`. The site itself
-lives in `frontend/`, as the assignment brief requires.
 
 GitHub Pages is free for public repositories and includes HTTPS automatically.
 
