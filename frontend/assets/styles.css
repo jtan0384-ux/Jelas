@@ -440,3 +440,41 @@ tr.clickable:hover td{background:var(--teal-100)}
   .card,.tile,.quote{transition:none!important}
   .tile:hover,.card.lift:hover{transform:none}
 }
+
+/* ==================================================================
+   LANDING PAGE — six stacked points
+   One point per screen, alternating ground, each revealing as it
+   arrives and clearing again as it leaves. The page is long on
+   purpose: a reader should finish it knowing six things, not
+   skimming three columns.
+   ================================================================== */
+.pt{padding:clamp(64px,9vw,112px) 0}
+.pt-grid{display:grid;grid-template-columns:260px 1fr;gap:clamp(32px,6vw,80px);align-items:start}
+.pt-left{display:flex;align-items:flex-start}
+.pt-fig{
+  font-family:var(--mono);font-size:clamp(38px,5.4vw,60px);font-weight:600;
+  letter-spacing:-0.035em;line-height:1;color:var(--ink);
+}
+.pt-right h2{max-width:20ch}
+.pt-right p{margin-top:var(--space-4);font-size:17px;line-height:1.62;color:var(--ink-muted);max-width:58ch}
+
+.scroll-hint{
+  display:flex;flex-direction:column;align-items:center;gap:var(--space-3);
+  padding-bottom:var(--space-12);color:var(--ink-muted);font-size:13px;
+}
+.scroll-hint i{display:block;width:1px;height:46px;background:linear-gradient(var(--border),transparent)}
+
+/* repeating reveal: clears again on the way back up */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.out{opacity:0;transform:translateY(22px)}
+
+@media (max-width:760px){
+  .pt-grid{grid-template-columns:1fr;gap:var(--space-4)}
+  .pt{padding:56px 0}
+  .pt-right p{font-size:16px}
+}
+@media (prefers-reduced-motion:reduce){
+  .reveal,.reveal.out{opacity:1!important;transform:none!important}
+  .scroll-hint{display:none}
+}

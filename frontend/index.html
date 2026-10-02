@@ -27,7 +27,7 @@
     <nav class="site-nav" aria-label="Main">
       <a href="#problem">The problem</a>
       <a href="#how">How it works</a>
-      <a href="#banks">For banks</a>
+      <a href="#banks">For institutions</a>
       <a href="#research">Research</a>
       <a href="#about">About</a>
     </nav>
@@ -42,58 +42,112 @@
     <canvas id="drift" aria-hidden="true"></canvas>
     <div class="wrap hero-grid">
       <div>
-        <h1 class="display">When a bank locks you out, Jelas tells you why — and gets you back in.</h1>
-        <p class="lead">Malaysian banks stopped RM1.2&nbsp;billion of scam losses last year. The same controls also lock out legitimate customers, with no explanation and no way back. Jelas fixes the second problem without weakening the first.</p>
+        <h1 class="display">When a bank locks you out, Jelas tells you why &mdash; and gets you back in.</h1>
+        <p class="lead">Malaysian institutions stopped RM1.2&nbsp;billion of scam losses last year. The same controls also lock out legitimate customers, with no explanation and no way back. Jelas fixes the second problem without weakening the first.</p>
         <div class="btn-row">
           <a class="btn btn-primary" href="#d1">See the customer flow</a>
-          <a class="btn btn-ghost" href="#b1">View the bank dashboard</a>
+          <a class="btn btn-ghost" href="#b1">View the operations dashboard</a>
         </div>
       </div>
       <div class="phone" aria-hidden="true">
-        <div class="status-bar" aria-hidden="true">
-        <span class="t">9:14</span>
-        <span class="icons">
+        <div class="status-bar"><span class="t">9:14</span><span class="icons">
           <svg viewBox="0 0 18 12" width="17" height="11"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
           <svg viewBox="0 0 16 12" width="15" height="11"><path d="M8 11.2 5.6 8.6a3.4 3.4 0 0 1 4.8 0L8 11.2Zm0-5.1a6.6 6.6 0 0 0-4.7 2L1.6 6.3a9 9 0 0 1 12.8 0l-1.7 1.8A6.6 6.6 0 0 0 8 6.1Z"/></svg>
           <svg viewBox="0 0 26 12" width="24" height="11"><rect x="0.6" y="0.6" width="21" height="10.8" rx="3" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="2.4" y="2.4" width="15" height="7.2" rx="1.6"/><path d="M23.4 4.2v3.6a2.2 2.2 0 0 0 0-3.6Z"/></svg>
-        </span>
-      </div>
-      <div class="phone-top">
+        </span></div>
+        <div class="phone-top">
           <svg class="hero-mark" viewBox="0 0 64 64" width="22" height="22"><rect width="64" height="64" rx="14" fill="#0D2430"/><rect class="b" x="16" y="20" width="18" height="6" rx="3" fill="#0E7C86" opacity=".38"/><rect class="b b2" x="16" y="29" width="25" height="6" rx="3" fill="#0E7C86" opacity=".66"/><rect class="b b3" x="16" y="38" width="32" height="6" rx="3" fill="#2FA7B0"/></svg>
           <span class="inst">Kira Bank</span>
         </div>
-        <span class="chip chip-restricted">Restricted</span>
-        <h2>Transfers are paused on your account</h2>
-        <p>Your balance is safe and unchanged. You can still view your account and receive money.</p>
-        <div class="amount">RM 3,482.10</div>
-        <p class="small muted" style="margin-top:4px">Available to view, not to transfer</p>
-        <span class="btn btn-primary">Find out why</span>
+        <span class="chip chip-restricted">Transfers unavailable</span>
+        <h2>Your account needs one deposit from your own account first</h2>
+        <p>Before a new account can send money out, we have to confirm it belongs to you.</p>
+        <div class="amount">RM 1,250.00</div>
+        <p class="small muted" style="margin-top:4px">Balance safe and unchanged</p>
+        <span class="btn btn-primary">Show me how</span>
+        <div class="handoff-note">
+          <svg viewBox="0 0 64 64" width="13" height="13" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0D2430"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#0E7C86"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#2FA7B0"/></svg>
+          Powered by Jelas
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="band tight subtle">
-    <div class="wrap stats reveal-group">
-      <div class="stat"><div class="fig">RM2.8b</div><p>Lost to scams in Malaysia during 2025, with RM1.2 billion more averted through intervention.</p></div>
-      <div class="stat"><div class="fig"><span data-count="11431">0</span></div><p>New complaints handled by the Financial Markets Ombudsman Service in 2025.</p></div>
-      <div class="stat"><div class="fig">26 of 71</div><p>Coded public app reviews describing a customer locked out with no explanation given.</p></div>
+  <div class="scroll-hint reveal" aria-hidden="true"><span>What this is for</span><i></i></div>
+
+  <section class="band pt subtle">
+    <div class="wrap pt-grid reveal">
+      <div class="pt-left"><div class="pt-fig"><span data-count="2.8" data-pre="RM" data-post="b" data-dec="1">RM0b</span></div></div>
+      <div class="pt-right">
+        <h2>Malaysia lost RM2.8 billion to scams last year.</h2>
+        <p>Bank Negara Malaysia recorded RM2.8 billion in scam losses during 2025, and a further RM1.2 billion averted through intervention. Every one of those interventions is an automated control acting on a live account. The controls are necessary. They are also the reason legitimate customers get locked out.</p>
+      </div>
     </div>
   </section>
-
+  <section class="band pt ">
+    <div class="wrap pt-grid reveal">
+      <div class="pt-left"><div class="pt-fig"><span data-count="11431">0</span></div></div>
+      <div class="pt-right">
+        <h2>Eleven thousand complaints reached the Ombudsman.</h2>
+        <p>The Financial Markets Ombudsman Service handled 11,431 new complaints in 2025, with unauthorised banking and e-money transactions among the most common dispute types. The Ombudsman is a last resort, so that number is a floor. Nobody publishes how many access failures never get that far.</p>
+      </div>
+    </div>
+  </section>
+  <section class="band pt subtle">
+    <div class="wrap pt-grid reveal">
+      <div class="pt-left"><div class="pt-fig"><span>26 of 71</span></div></div>
+      <div class="pt-right">
+        <h2>Twenty-six customers, locked out with no reason given.</h2>
+        <p>We coded 71 public reviews of Malaysian fintech applications. Twenty-six described a customer denied access to an account or to funds with no explanation and no route to resolution, across 18 companies and ten market segments. Twenty-four of them were written in the last eighteen months.</p>
+      </div>
+    </div>
+  </section>
+  <section class="band pt ">
+    <div class="wrap pt-grid reveal">
+      <div class="pt-left"><svg viewBox="0 0 64 44" width="52" height="36" aria-hidden="true">
+            <rect x="0" y="0" width="22" height="9" rx="4.5" fill="#0E7C86"/>
+            <rect x="0" y="17" width="34" height="9" rx="4.5" fill="#D7EDEF"/>
+            <rect x="0" y="34" width="46" height="9" rx="4.5" fill="#D7EDEF"/>
+          </svg></div>
+      <div class="pt-right">
+        <h2>Jelas explains the restriction.</h2>
+        <p>A plain-language reason, delivered at the moment access is withheld, built from the institution's own fraud, anti-money-laundering and verification output. No jargon reaches the customer: a first-party funding rule becomes "your account needs one deposit from an account in your own name".</p>
+      </div>
+    </div>
+  </section>
+  <section class="band pt subtle">
+    <div class="wrap pt-grid reveal">
+      <div class="pt-left"><svg viewBox="0 0 64 44" width="52" height="36" aria-hidden="true">
+            <rect x="0" y="0" width="22" height="9" rx="4.5" fill="#0E7C86"/>
+            <rect x="0" y="17" width="34" height="9" rx="4.5" fill="#0E7C86"/>
+            <rect x="0" y="34" width="46" height="9" rx="4.5" fill="#D7EDEF"/>
+          </svg></div>
+      <div class="pt-right">
+        <h2>Then it resolves it.</h2>
+        <p>A self-serve route back in, covering the failures that generate the most support contacts: an unfunded new account, a changed device, a lapsed phone number, a verification code that never arrived. Low-risk cases are triaged for expedited review without weakening the decision behind them.</p>
+      </div>
+    </div>
+  </section>
+  <section class="band pt ">
+    <div class="wrap pt-grid reveal">
+      <div class="pt-left"><svg viewBox="0 0 64 44" width="52" height="36" aria-hidden="true">
+            <rect x="0" y="0" width="22" height="9" rx="4.5" fill="#0E7C86"/>
+            <rect x="0" y="17" width="34" height="9" rx="4.5" fill="#0E7C86"/>
+            <rect x="0" y="34" width="46" height="9" rx="4.5" fill="#2FA7B0"/>
+          </svg></div>
+      <div class="pt-right">
+        <h2>And it keeps the record.</h2>
+        <p>Every case stores what was restricted, why, what the customer was told, and how long resolution took. The institution gets a defensible file for complaint handling and conduct reporting, and a measurable number where it previously had an unmanaged waiting period.</p>
+      </div>
+    </div>
+  </section>
   <section class="band">
     <div class="wrap">
-      <h2>What Jelas does</h2>
-      <div class="cols cols-3 reveal-group" style="margin-top:var(--space-6)">
-        <div class="card"><h3>Explains</h3><p>A plain-language reason for the restriction, delivered the moment it happens, built from the bank's own fraud and verification output.</p></div>
-        <div class="card"><h3>Resolves</h3><p>A self-serve route back in, covering the three failures that generate the most support contacts: new devices, changed numbers, and codes that never arrive.</p></div>
-        <div class="card"><h3>Records</h3><p>An auditable trail of what was restricted, why, what the customer was told, and how long resolution took.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band tight">
-    <div class="wrap">
       <div class="claim reveal"><p>Jelas never makes or overrides the risk decision. It handles what happens next.</p></div>
+      <div class="btn-row reveal" style="justify-content:center;margin-top:var(--space-8)">
+        <a class="btn btn-primary" href="#d1">Walk through a real case</a>
+        <a class="btn btn-ghost" href="#banks">See what it costs</a>
+      </div>
     </div>
   </section>
 </div>
@@ -210,7 +264,7 @@
 </div>
 
 <!-- ============ 4. FOR BANKS ============ -->
-<div class="page" id="page-banks" data-title="For banks">
+<div class="page" id="page-banks" data-title="For institutions">
   <section class="band">
     <div class="wrap">
       <h1 class="display measure">You already pay for every lockout. You pay twice.</h1>
@@ -221,7 +275,7 @@
   <section class="band tight subtle">
     <div class="wrap cols cols-2 reveal-group">
       <div>
-        <h2>What a mid-sized client avoids</h2>
+        <h2>What a mid-sized institution avoids</h2>
         <div class="table-wrap" style="margin-top:var(--space-4);background:var(--surface)">
           <table>
             <tbody>
@@ -239,7 +293,7 @@
         <h2>Pricing</h2>
         <div class="table-wrap" style="margin-top:var(--space-4);background:var(--surface)">
           <table>
-            <thead><tr><th>Tier</th><th>Client customer base</th><th class="num">Per month</th></tr></thead>
+            <thead><tr><th>Tier</th><th>Institution customer base</th><th class="num">Per month</th></tr></thead>
             <tbody>
               <tr><td>Tier 1</td><td>Under 250,000</td><td class="num">RM1,800</td></tr>
               <tr><td>Tier 2</td><td>250,000 to 1 million</td><td class="num">RM3,000</td></tr>
@@ -256,15 +310,15 @@
   <section class="band tight">
     <div class="wrap">
       <h2>Why we price this way</h2>
-      <p class="muted measure" style="margin-top:var(--space-3)">Enterprise regulatory-technology pricing is not published, so there is no benchmark to copy. We priced against what the bank avoids instead: roughly a third of the operational cost Jelas removes. That leaves the client a return of about three times, and it scales with institution size rather than seat count.</p>
+      <p class="muted measure" style="margin-top:var(--space-3)">Enterprise regulatory-technology pricing is not published, so there is no benchmark to copy. We priced against what the bank avoids instead: roughly a third of the operational cost Jelas removes. That leaves the institution a return of about three times, and it scales with institution size rather than seat count.</p>
 
       <h2 style="margin-top:var(--space-12)">How we compete</h2>
       <div class="cols cols-3 reveal-group" style="margin-top:var(--space-6)">
         <div class="card"><h3>Detection vendors are paid to flag risk</h3><p>CTOS Digital, Experian, GBG, Innov8tif and Tookitaki all compete on finding problems. None of them sells the resolution of the access denial their systems produce.</p></div>
-        <div class="card"><h3>We integrate, we do not replace</h3><p>Jelas reads the fraud, AML and eKYC systems a bank already runs. No control is removed, no decision overridden, no compliance re-approval triggered.</p></div>
+        <div class="card"><h3>We integrate, we do not replace</h3><p>Jelas reads the fraud, AML and eKYC systems an institution already runs. No control is removed, no decision overridden, no compliance re-approval triggered.</p></div>
         <div class="card"><h3>Eight weeks, not eighteen months</h3><p>A paid pilot with agreed success metrics before any annual contract. Enterprise procurement is the barrier in this market; a small scoped pilot is the way through it.</p></div>
       </div>
-      <div class="btn-row"><a class="btn btn-primary" href="#b1">See the bank dashboard</a></div>
+      <div class="btn-row"><a class="btn btn-primary" href="#b1">See the operations dashboard</a></div>
     </div>
   </section>
 </div>
@@ -524,7 +578,7 @@
 </div>
 
 <!-- ============ 12–14. BANK DASHBOARD ============ -->
-<div class="page" id="page-b1" data-title="Bank dashboard">
+<div class="page" id="page-b1" data-title="Operations dashboard">
   <div class="wrap backbar"><a href="#home">&larr; Back to site</a></div>
   <div class="wrap" style="padding-bottom:var(--space-12)">
     <div class="dash">
@@ -539,7 +593,7 @@
         </nav>
       </div>
       <div class="dash-main">
-        <div class="dash-top"><h1 style="font-size:22px;font-weight:700">Overview</h1><span class="inst">Kira Bank &middot; September 2026</span></div>
+        <div class="dash-top"><h1 style="font-size:22px;font-weight:700">Operations overview</h1><span class="inst">Kira Bank &middot; September 2026</span></div>
         <div class="tiles reveal-group">
           <div class="tile"><div class="k">Cases resolved</div><div class="v"><span data-count="600">0</span></div><div class="s">this month</div></div>
           <div class="tile"><div class="k">Median resolution</div><div class="v">11 min</div><div class="s">down from 3 days</div></div>

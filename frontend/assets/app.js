@@ -80,13 +80,20 @@
     }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        en.target.classList.add('in');
-        countUp(en.target);
-        spin(en.target);
-        io.unobserve(en.target);
+        if (en.isIntersecting) {
+          en.target.classList.remove('out');
+          en.target.classList.add('in');
+          countUp(en.target);
+          spin(en.target);
+        } else if (en.target.classList.contains('reveal')) {
+          // Landing-page points clear again on the way out, so the page
+          // replays as the reader scrolls back up. Grouped content
+          // (cards, tiles) stays put once shown.
+          en.target.classList.remove('in');
+          en.target.classList.add('out');
+        }
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.18 });
     for (var j = 0; j < targets.length; j++) io.observe(targets[j]);
   }
 
@@ -95,18 +102,20 @@
     var nums = scope.querySelectorAll('[data-count]');
     for (var i = 0; i < nums.length; i++) {
       (function (el) {
-        if (el.dataset.done) return;
-        el.dataset.done = '1';
         var end = parseFloat(el.getAttribute('data-count'));
         var pre = el.getAttribute('data-pre') || '';
         var post = el.getAttribute('data-post') || '';
-        if (still) { el.textContent = pre + end.toLocaleString() + post; return; }
+        var d0 = parseInt(el.getAttribute('data-dec') || '0', 10);
+        if (still) { el.textContent = pre + (d0 ? end.toFixed(d0) : end.toLocaleString()) + post; return; }
         var t0 = null, dur = 900;
         function step(ts) {
           if (!t0) t0 = ts;
           var p = Math.min((ts - t0) / dur, 1);
           var eased = 1 - Math.pow(1 - p, 3);
-          el.textContent = pre + Math.round(end * eased).toLocaleString() + post;
+          var dec = parseInt(el.getAttribute('data-dec') || '0', 10);
+          var now = end * eased;
+          el.textContent = pre + (dec ? now.toFixed(dec)
+                                      : Math.round(now).toLocaleString()) + post;
           if (p < 1) requestAnimationFrame(step);
         }
         requestAnimationFrame(step);
