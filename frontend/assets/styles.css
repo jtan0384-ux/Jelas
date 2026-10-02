@@ -458,11 +458,6 @@ tr.clickable:hover td{background:var(--teal-100)}
 .pt-right h2{max-width:20ch}
 .pt-right p{margin-top:var(--space-4);font-size:17px;line-height:1.62;color:var(--ink-muted);max-width:58ch}
 
-.scroll-hint{
-  display:flex;flex-direction:column;align-items:center;gap:var(--space-3);
-  padding-bottom:var(--space-12);color:var(--ink-muted);font-size:13px;
-}
-.scroll-hint i{display:block;width:1px;height:46px;background:linear-gradient(var(--border),transparent)}
 
 /* repeating reveal: clears again on the way back up */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
@@ -476,7 +471,6 @@ tr.clickable:hover td{background:var(--teal-100)}
 }
 @media (prefers-reduced-motion:reduce){
   .reveal,.reveal.out{opacity:1!important;transform:none!important}
-  .scroll-hint{display:none}
 }
 
 /* ---------- landing page refinements ---------- */
@@ -486,10 +480,6 @@ tr.clickable:hover td{background:var(--teal-100)}
 .pt-fig-wide{font-size:clamp(34px,4.6vw,52px)}
 .pt-fig-wide i{font-style:normal;color:var(--ink-muted);margin:0 2px;font-weight:400}
 
-.scroll-hint{font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;
-  padding-bottom:var(--space-8);gap:var(--space-4)}
-.scroll-hint i{height:64px;width:2px;border-radius:2px;
-  background:linear-gradient(var(--teal-600),transparent)}
 
 /* section break between the evidence and the capabilities */
 .divider{padding:clamp(56px,7vw,88px) 0 0}
@@ -506,4 +496,34 @@ tr.clickable:hover td{background:var(--teal-100)}
 @media (max-width:760px){
   .plate{width:56px;height:56px;border-radius:16px}
   .divider{padding-top:48px}
+}
+
+/* ---------- section headings, standardised across the page ---------- */
+.divider{padding:clamp(72px,9vw,120px) 0 clamp(8px,1vw,16px)}
+.divider-rule{height:3px;width:88px;background:var(--teal-600);border-radius:3px;margin-bottom:var(--space-6)}
+.divider-head{font-size:clamp(32px,4.2vw,48px);line-height:1.08;letter-spacing:-0.032em;max-width:18ch;text-wrap:balance}
+.divider-sub{margin-top:var(--space-4);color:var(--ink-muted);font-size:18px;line-height:1.55;max-width:52ch}
+
+/* point headings sit a clear step below the section headings */
+.pt-right h2{font-size:clamp(23px,2.4vw,30px)}
+
+/* ---------- capability icons fill the left column ---------- */
+.pt-icon{gap:var(--space-5, 20px);align-items:center}
+.plate{
+  width:clamp(118px,13vw,168px);height:clamp(118px,13vw,168px);
+  border-radius:clamp(30px,3.4vw,44px);
+}
+.plate svg{width:46%;height:46%}
+.pt-bars{width:clamp(46px,5vw,64px);height:auto;margin-left:0}
+
+/* ---------- claim band: one sentence per line ---------- */
+.claim p span{display:block}
+.claim p span + span{margin-top:2px}
+
+@media (max-width:760px){
+  .pt-icon{flex-direction:row;align-items:center;gap:var(--space-4)}
+  .plate{width:92px;height:92px;border-radius:26px}
+  .pt-bars{width:40px}
+  .divider{padding-top:56px}
+  .divider-sub{font-size:16px}
 }
