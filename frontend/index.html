@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jelas — Access, explained</title>
+<meta name="description" content="Jelas is an access-resolution layer for Malaysian digital banks. When automated controls lock out a legitimate customer, Jelas explains why and gets them back in.">
+<link rel="icon" href="assets/jelas-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#home">
+      <svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#0D2430"/>
+        <rect x="16" y="20" width="18" height="6" rx="3" fill="#0E7C86" opacity=".38"/>
+        <rect x="16" y="29" width="25" height="6" rx="3" fill="#0E7C86" opacity=".66"/>
+        <rect x="16" y="38" width="32" height="6" rx="3" fill="#2FA7B0"/>
+      </svg>
+      <b>Jelas</b>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#problem">The problem</a>
+      <a href="#how">How it works</a>
+      <a href="#banks">For banks</a>
+      <a href="#research">Research</a>
+      <a href="#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 1. HOME ============ -->
+<div class="page" id="page-home" data-title="Access, explained">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 class="display">When a bank locks you out, Jelas tells you why — and gets you back in.</h1>
+        <p class="lead">Malaysian banks stopped RM1.2&nbsp;billion of scam losses last year. The same controls also lock out legitimate customers, with no explanation and no way back. Jelas fixes the second problem without weakening the first.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#d1">See the customer flow</a>
+          <a class="btn btn-ghost" href="#b1">View the bank dashboard</a>
+        </div>
+      </div>
+      <div class="phone" aria-hidden="true">
+        <div class="phone-top">
+          <svg viewBox="0 0 64 64" width="22" height="22"><rect width="64" height="64" rx="14" fill="#0D2430"/><rect x="16" y="20" width="18" height="6" rx="3" fill="#0E7C86" opacity=".38"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#0E7C86" opacity=".66"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#2FA7B0"/></svg>
+          <span class="inst">Bank Semaya</span>
+        </div>
+        <span class="chip chip-restricted">Restricted</span>
+        <h2>Transfers are paused on your account</h2>
+        <p>Your balance is safe and unchanged. You can still view your account and receive money.</p>
+        <div class="amount">RM 3,482.10</div>
+        <p class="small muted" style="margin-top:4px">Available to view, not to transfer</p>
+        <span class="btn btn-primary">Find out why</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="band tight subtle">
+    <div class="wrap stats">
+      <div class="stat"><div class="fig">RM2.8b</div><p>Lost to scams in Malaysia during 2025, with RM1.2 billion more averted through intervention.</p></div>
+      <div class="stat"><div class="fig">11,431</div><p>New complaints handled by the Financial Markets Ombudsman Service in 2025.</p></div>
+      <div class="stat"><div class="fig">26 of 71</div><p>Coded public app reviews describing a customer locked out with no explanation given.</p></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>What Jelas does</h2>
+      <div class="cols cols-3" style="margin-top:var(--space-6)">
+        <div class="card"><h3>Explains</h3><p>A plain-language reason for the restriction, delivered the moment it happens, built from the bank's own fraud and verification output.</p></div>
+        <div class="card"><h3>Resolves</h3><p>A self-serve route back in, covering the three failures that generate the most support contacts: new devices, changed numbers, and codes that never arrive.</p></div>
+        <div class="card"><h3>Records</h3><p>An auditable trail of what was restricted, why, what the customer was told, and how long resolution took.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band tight">
+    <div class="wrap">
+      <div class="claim"><p>Jelas never makes or overrides the risk decision. It handles what happens next.</p></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ 2. PROBLEM ============ -->
+<div class="page" id="page-problem" data-title="The problem">
+  <section class="band">
+    <div class="wrap">
+      <h1 class="display measure">The controls are working. That is the problem.</h1>
+      <p class="lead measure" style="margin-top:var(--space-4)">Malaysian banks lost RM2.8 billion to scams in 2025 and intervened to prevent a further RM1.2 billion. Automated fraud, anti-money-laundering and identity controls are the reason. Those controls are correct far more often than not — and when they misfire, the customer is locked out of their own money with no reason given and nobody to ask.</p>
+    </div>
+  </section>
+
+  <section class="band tight subtle">
+    <div class="wrap cols cols-2">
+      <div>
+        <h2>The national picture</h2>
+        <p class="muted" style="margin-top:var(--space-3)">Bank Negara Malaysia's 2025 annual report records RM2.8 billion in scam losses and RM1.2 billion averted through intervention. Every one of those interventions is a control acting on a live account.</p>
+      </div>
+      <div class="bars">
+        <div class="bar"><div class="val">RM2.8b</div><div class="fill" style="height:100%;background:var(--status-restricted)"></div><div class="lab">Lost to scams</div></div>
+        <div class="bar"><div class="val">RM1.2b</div><div class="fill" style="height:43%;background:var(--status-resolved)"></div><div class="lab">Averted by controls</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band tight">
+    <div class="wrap cols cols-2">
+      <div>
+        <h2>The complaints that escalate</h2>
+        <p class="muted" style="margin-top:var(--space-3)">The Financial Markets Ombudsman Service handled 11,431 new complaints in 2025, with unauthorised banking and e-money transactions among the most common dispute types. Because the Ombudsman is a last resort, that figure is a floor — most cases never reach it.</p>
+        <p class="note" style="margin-top:var(--space-3)">Nobody publishes the two bands above it. That gap is why we ran a survey.</p>
+      </div>
+      <div class="funnel">
+        <div class="f1">Access incidents — unmeasured</div>
+        <div class="f2">Support contacts — unmeasured</div>
+        <div class="f3">11,431 formal complaints</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band tight subtle">
+    <div class="wrap">
+      <h2>What it looks like to a customer</h2>
+      <p class="muted measure" style="margin-top:var(--space-3)">We coded 71 public reviews of Malaysian fintech apps. Twenty-six described a customer denied access to an account or to funds with no explanation and no route to resolution, across 18 companies and ten market segments.</p>
+      <div class="cols cols-3" style="margin-top:var(--space-6)">
+        <div class="quote"><p>Changed the password and the account locked. Balance still showing, cannot touch it. Called support three times.</p><div class="who">E-wallet user, February 2026</div></div>
+        <div class="quote"><p>Account frozen with no reason given. Told it would take three to five working days, possibly longer.</p><div class="who">Payment app user, July 2026</div></div>
+        <div class="quote"><p>Changed phone and now cannot get the verification code. There is no way to recover the account.</p><div class="who">Digital bank customer, May 2026</div></div>
+      </div>
+      <p class="note" style="margin-top:var(--space-4)">Reviews paraphrased from the coded evidence register. Companies not named.</p>
+    </div>
+  </section>
+
+  <section class="band tight">
+    <div class="wrap">
+      <div class="claim"><p>Every vendor in this market sells better detection. Nobody sells what happens after detection is wrong.</p></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ 3. HOW IT WORKS ============ -->
+<div class="page" id="page-how" data-title="How it works">
+  <section class="band">
+    <div class="wrap">
+      <h1 class="display measure">Jelas sits between the bank's controls and its customer.</h1>
+      <div class="arch">
+        <div class="node">
+          <h3>Bank's existing systems</h3>
+          <ul><li>Fraud engine</li><li>AML monitoring</li><li>eKYC and identity</li></ul>
+        </div>
+        <div class="arrow" aria-hidden="true">&rarr;</div>
+        <div class="node mid">
+          <h3 style="color:#fff">Jelas</h3>
+          <ul><li>Reason-code translation</li><li>Recovery flow</li><li>False-positive triage</li><li>Audit log</li></ul>
+        </div>
+        <div class="arrow" aria-hidden="true">&rarr;</div>
+        <div class="node">
+          <h3>Customer</h3>
+          <ul><li>Explanation</li><li>Self-serve recovery</li><li>Case tracking</li></ul>
+        </div>
+      </div>
+      <p class="note" style="margin-top:var(--space-4)">Jelas reads the bank's systems. It never writes to them. The restriction decision stays with the bank; Jelas manages the consequence.</p>
+    </div>
+  </section>
+
+  <section class="band tight subtle">
+    <div class="wrap cols cols-2">
+      <div class="card">
+        <h3>Explained restrictions</h3>
+        <p>The customer sees a plain-language reason and an expected resolution window at the moment of restriction. No jargon reaches them: an AML velocity flag becomes "we need to confirm a recent transfer".</p>
+      </div>
+      <div class="card">
+        <h3>Self-serve recovery</h3>
+        <p>Guided routes for a new device, a changed phone number, and a verification code that never arrived. Identity checks step up in proportion to the risk of the case.</p>
+      </div>
+      <div class="card">
+        <h3>False-positive triage</h3>
+        <p>Each restriction is scored on how likely it is to be a legitimate customer caught by a correct rule. Low-risk cases route to expedited review, shortening hold times without touching the AML decision.</p>
+      </div>
+      <div class="card">
+        <h3>Conduct audit trail</h3>
+        <p>Every case records what was restricted, why, what the customer was told, and how long resolution took — a defensible file for complaint handling and conduct reporting.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band tight">
+    <div class="wrap">
+      <h2>Prototype and production</h2>
+      <p class="muted measure" style="margin-top:var(--space-3)">This site is a working click-through of the production interface, built as static HTML and CSS with a small JavaScript router. A production build would use a React frontend, a Python service layer reading bank fraud and KYC systems over REST APIs, and an append-only case store. No customer data is processed by this prototype and no live bank system is connected to it.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ============ 4. FOR BANKS ============ -->
+<div class="page" id="page-banks" data-title="For banks">
+  <section class="band">
+    <div class="wrap">
+      <h1 class="display measure">You already pay for every lockout. You pay twice.</h1>
+      <p class="lead measure" style="margin-top:var(--space-4)">A restricted customer contacts support an average of 2.5 times before the case closes. At a fully loaded cost of RM7.79 per contact, a bank with 480,000 customers spends around RM140,000 a year handling access failures — before counting the customers who leave.</p>
+    </div>
+  </section>
+
+  <section class="band tight subtle">
+    <div class="wrap cols cols-2">
+      <div>
+        <h2>What a mid-sized client avoids</h2>
+        <div class="table-wrap" style="margin-top:var(--space-4);background:var(--surface)">
+          <table>
+            <tbody>
+              <tr><td>Access incidents per year</td><td class="num">7,200</td></tr>
+              <tr><td>Support contacts generated</td><td class="num">18,000</td></tr>
+              <tr><td>Cost of handling them</td><td class="num">RM140,220</td></tr>
+              <tr><td>Jelas subscription and usage</td><td class="num">RM44,640</td></tr>
+              <tr class="total"><td>Net operational saving</td><td class="num">RM95,580</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note" style="margin-top:var(--space-3)">Contact cost derived from published Malaysian salary data. Churn, deposit outflow and regulatory escalation costs are excluded, so this is conservative.</p>
+      </div>
+      <div>
+        <h2>Pricing</h2>
+        <div class="table-wrap" style="margin-top:var(--space-4);background:var(--surface)">
+          <table>
+            <thead><tr><th>Tier</th><th>Client customer base</th><th class="num">Per month</th></tr></thead>
+            <tbody>
+              <tr><td>Tier 1</td><td>Under 250,000</td><td class="num">RM1,800</td></tr>
+              <tr><td>Tier 2</td><td>250,000 to 1 million</td><td class="num">RM3,000</td></tr>
+              <tr><td>Tier 3</td><td>1 to 5 million</td><td class="num">RM6,000</td></tr>
+              <tr><td>Tier 4</td><td>Over 5 million</td><td class="num">RM12,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note" style="margin-top:var(--space-3)">Plus RM1.20 per resolved case. One-off integration fee RM25,000. Eight-week paid pilot RM15,000.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band tight">
+    <div class="wrap">
+      <h2>Why we price this way</h2>
+      <p class="muted measure" style="margin-top:var(--space-3)">Enterprise regulatory-technology pricing is not published, so there is no benchmark to copy. We priced against what the bank avoids instead: roughly a third of the operational cost Jelas removes. That leaves the client a return of about three times, and it scales with institution size rather than seat count.</p>
+
+      <h2 style="margin-top:var(--space-12)">How we compete</h2>
+      <div class="cols cols-3" style="margin-top:var(--space-6)">
+        <div class="card"><h3>Detection vendors are paid to flag risk</h3><p>CTOS Digital, Experian, GBG, Innov8tif and Tookitaki all compete on finding problems. None of them sells the resolution of the access denial their systems produce.</p></div>
+        <div class="card"><h3>We integrate, we do not replace</h3><p>Jelas reads the fraud, AML and eKYC systems a bank already runs. No control is removed, no decision overridden, no compliance re-approval triggered.</p></div>
+        <div class="card"><h3>Eight weeks, not eighteen months</h3><p>A paid pilot with agreed success metrics before any annual contract. Enterprise procurement is the barrier in this market; a small scoped pilot is the way through it.</p></div>
+      </div>
+      <div class="btn-row"><a class="btn btn-primary" href="#b1">See the bank dashboard</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ 5. RESEARCH ============ -->
+<div class="page" id="page-research" data-title="Research">
+  <section class="band">
+    <div class="wrap">
+      <h1 class="display measure">We asked <span class="ph">[N]</span> Malaysians what happens when a bank locks them out.</h1>
+      <p class="note" style="margin-top:var(--space-4)"><span class="ph">[N]</span> respondents · random sampling · Google Forms · fielded <span class="ph">[dates]</span> · <span class="ph">[age range]</span>, <span class="ph">[locations]</span> · <span class="ph">[X]</span>% hold an account with a digital bank or e-wallet</p>
+    </div>
+  </section>
+
+  <section class="band tight subtle">
+    <div class="wrap cols cols-4">
+      <div class="finding"><div class="fig"><span class="ph">[X]</span>%</div><p>have been locked out of a financial app in the past 12 months</p></div>
+      <div class="finding"><div class="fig"><span class="ph">[X]</span>%</div><p>were given no reason for the restriction</p></div>
+      <div class="finding"><div class="fig"><span class="ph">[X]</span> days</div><p>median time to regain access</p></div>
+      <div class="finding"><div class="fig"><span class="ph">[X]</span>%</div><p>became less likely to keep using that provider</p></div>
+    </div>
+  </section>
+
+  <section class="band tight">
+    <div class="wrap">
+      <h2>What the findings changed</h2>
+      <div class="table-wrap" style="margin-top:var(--space-4)">
+        <table>
+          <thead><tr><th>Before the survey</th><th>After</th></tr></thead>
+          <tbody>
+            <tr><td>Incidence rate assumed at 1.5%, unvalidated</td><td>Measured at <span class="ph">[X]</span>%</td></tr>
+            <tr><td>Four capabilities weighted equally</td><td><span class="ph">[Capability]</span> prioritised — <span class="ph">[X]</span>% ranked it first</td></tr>
+            <tr><td>Resolution time unknown</td><td>Median <span class="ph">[X]</span> days, setting the service-level target</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted measure" style="margin-top:var(--space-6)">The first finding matters more than the other three combined. Until the survey, the incidence rate was an unvalidated assumption modelled as a band between 0.8% and 2.5%, and the venture only works above roughly 1%.</p>
+      <p class="note measure" style="margin-top:var(--space-4)">Limitations: the sample is self-selected and skews <span class="ph">[young / urban / student]</span>, so it measures incidence among respondents rather than national prevalence. Willingness to pay was not surveyed, because the paying customer is the institution rather than the end user.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ============ 6. ABOUT ============ -->
+<div class="page" id="page-about" data-title="About">
+  <section class="band">
+    <div class="wrap">
+      <h1 class="display">Built at Monash University Malaysia.</h1>
+      <p class="lead measure" style="margin-top:var(--space-4)">Jelas began as an individual project in BFM 3130, built by coding 71 public reviews of Malaysian fintech applications and finding that 26 of them described the same failure: a customer denied access to their own money, with no explanation and no way to resolve it. The group selected the concept, surveyed <span class="ph">[N]</span> Malaysians to test how common that experience is, and built the prototype you have just used.</p>
+
+      <h2 style="margin-top:var(--space-12)">The name</h2>
+      <p class="muted measure" style="margin-top:var(--space-3)"><em>Jelas</em> is the Malay word for clear, or explained. The product is named after the thing it does.</p>
+
+      <h2 style="margin-top:var(--space-12)">Team</h2>
+      <div class="cols cols-4" style="margin-top:var(--space-6)">
+        <div class="card"><h3><span class="ph">[Name]</span></h3><p><span class="ph">[Degree]</span><br><span class="ph">[What they led]</span></p></div>
+        <div class="card"><h3><span class="ph">[Name]</span></h3><p><span class="ph">[Degree]</span><br><span class="ph">[What they led]</span></p></div>
+        <div class="card"><h3><span class="ph">[Name]</span></h3><p><span class="ph">[Degree]</span><br><span class="ph">[What they led]</span></p></div>
+        <div class="card"><h3><span class="ph">[Name]</span></h3><p><span class="ph">[Degree]</span><br><span class="ph">[What they led]</span></p></div>
+      </div>
+
+      <h2 style="margin-top:var(--space-12)">Acknowledgements</h2>
+      <p class="note measure" style="margin-top:var(--space-3)">Prototype, brand and copy produced with assistance from generative AI (Claude, Anthropic); all content reviewed and verified by the team. Market data from Bank Negara Malaysia, the Financial Markets Ombudsman Service, and unit-provided Malaysian FinTech datasets. Survey data collected by the group. Contact: hello@jelas.my</p>
+    </div>
+  </section>
+</div>
+
+<!-- ============ 7–11. CUSTOMER FLOW ============ -->
+<div class="page" id="page-d1" data-title="Locked out">
+  <div class="wrap backbar"><a href="#home">&larr; Back to site</a></div>
+  <section class="band tight subtle" style="margin:0"><div class="wrap demo-grid">
+    <div class="phone">
+      <div class="phone-top"><svg viewBox="0 0 64 64" width="22" height="22" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0D2430"/><rect x="16" y="20" width="18" height="6" rx="3" fill="#0E7C86" opacity=".38"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#0E7C86" opacity=".66"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#2FA7B0"/></svg><span class="inst">Bank Semaya</span></div>
+      <div class="steps"><i class="on"></i><i></i><i></i></div>
+      <span class="chip chip-restricted">Restricted</span>
+      <h2>Transfers are paused on your account</h2>
+      <p>Your balance is safe and unchanged. You can still view your account and receive money. Outgoing transfers are paused while we confirm a recent transaction.</p>
+      <div class="amount">RM 3,482.10</div>
+      <p class="small muted" style="margin-top:4px">Available to view, not to transfer</p>
+      <a class="btn btn-primary" href="#d2">Find out why</a>
+    </div>
+    <div>
+      <h2>Step 1 — The moment it happens</h2>
+      <p class="muted measure" style="margin-top:var(--space-4)">Note what this screen does not say. There is no apology, no error code, and no mention of fraud. It leads with the balance being safe, because that is the customer's first fear.</p>
+      <p class="muted measure" style="margin-top:var(--space-3)">In the coded reviews behind this project, the single most common complaint was not the restriction itself. It was being told nothing about it.</p>
+    </div>
+  </div></section>
+</div>
+
+<div class="page" id="page-d2" data-title="Why">
+  <div class="wrap backbar"><a href="#home">&larr; Back to site</a></div>
+  <section class="band tight subtle" style="margin:0"><div class="wrap demo-grid">
+    <div class="phone">
+      <div class="phone-top"><svg viewBox="0 0 64 64" width="22" height="22" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0D2430"/><rect x="16" y="20" width="18" height="6" rx="3" fill="#0E7C86" opacity=".38"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#0E7C86" opacity=".66"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#2FA7B0"/></svg><span class="inst">Bank Semaya</span></div>
+      <div class="steps"><i class="on"></i><i class="on"></i><i></i></div>
+      <span class="chip chip-restricted">Restricted</span>
+      <h2>Why your transfers are paused</h2>
+      <p>A transfer of RM2,000 on 28 September went to an account you have not sent money to before, from a device we did not recognise. Our systems paused outgoing transfers while we confirm it was you.</p>
+      <p style="color:var(--ink);font-weight:600">This is a standard check. It does not mean anything is wrong with your account.</p>
+      <p class="small">Most checks like this are resolved within 2 working days. You can resolve it now instead.</p>
+      <a class="btn btn-primary" href="#d3">Resolve this now</a>
+      <span class="btn btn-ghost" style="opacity:.6">Talk to someone</span>
+    </div>
+    <div>
+      <h2>Step 2 — A reason, in plain language</h2>
+      <p class="muted measure" style="margin-top:var(--space-4)">This screen is the product. "Unrecognised device, first-time payee, velocity rule triggered" became one sentence a person can act on, and the bank's own systems supplied every fact in it.</p>
+      <p class="muted measure" style="margin-top:var(--space-3)">The line stating that nothing is wrong with the account is deliberate. A restriction notice that reads like an accusation produces a complaint; one that reads like a check produces a resolution.</p>
+    </div>
+  </div></section>
+</div>
+
+<div class="page" id="page-d3" data-title="Recover">
+  <div class="wrap backbar"><a href="#home">&larr; Back to site</a></div>
+  <section class="band tight subtle" style="margin:0"><div class="wrap demo-grid">
+    <div class="phone">
+      <div class="phone-top"><svg viewBox="0 0 64 64" width="22" height="22" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0D2430"/><rect x="16" y="20" width="18" height="6" rx="3" fill="#0E7C86" opacity=".38"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#0E7C86" opacity=".66"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#2FA7B0"/></svg><span class="inst">Bank Semaya</span></div>
+      <div class="steps"><i class="on"></i><i class="on"></i><i></i></div>
+      <span class="chip chip-review">Verification needed</span>
+      <h2>Confirm it was you</h2>
+      <p>Pick what applies:</p>
+      <a class="opt" href="#d4">I made this transfer<span>Confirm the payment and restore transfers</span></a>
+      <a class="opt off" href="#d3">I did not make this transfer<span>Report it and keep the account locked</span></a>
+      <a class="opt" href="#d4">I have a new phone<span>Re-verify on this device</span></a>
+      <a class="opt" href="#d4">My verification code never arrived<span>Try another method</span></a>
+    </div>
+    <div>
+      <h2>Step 3 — The route back in</h2>
+      <p class="muted measure" style="margin-top:var(--space-4)">These four options are not invented. Each one maps to a failure that appears in the coded evidence register: an unrecognised transaction, a device change, a lapsed phone number, and a verification code that never arrived.</p>
+      <p class="muted measure" style="margin-top:var(--space-3)">Research turning directly into product design is the point of this screen.</p>
+    </div>
+  </div></section>
+</div>
+
+<div class="page" id="page-d4" data-title="Verify">
+  <div class="wrap backbar"><a href="#home">&larr; Back to site</a></div>
+  <section class="band tight subtle" style="margin:0"><div class="wrap demo-grid">
+    <div class="phone">
+      <div class="phone-top"><svg viewBox="0 0 64 64" width="22" height="22" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0D2430"/><rect x="16" y="20" width="18" height="6" rx="3" fill="#0E7C86" opacity=".38"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#0E7C86" opacity=".66"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#2FA7B0"/></svg><span class="inst">Bank Semaya</span></div>
+      <div class="steps"><i class="on"></i><i class="on"></i><i class="on"></i></div>
+      <span class="chip chip-review">Verifying</span>
+      <h2>One quick check</h2>
+      <p>Because this is a first-time payee, we need one more confirmation than usual.</p>
+      <div class="scan">Face check</div>
+      <p class="small">Takes about 20 seconds. Your bank already holds this check — Jelas does not store your biometrics.</p>
+      <a class="btn btn-primary" href="#d5">Continue</a>
+    </div>
+    <div>
+      <h2>Step 4 — Proportionate checks</h2>
+      <p class="muted measure" style="margin-top:var(--space-4)">The verification asked for matches the risk of the case. A routine device change needs less than a first-time payee for a large sum, and the triage score decides which.</p>
+      <p class="muted measure" style="margin-top:var(--space-3)">The line about not storing biometrics is there on purpose. A product handling identity data should say what it does not keep, and it answers the obvious question about data protection before anyone asks it.</p>
+    </div>
+  </div></section>
+</div>
+
+<div class="page" id="page-d5" data-title="Resolved">
+  <div class="wrap backbar"><a href="#home">&larr; Back to site</a></div>
+  <section class="band tight subtle" style="margin:0"><div class="wrap demo-grid">
+    <div class="phone">
+      <div class="phone-top"><svg viewBox="0 0 64 64" width="22" height="22" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0D2430"/><rect x="16" y="20" width="18" height="6" rx="3" fill="#0E7C86" opacity=".38"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#0E7C86" opacity=".66"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#2FA7B0"/></svg><span class="inst">Bank Semaya</span></div>
+      <div class="steps"><i class="on"></i><i class="on"></i><i class="on"></i></div>
+      <span class="chip chip-resolved">Resolved</span>
+      <h2>Transfers restored</h2>
+      <p>Your account is back to normal. The RM2,000 transfer to Lim Wei Jian has been released.</p>
+      <div class="case">
+        <div class="ref">JLS-4471-20B</div>
+        <div class="t">Opened 09:14 &middot; Resolved 09:21</div>
+        <div class="big">7 minutes</div>
+      </div>
+      <p class="small" style="margin-top:var(--space-3)">A record of this case has been saved to your account.</p>
+      <a class="btn btn-primary" href="#home">Done</a>
+      <a class="btn btn-ghost" href="#b3">View the bank's side of this case</a>
+    </div>
+    <div>
+      <h2>Three to five working days, or seven minutes</h2>
+      <p class="muted measure" style="margin-top:var(--space-4)">One of the reviews in the evidence register describes a stated recovery window of three to five working days, possibly longer. That is the benchmark this flow is built against.</p>
+      <p class="muted measure" style="margin-top:var(--space-3)">The case reference is not decoration. It is read aloud to support agents and typed back in, which is why it is set in a monospaced face with unambiguous digits — and it is the same case the bank sees on its own dashboard.</p>
+    </div>
+  </div></section>
+</div>
+
+<!-- ============ 12–14. BANK DASHBOARD ============ -->
+<div class="page" id="page-b1" data-title="Bank dashboard">
+  <div class="wrap backbar"><a href="#home">&larr; Back to site</a></div>
+  <div class="wrap" style="padding-bottom:var(--space-12)">
+    <div class="dash">
+      <div class="dash-side">
+        <a class="brand" href="#home"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#12272F"/><rect x="16" y="20" width="18" height="6" rx="3" fill="#4FBCC4" opacity=".38"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#4FBCC4" opacity=".66"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#7FD4DA"/></svg><b>Jelas</b></a>
+        <nav aria-label="Dashboard">
+          <a class="on" href="#b1">Overview</a>
+          <a href="#b2">Cases</a>
+          <a href="#b2">Triage</a>
+          <a href="#b1">Reports</a>
+          <a href="#b1">Billing</a>
+        </nav>
+      </div>
+      <div class="dash-main">
+        <div class="dash-top"><h1 style="font-size:22px;font-weight:700">Overview</h1><span class="inst">Bank Semaya &middot; September 2026</span></div>
+        <div class="tiles">
+          <div class="tile"><div class="k">Cases resolved</div><div class="v">600</div><div class="s">this month</div></div>
+          <div class="tile"><div class="k">Median resolution</div><div class="v">11 min</div><div class="s">down from 3 days</div></div>
+          <div class="tile"><div class="k">Support contacts avoided</div><div class="v">1,500</div><div class="s">2.5 per case</div></div>
+          <div class="tile"><div class="k">Operational cost avoided</div><div class="v">RM11,685</div><div class="s">at RM7.79 per contact</div></div>
+          <div class="tile"><div class="k">False positives cleared</div><div class="v">441</div><div class="s">73% of all cases</div></div>
+          <div class="tile"><div class="k">Open cases</div><div class="v">12</div><div class="s">2 past service-level target</div></div>
+        </div>
+        <div class="ledger">
+          <div class="l">RM11,685 avoided &middot; RM3,720 billed</div>
+          <div class="r">Net operational saving this month: RM7,965</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-b2" data-title="Case queue">
+  <div class="wrap backbar"><a href="#home">&larr; Back to site</a></div>
+  <div class="wrap" style="padding-bottom:var(--space-12)">
+    <div class="dash">
+      <div class="dash-side">
+        <a class="brand" href="#home"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#12272F"/><rect x="16" y="20" width="18" height="6" rx="3" fill="#4FBCC4" opacity=".38"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#4FBCC4" opacity=".66"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#7FD4DA"/></svg><b>Jelas</b></a>
+        <nav aria-label="Dashboard">
+          <a href="#b1">Overview</a>
+          <a class="on" href="#b2">Cases</a>
+          <a href="#b2">Triage</a>
+          <a href="#b1">Reports</a>
+          <a href="#b1">Billing</a>
+        </nav>
+      </div>
+      <div class="dash-main">
+        <div class="dash-top"><h1 style="font-size:22px;font-weight:700">Cases</h1><span class="inst">Bank Semaya &middot; September 2026</span></div>
+        <div class="filters"><span class="on">All 612</span><span>Resolved 600</span><span>In review 10</span><span>Escalated 2</span></div>
+        <div class="table-wrap" style="background:var(--surface)">
+          <table>
+            <thead><tr><th>Case</th><th>Opened</th><th>Type</th><th>Triage</th><th>Status</th><th class="num">Open for</th></tr></thead>
+            <tbody>
+              <tr class="clickable" data-goto="#b3" tabindex="0"><td class="mono">JLS-4471-20B</td><td>09:14</td><td>First-time payee</td><td><span class="risk risk-low">Low risk</span></td><td><span class="chip chip-resolved">Resolved</span></td><td class="num">7 min</td></tr>
+              <tr><td class="mono">JLS-4470-11C</td><td>08:52</td><td>Device change</td><td><span class="risk risk-low">Low risk</span></td><td><span class="chip chip-resolved">Resolved</span></td><td class="num">4 min</td></tr>
+              <tr><td class="mono">JLS-4469-02A</td><td>08:40</td><td>Document mismatch</td><td><span class="risk risk-rev">Review</span></td><td><span class="chip chip-review">In review</span></td><td class="num">1h 22m</td></tr>
+              <tr><td class="mono">JLS-4468-77D</td><td>08:11</td><td>Velocity rule</td><td><span class="risk risk-high">High risk</span></td><td><span class="chip chip-restricted">Escalated</span></td><td class="num">2h 05m</td></tr>
+              <tr><td class="mono">JLS-4467-19F</td><td>07:58</td><td>Code undelivered</td><td><span class="risk risk-low">Low risk</span></td><td><span class="chip chip-resolved">Resolved</span></td><td class="num">3 min</td></tr>
+              <tr><td class="mono">JLS-4466-40E</td><td>07:30</td><td>New payee, large sum</td><td><span class="risk risk-rev">Review</span></td><td><span class="chip chip-review">In review</span></td><td class="num">2h 33m</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note" style="margin-top:var(--space-3)">Select the first row to open the case the customer resolved in the demo flow.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-b3" data-title="Case detail">
+  <div class="wrap backbar"><a href="#home">&larr; Back to site</a></div>
+  <div class="wrap" style="padding-bottom:var(--space-12)">
+    <div class="dash">
+      <div class="dash-side">
+        <a class="brand" href="#home"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#12272F"/><rect x="16" y="20" width="18" height="6" rx="3" fill="#4FBCC4" opacity=".38"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#4FBCC4" opacity=".66"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#7FD4DA"/></svg><b>Jelas</b></a>
+        <nav aria-label="Dashboard">
+          <a href="#b1">Overview</a>
+          <a class="on" href="#b2">Cases</a>
+          <a href="#b2">Triage</a>
+          <a href="#b1">Reports</a>
+          <a href="#b1">Billing</a>
+        </nav>
+      </div>
+      <div class="dash-main">
+        <div class="dash-top">
+          <h1 style="font-size:22px;font-weight:700" class="mono">JLS-4471-20B</h1>
+          <span class="inst"><span class="chip chip-resolved">Resolved</span> &nbsp;Opened 09:14, 29 September 2026</span>
+        </div>
+        <div class="cols cols-2">
+          <div class="card">
+            <h3>What happened</h3>
+            <div class="trail" style="margin-top:var(--space-3)">
+              <div><time>09:14</time><span>Outgoing transfers paused. Triggered by first-time payee and unrecognised device.</span></div>
+              <div><time>Source</time><span>Fraud engine, rule FP-204. Jelas did not make this decision.</span></div>
+              <div><time>Triage</time><span>Low risk. Payee verified against contact list; device matched prior login location.</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>What the customer was told</h3>
+            <div class="trail" style="margin-top:var(--space-3)">
+              <div><time>09:14</time><span>Restriction notice delivered, with reason</span></div>
+              <div><time>09:16</time><span>Customer opened the explanation</span></div>
+              <div><time>09:18</time><span>Customer selected "I made this transfer"</span></div>
+              <div><time>09:20</time><span>Step-up verification completed</span></div>
+              <div><time>09:21</time><span>Transfers restored, customer notified</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="footbar">
+          <span>Time to resolution <b>7 minutes</b></span>
+          <span>Service-level target <b>30 minutes</b></span>
+          <span>Contacts to support <b>0</b></span>
+          <span>Billable resolved case <b>RM1.20</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <strong>Jelas</strong>
+        <p>An access-resolution layer for Malaysia's licensed digital banks and e-wallet operators.</p>
+      </div>
+      <div>
+        <strong>Project</strong>
+        <p>BFM 3130 Entrepreneurship in FinTech<br>Monash University Malaysia<br>Semester 2, 2026</p>
+      </div>
+      <div>
+        <strong>Sources</strong>
+        <p>Bank Negara Malaysia Annual Report 2025<br>Financial Markets Ombudsman Service Annual Report 2025<br>Unit-provided Malaysian FinTech datasets</p>
+      </div>
+    </div>
+    <p class="disclaim">Prototype built for academic assessment. Not a live financial service. Bank Semaya is a fictional institution; no real bank is represented or endorsed. Produced with assistance from generative AI (Claude, Anthropic), reviewed by the project team.</p>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

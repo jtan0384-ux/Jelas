@@ -1,0 +1,175 @@
+JELAS — SYSTEM DESIGN AND LOGIC
+BFM 3130 Entrepreneurship in FinTech, Group Assignment
+Monash University Malaysia, Semester 2 2026
+
+--------------------------------------------------------------------
+1. WHAT THE SYSTEM IS
+--------------------------------------------------------------------
+
+Jelas is an access-resolution layer sold to Malaysia's licensed digital
+banks and e-wallet operators.
+
+When a bank's automated fraud, anti-money-laundering or identity controls
+restrict a legitimate customer's account, Jelas does four things:
+
+  1. Explains the restriction to the customer in plain language
+  2. Offers a self-serve route to restore access
+  3. Scores the case for likelihood of being a false positive and routes
+     low-risk cases for expedited review
+  4. Records an auditable trail for the bank's complaint handling and
+     conduct reporting
+
+What Jelas deliberately does NOT do: it never makes, reviews or overrides
+the risk decision itself. It reads the output of the bank's existing
+systems and manages the consequence. This boundary is the reason a
+compliance function can adopt it without re-approving a control.
+
+--------------------------------------------------------------------
+2. THE TWO USER GROUPS
+--------------------------------------------------------------------
+
+PAYING CUSTOMER - the financial institution.
+  Economic buyer: Head of Customer Operations.
+  Veto holder: Head of Compliance.
+  Interface: the bank dashboard (screens b1-b3).
+
+BENEFICIARY - the institution's retail customer.
+  Does not pay and does not choose Jelas.
+  Interface: the customer recovery flow (screens d1-d5), which in
+  production is embedded inside the bank's own app rather than being a
+  separate application.
+
+The two interfaces are separate because the two audiences need opposite
+things. The customer needs calm, jargon-free language at a moment of
+stress. The bank needs density, metrics and an audit record.
+
+--------------------------------------------------------------------
+3. ARCHITECTURE
+--------------------------------------------------------------------
+
+  BANK'S EXISTING SYSTEMS          JELAS                 CUSTOMER
+  ----------------------------     -----------------     ---------------
+  Fraud engine                 ->  Reason-code       ->  Explanation
+  AML transaction monitoring       translation           Self-serve
+  eKYC / identity verification     Recovery flow         recovery
+                                   False-positive        Case tracking
+  (unchanged; read only)           triage
+                                   Audit log
+
+Data flows one way. Jelas subscribes to restriction events emitted by the
+bank's systems, translates them, and writes only to its own case store.
+It issues no instruction back to the fraud or AML engines.
+
+PROTOTYPE ARCHITECTURE (what is in this folder)
+  Frontend only. Static HTML, CSS and a small JavaScript router.
+  No backend, no database, no authentication, no network calls.
+  All data on screen is illustrative and hard-coded.
+
+PRODUCTION ARCHITECTURE (what a real build would use)
+  Frontend  : React single-page application, embedded in the bank's app
+              via SDK, plus a separate web dashboard for bank staff
+  Backend   : Python (FastAPI) service layer
+  Integration: REST and webhook listeners against the bank's fraud, AML
+              and eKYC systems
+  Storage   : append-only case store (event-sourced, so the audit trail
+              cannot be rewritten)
+  Hosting   : cloud, Malaysia region, to satisfy data residency
+  Compliance: PDPA 2010 obligations; no biometric data stored by Jelas;
+              identity checks are delegated to the bank's existing eKYC
+
+--------------------------------------------------------------------
+4. SCREEN LOGIC
+--------------------------------------------------------------------
+
+The prototype is one HTML document holding fourteen screens. Only the
+screen matching the URL hash is displayed; app.js handles the switch.
+Each screen therefore has a real, linkable address.
+
+MARKETING SCREENS
+  #home      Hero, evidence strip, three capabilities, positioning claim
+  #problem   Three layers of evidence: national data, ombudsman
+             complaints, individual coded reviews
+  #how       Architecture diagram, four capability blocks, technology note
+  #banks     Avoided-cost table, pricing tiers, competitive positioning
+  #research  Survey method, four headline findings, what they changed
+  #about     Origin of the project, team, acknowledgements
+
+CUSTOMER RECOVERY FLOW (the core demonstration)
+  #d1  Locked out      Restriction notice. Leads with balance safety.
+                       -> #d2
+  #d2  Why             Plain-language reason, expected resolution window.
+                       -> #d3
+  #d3  Recover         Four recovery routes, each mapped to a failure
+                       mode found in the coded evidence register.
+                       -> #d4 (three routes) or dead end (fraud report)
+  #d4  Verify          Step-up identity check, proportionate to triage
+                       score. -> #d5
+  #d5  Resolved        Access restored, case reference, elapsed time.
+                       -> #home or #b3
+
+BANK DASHBOARD
+  #b1  Overview        Six metric tiles plus the avoided-versus-billed
+                       ledger strip. -> #b2
+  #b2  Case queue      Six cases with triage scores and status. The first
+                       row is the same case the customer resolved in the
+                       demo flow. -> #b3
+  #b3  Case detail     Full audit trail: what was restricted, why, what
+                       the customer was told, time to resolution, and the
+                       billable amount for that case.
+
+The link from #d5 to #b3 and from #b2 to #b3 is deliberate: a reviewer can
+follow one single case across both sides of the product.
+
+--------------------------------------------------------------------
+5. DESIGN LOGIC
+--------------------------------------------------------------------
+
+Brand and status colours are kept strictly separate. The product's entire
+function is explaining a state (restricted / in review / resolved), so if
+the brand colour also carried meaning in that system a user could not tell
+a button from a verdict.
+
+Status colours are muted rather than alarm-bright. The restriction is
+usually correct, so the interface communicates "this happened and here is
+why", not "something has gone wrong".
+
+Status is never carried by colour alone. Every chip and triage score pairs
+its colour with a text label, and the three statuses differ in lightness
+as well as hue so they remain distinguishable with colour vision
+deficiency.
+
+All text meets WCAG AA contrast (4.5:1) against its background. A product
+about restoring access should not itself be inaccessible.
+
+Typography: Inter throughout, with IBM Plex Mono reserved for case
+references and metric figures. Case references are read aloud to support
+agents and typed back in, so a monospaced face with unambiguous digits
+reduces transcription errors.
+
+--------------------------------------------------------------------
+6. DATA CONSISTENCY
+--------------------------------------------------------------------
+
+Every figure shown in the prototype traces to the financial model in the
+submitted Excel workbook:
+
+  600 cases/month     = 480,000 customers x 1.5% incident rate / 12
+  1,500 contacts      = 600 cases x 2.5 contacts per incident
+  RM11,685 avoided    = 1,500 contacts x RM7.79 per contact
+  RM3,720 billed      = RM3,000 Tier 2 subscription + 600 x RM1.20
+  RM1.20 per case     = the usage component of the revenue model
+
+Contact cost of RM7.79 is derived from a published median Malaysian
+call-centre salary, uplifted for statutory contributions and operational
+loading, divided by productive contacts per agent per month.
+
+--------------------------------------------------------------------
+7. WHAT THE PROTOTYPE DOES NOT DO
+--------------------------------------------------------------------
+
+  - No live bank data. No system is connected.
+  - No backend, database or authentication.
+  - No real customer data is collected, processed or stored.
+  - The fraud, AML and eKYC systems shown are illustrative.
+  - "Bank Semaya" is a fictional institution. No real Malaysian bank is
+    represented, named or endorsed anywhere in the prototype.
