@@ -352,3 +352,91 @@ tr.clickable:hover td{background:var(--teal-100)}
   #drift{display:none}
   .ring{transition:none}
 }
+
+/* ==================================================================
+   THREE TYPOGRAPHIC ZONES
+   Inter              marketing site and bank dashboard
+   Plus Jakarta Sans  the Jelas customer experience
+   Space Grotesk      Kira Bank's own app chrome
+   A product embedded in someone else's app should not look like the
+   vendor's website. Separating the three makes the demo read as three
+   real surfaces rather than one template.
+   ================================================================== */
+:root{
+  --app:"Plus Jakarta Sans",Inter,system-ui,sans-serif;
+  --kira-font:"Space Grotesk",Inter,system-ui,sans-serif;
+}
+
+/* customer-facing Jelas screens */
+.phone{font-family:var(--app)}
+.phone h2{font-weight:800;letter-spacing:-0.025em}
+.phone .opt{font-family:var(--app)}
+.phone .btn{font-family:var(--app);font-weight:700}
+
+/* Kira Bank's own chrome */
+.phone.kira{font-family:var(--kira-font)}
+.phone.kira h2{font-weight:700;letter-spacing:-0.03em}
+.phone.kira .btn{font-family:var(--kira-font)}
+.kira .k-brand{font-family:var(--kira-font);letter-spacing:-0.04em}
+
+/* ==================================================================
+   PHONE — taller, with a status bar and real device proportions
+   ================================================================== */
+.phone{
+  min-height:720px;border-radius:40px;padding:var(--space-3) var(--space-4) var(--space-4);
+  box-shadow:0 22px 50px -24px rgba(13,36,48,.42), 0 2px 6px rgba(13,36,48,.08);
+  position:relative;
+}
+.phone::before{
+  content:"";position:absolute;top:13px;left:50%;transform:translateX(-50%);
+  width:76px;height:5px;border-radius:999px;background:var(--border);opacity:.9;
+}
+.phone.kira::before{background:#243128}
+.status-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:var(--space-2) 2px var(--space-3);font-size:13px;font-weight:600;
+  color:var(--ink);
+}
+.phone.kira .status-bar{color:var(--k-text)}
+.status-bar .icons{display:flex;align-items:center;gap:5px}
+.status-bar svg{fill:currentColor}
+.phone .btn{padding:14px 18px;border-radius:14px}
+
+/* the button that carries the integration */
+.btn-stack{display:block;text-align:center;line-height:1.15;padding:12px 18px!important}
+.btn-stack .l1{display:block;font-weight:700;font-size:15px}
+.btn-stack .l2{display:block;font-size:11px;font-weight:500;opacity:.68;margin-top:2px;letter-spacing:.02em}
+.btn-k-ghost{
+  display:block;text-align:center;margin-top:var(--space-2);
+  background:transparent;color:#8CA094;border:1px solid #243128;
+}
+
+/* powered-by strip */
+.handoff-note{justify-content:center;font-family:var(--app);font-weight:500;letter-spacing:.01em}
+
+/* ==================================================================
+   POLISH
+   ================================================================== */
+.card{transition:box-shadow .22s ease}
+.card:hover{box-shadow:0 8px 24px -16px rgba(13,36,48,.28)}
+.site-head{box-shadow:0 1px 0 rgba(13,36,48,.04)}
+.tile{transition:transform .2s ease,box-shadow .2s ease}
+.tile:hover{transform:translateY(-2px);box-shadow:0 10px 26px -18px rgba(13,36,48,.3)}
+.claim{position:relative;overflow:hidden}
+.claim::after{
+  content:"";position:absolute;right:-60px;bottom:-70px;width:220px;height:220px;
+  border-radius:50%;border:26px solid rgba(14,124,134,.1);
+}
+.dash{box-shadow:0 18px 44px -30px rgba(13,36,48,.4)}
+.quote{transition:border-left-color .22s ease}
+.quote:hover{border-left-color:var(--teal-600)}
+.stat .fig{letter-spacing:-0.02em}
+.demo-grid{align-items:center}
+
+@media (max-width:620px){
+  .phone{min-height:640px}
+}
+@media (prefers-reduced-motion:reduce){
+  .card,.tile,.quote{transition:none!important}
+  .tile:hover,.card.lift:hover{transform:none}
+}
