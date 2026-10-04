@@ -742,3 +742,37 @@ tr.total td{border-top-color:var(--ink-muted)}
 @media (prefers-reduced-motion:reduce){
   .chapter-head,.chapter-head *{transition:none!important}
 }
+
+/* ==================================================================
+   CHAPTERS, REFINED
+   A slimmer pinned bar, and one point per screen so the reader sees
+   exactly one figure at a time.
+   ================================================================== */
+.chapter-head{padding:clamp(36px,4.5vw,64px) 0 clamp(16px,1.8vw,24px)}
+
+.chapter-head.pinned{padding:11px 0 10px}
+.chapter-head.pinned .divider-rule{width:32px;height:2px;margin-bottom:7px}
+.chapter-head.pinned .divider-head{font-size:clamp(17px,1.9vw,21px);line-height:1.2}
+
+/* one sub-section per screen, vertically centred under the pinned bar */
+.chapter .pt{
+  min-height:calc(100svh - 118px);
+  display:flex;align-items:center;
+  padding-top:clamp(24px,3vw,40px);padding-bottom:clamp(24px,3vw,40px);
+  scroll-snap-align:center;scroll-margin-top:118px;
+}
+.chapter .pt > .wrap{width:min(1120px,calc(100% - var(--space-8)))}
+.chapter .pt:first-of-type{padding-top:clamp(24px,3vw,40px)}
+
+/* gentle snapping: only the chapter points declare an alignment, so
+   nothing else on the site snaps */
+html{scroll-snap-type:y proximity}
+
+@media (max-width:760px){
+  .chapter .pt{min-height:auto;display:block;scroll-snap-align:none;
+    padding-top:48px;padding-bottom:48px}
+  html{scroll-snap-type:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-snap-type:none}
+}
