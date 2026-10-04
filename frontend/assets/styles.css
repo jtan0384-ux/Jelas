@@ -881,3 +881,6 @@ tr.total td{border-top-color:var(--ink-muted)}
 @media (max-width:760px){
   .card-slide{padding:28px 24px}
 }
+
+/* ---------- breathing room between the heading band and the deck ---------- */
+.cards{padding-top:clamp(40px,5vw,72px)}
