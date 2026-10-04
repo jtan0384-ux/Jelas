@@ -560,3 +560,22 @@ canvas.drift{position:absolute;inset:0;width:100%;height:100%;pointer-events:non
   font-family:var(--mono);font-size:clamp(40px,5vw,62px);font-weight:600;
   color:var(--teal-100);letter-spacing:-0.03em;line-height:1;
 }
+
+/* ==================================================================
+   SITE-WIDE PARTICLE FIELD
+   One fixed canvas behind every page, above the page background and
+   below all content. Tinted bands are semi-transparent so the field
+   stays faintly visible through them.
+   ================================================================== */
+#site-drift{
+  position:fixed;inset:0;width:100vw;height:100vh;
+  pointer-events:none;z-index:0;
+}
+.site-head,main,.site-foot{position:relative;z-index:1}
+.subtle{background:rgba(226,238,240,.58)}
+.claim{background:rgba(215,237,239,.82)}
+
+@media (prefers-reduced-motion:reduce){
+  #site-drift{display:none}
+  .subtle{background:var(--surface-subtle)}
+}

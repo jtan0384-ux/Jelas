@@ -143,7 +143,7 @@
     var state = { c: c, ctx: ctx, count: count, bits: [], raf: 0, w: 0, h: 0, seeded: false };
 
     state.size = function () {
-      var r = c.getBoundingClientRect();
+      var r = { width: window.innerWidth, height: window.innerHeight };
       if (!r.width || !r.height) return false;
       var d = window.devicePixelRatio || 1;
       c.width = r.width * d; c.height = r.height * d;
@@ -203,14 +203,14 @@
     for (var i = 0; i < fields.length; i++) {
       var f = fields[i];
       // offsetParent is null while an ancestor is display:none
-      var visible = f.c.offsetParent !== null && !document.hidden;
+      var visible = !document.hidden;
       if (visible) { f.size(); f.start(); } else { f.stop(); }
     }
   }
 
   function drift() {
     if (still) return;
-    var hosts = document.querySelectorAll('canvas.drift');
+    var hosts = document.querySelectorAll('canvas#site-drift');
     for (var n = 0; n < hosts.length; n++) fields.push(buildField(hosts[n]));
     refreshFields();
   }
