@@ -525,3 +525,38 @@ tr.clickable:hover td{background:var(--teal-100)}
   .divider{padding-top:56px}
   .divider-sub{font-size:16px}
 }
+
+/* ---------- reusable particle host ---------- */
+.drift-host{position:relative;overflow:hidden}
+.drift-host > .wrap{position:relative;z-index:1}
+canvas.drift{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+
+/* ---------- inner page header ---------- */
+.page-head{padding:clamp(64px,8vw,104px) 0 clamp(40px,5vw,64px)}
+.page-head .display{max-width:17ch;text-wrap:balance}
+.page-head .lead{margin-top:var(--space-6);max-width:56ch;font-size:19px}
+
+/* ---------- supporting visuals inside stacked points ---------- */
+.pt-visual{width:100%}
+.pt-grid.wide{grid-template-columns:1fr 1fr;align-items:center}
+.pt-grid.wide .pt-right p{max-width:46ch}
+.pt-note{margin-top:var(--space-4);font-size:13px;color:var(--ink-muted)}
+
+/* pricing tiers as cards */
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4)}
+.tier{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-6)}
+.tier.on{border-color:var(--teal-600);box-shadow:0 0 0 1px var(--teal-600) inset}
+.tier .name{font-size:12px;font-weight:600;color:var(--ink-muted)}
+.tier .price{font-family:var(--mono);font-size:26px;font-weight:600;margin:var(--space-3) 0 var(--space-1);letter-spacing:-0.02em}
+.tier .band{font-size:13px;color:var(--ink-muted)}
+.tier .flag{display:inline-block;margin-top:var(--space-3);font-size:11px;font-weight:600;
+  color:var(--teal-600);background:var(--teal-100);padding:3px 9px;border-radius:var(--radius-pill)}
+
+@media (max-width:900px){.tiers{grid-template-columns:1fr 1fr}.pt-grid.wide{grid-template-columns:1fr}}
+@media (max-width:560px){.tiers{grid-template-columns:1fr}}
+
+/* numbered step markers on How it works and For institutions */
+.pt-step{
+  font-family:var(--mono);font-size:clamp(40px,5vw,62px);font-weight:600;
+  color:var(--teal-100);letter-spacing:-0.03em;line-height:1;
+}

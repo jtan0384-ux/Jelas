@@ -39,7 +39,7 @@
 <!-- ============ 1. HOME ============ -->
 <div class="page" id="page-home" data-title="Access, explained">
   <section class="hero">
-    <canvas id="drift" aria-hidden="true"></canvas>
+    <canvas class="drift" aria-hidden="true"></canvas>
     <div class="wrap hero-grid">
       <div>
         <h1 class="display">When a bank locks you out, Jelas tells you why &mdash; and gets you back in.</h1>
@@ -156,55 +156,68 @@
 
 <!-- ============ 2. PROBLEM ============ -->
 <div class="page" id="page-problem" data-title="The problem">
-  <section class="band">
+  <section class="page-head drift-host">
+    <canvas class="drift" data-count="18" aria-hidden="true"></canvas>
     <div class="wrap">
-      <h1 class="display measure">The controls are working. That is the problem.</h1>
-      <p class="lead measure" style="margin-top:var(--space-4)">Malaysian banks lost RM2.8 billion to scams in 2025 and intervened to prevent a further RM1.2 billion. Automated fraud, anti-money-laundering and identity controls are the reason. Those controls are correct far more often than not — and when they misfire, the customer is locked out of their own money with no reason given and nobody to ask.</p>
+      <h1 class="display">The controls are working. That is the problem.</h1>
+      <p class="lead">Automated fraud, anti-money-laundering and identity controls are correct far more often than not. When they misfire, the customer is locked out of their own money with no reason given and nobody to ask.</p>
     </div>
   </section>
 
-  <section class="band tight subtle">
-    <div class="wrap cols cols-2 reveal-group">
-      <div>
+  <section class="divider reveal">
+    <div class="wrap">
+      <div class="divider-rule"></div>
+      <h2 class="divider-head">Three layers of evidence</h2>
+      <p class="divider-sub">From the national picture, to the complaints that escalate, to what it looks like to one person.</p>
+    </div>
+  </section>
+
+  <section class="band pt subtle">
+    <div class="wrap pt-grid wide reveal">
+      <div class="pt-right">
         <h2>The national picture</h2>
-        <p class="muted" style="margin-top:var(--space-3)">Bank Negara Malaysia's 2025 annual report records RM2.8 billion in scam losses and RM1.2 billion averted through intervention. Every one of those interventions is a control acting on a live account.</p>
+        <p>Bank Negara Malaysia recorded RM2.8 billion in scam losses in 2025 and RM1.2 billion averted. Every intervention is a control acting on a live account.</p>
       </div>
-      <div class="bars reveal-group">
-        <div class="bar"><div class="val">RM2.8b</div><div class="fill" style="height:100%;background:var(--status-restricted)"></div><div class="lab">Lost to scams</div></div>
-        <div class="bar"><div class="val">RM1.2b</div><div class="fill" style="height:43%;background:var(--status-resolved)"></div><div class="lab">Averted by controls</div></div>
+      <div class="pt-visual">
+        <div class="bars">
+          <div class="bar"><div class="val">RM2.8b</div><div class="fill" style="height:100%;background:var(--status-restricted)"></div><div class="lab">Lost to scams</div></div>
+          <div class="bar"><div class="val">RM1.2b</div><div class="fill" style="height:43%;background:var(--status-resolved)"></div><div class="lab">Averted by controls</div></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="band tight">
-    <div class="wrap cols cols-2 reveal-group">
-      <div>
+  <section class="band pt">
+    <div class="wrap pt-grid wide reveal">
+      <div class="pt-right">
         <h2>The complaints that escalate</h2>
-        <p class="muted" style="margin-top:var(--space-3)">The Financial Markets Ombudsman Service handled 11,431 new complaints in 2025, with unauthorised banking and e-money transactions among the most common dispute types. Because the Ombudsman is a last resort, that figure is a floor — most cases never reach it.</p>
-        <p class="note" style="margin-top:var(--space-3)">Nobody publishes the two bands above it. That gap is why we ran a survey.</p>
+        <p>The Financial Markets Ombudsman handled 11,431 new complaints in 2025. It is a last resort, so that figure is a floor.</p>
+        <p class="pt-note">Nobody publishes the two bands above it. That gap is why we ran a survey.</p>
       </div>
-      <div class="funnel reveal-group">
-        <div class="f1">Access incidents — unmeasured</div>
-        <div class="f2">Support contacts — unmeasured</div>
-        <div class="f3">11,431 formal complaints</div>
+      <div class="pt-visual">
+        <div class="funnel">
+          <div class="f1">Access incidents &mdash; unmeasured</div>
+          <div class="f2">Support contacts &mdash; unmeasured</div>
+          <div class="f3">11,431 formal complaints</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="band tight subtle">
-    <div class="wrap">
-      <h2>What it looks like to a customer</h2>
-      <p class="muted measure" style="margin-top:var(--space-3)">We coded 71 public reviews of Malaysian fintech apps. Twenty-six described a customer denied access to an account or to funds with no explanation and no route to resolution, across 18 companies and ten market segments.</p>
-      <div class="cols cols-3 reveal-group" style="margin-top:var(--space-6)">
+  <section class="band pt subtle">
+    <div class="wrap reveal">
+      <h2 style="max-width:20ch">What it looks like to a customer</h2>
+      <p class="muted measure" style="margin-top:var(--space-4);font-size:17px">We coded 71 public reviews of Malaysian fintech apps. Twenty-six described a customer denied access with no explanation and no route to resolution, across 18 companies and ten segments.</p>
+      <div class="cols cols-3" style="margin-top:var(--space-8)">
         <div class="quote"><p>Changed the password and the account locked. Balance still showing, cannot touch it. Called support three times.</p><div class="who">E-wallet user, February 2026</div></div>
         <div class="quote"><p>Account frozen with no reason given. Told it would take three to five working days, possibly longer.</p><div class="who">Payment app user, July 2026</div></div>
         <div class="quote"><p>Changed phone and now cannot get the verification code. There is no way to recover the account.</p><div class="who">Digital bank customer, May 2026</div></div>
       </div>
-      <p class="note" style="margin-top:var(--space-4)">Reviews paraphrased from the coded evidence register. Companies not named.</p>
+      <p class="pt-note">Reviews paraphrased from the coded evidence register. Companies not named.</p>
     </div>
   </section>
 
-  <section class="band tight">
+  <section class="band">
     <div class="wrap">
       <div class="claim reveal"><p><span>Every vendor in this market sells better detection.</span><span>Nobody sells what happens after detection is wrong.</span></p></div>
     </div>
@@ -213,12 +226,19 @@
 
 <!-- ============ 3. HOW IT WORKS ============ -->
 <div class="page" id="page-how" data-title="How it works">
-  <section class="band">
+  <section class="page-head drift-host">
+    <canvas class="drift" data-count="18" aria-hidden="true"></canvas>
     <div class="wrap">
-      <h1 class="display measure">Jelas sits between the bank's controls and its customer.</h1>
-      <div class="arch reveal-group">
+      <h1 class="display">Jelas sits between the institution's controls and its customer.</h1>
+      <p class="lead">It reads the output of systems already running. It never writes to them, and it never changes a decision.</p>
+    </div>
+  </section>
+
+  <section class="band tight">
+    <div class="wrap reveal">
+      <div class="arch">
         <div class="node">
-          <h3>Bank's existing systems</h3>
+          <h3>Existing systems</h3>
           <ul><li>Fraud engine</li><li>AML monitoring</li><li>eKYC and identity</li></ul>
         </div>
         <div class="arrow" aria-hidden="true">&rarr;</div>
@@ -232,53 +252,81 @@
           <ul><li>Explanation</li><li>Self-serve recovery</li><li>Case tracking</li></ul>
         </div>
       </div>
-      <p class="note" style="margin-top:var(--space-4)">Jelas reads the bank's systems. It never writes to them. The restriction decision stays with the bank; Jelas manages the consequence.</p>
+      <p class="pt-note" style="text-align:center">The restriction decision stays with the institution. Jelas manages the consequence.</p>
     </div>
   </section>
 
-  <section class="band tight subtle">
-    <div class="wrap cols cols-2 reveal-group">
-      <div class="card">
-        <h3>Explained restrictions</h3>
+  <section class="divider reveal">
+    <div class="wrap">
+      <div class="divider-rule"></div>
+      <h2 class="divider-head">Four things it does</h2>
+      <p class="divider-sub">Each one maps to a failure that appears in the coded evidence register.</p>
+    </div>
+  </section>
+
+  <section class="band pt ">
+    <div class="wrap pt-grid reveal">
+      <div class="pt-left"><div class="pt-step">01</div></div>
+      <div class="pt-right">
+        <h2>Explained restrictions</h2>
         <p>The customer sees a plain-language reason and an expected resolution window at the moment of restriction. No jargon reaches them: an AML velocity flag becomes "we need to confirm a recent transfer".</p>
       </div>
-      <div class="card">
-        <h3>Self-serve recovery</h3>
-        <p>Guided routes for a new device, a changed phone number, and a verification code that never arrived. Identity checks step up in proportion to the risk of the case.</p>
+    </div>
+  </section>
+  <section class="band pt subtle">
+    <div class="wrap pt-grid reveal">
+      <div class="pt-left"><div class="pt-step">02</div></div>
+      <div class="pt-right">
+        <h2>Self-serve recovery</h2>
+        <p>Guided routes for an unfunded new account, a changed device, a lapsed number and a code that never arrived. Identity checks step up in proportion to the risk of the case.</p>
       </div>
-      <div class="card">
-        <h3>False-positive triage</h3>
-        <p>Each restriction is scored on how likely it is to be a legitimate customer caught by a correct rule. Low-risk cases route to expedited review, shortening hold times without touching the AML decision.</p>
+    </div>
+  </section>
+  <section class="band pt ">
+    <div class="wrap pt-grid reveal">
+      <div class="pt-left"><div class="pt-step">03</div></div>
+      <div class="pt-right">
+        <h2>False-positive triage</h2>
+        <p>Each restriction is scored on how likely it is to be a legitimate customer caught by a correct rule. Low-risk cases route to expedited review without touching the AML decision.</p>
       </div>
-      <div class="card">
-        <h3>Conduct audit trail</h3>
-        <p>Every case records what was restricted, why, what the customer was told, and how long resolution took — a defensible file for complaint handling and conduct reporting.</p>
+    </div>
+  </section>
+  <section class="band pt subtle">
+    <div class="wrap pt-grid reveal">
+      <div class="pt-left"><div class="pt-step">04</div></div>
+      <div class="pt-right">
+        <h2>Conduct audit trail</h2>
+        <p>Every case records what was restricted, why, what the customer was told, and how long resolution took &mdash; a defensible file for complaint handling and conduct reporting.</p>
       </div>
     </div>
   </section>
 
   <section class="band tight">
-    <div class="wrap">
-      <h2>Prototype and production</h2>
-      <p class="muted measure" style="margin-top:var(--space-3)">This site is a working click-through of the production interface, built as static HTML and CSS with a small JavaScript router. A production build would use a React frontend, a Python service layer reading bank fraud and KYC systems over REST APIs, and an append-only case store. No customer data is processed by this prototype and no live bank system is connected to it.</p>
+    <div class="wrap reveal">
+      <div class="claim"><p><span>No control is removed. No decision is overridden.</span><span>No compliance re-approval is triggered.</span></p></div>
+      <p class="pt-note measure" style="margin-top:var(--space-8)">This prototype is a working click-through built as static HTML, CSS and a small JavaScript router. A production build would use a React frontend, a Python service layer reading fraud and KYC systems over REST APIs, and an append-only case store. No customer data is processed here and no live system is connected.</p>
     </div>
   </section>
 </div>
 
-<!-- ============ 4. FOR BANKS ============ -->
+<!-- ============ 4. FOR INSTITUTIONS ============ -->
 <div class="page" id="page-banks" data-title="For institutions">
-  <section class="band">
+  <section class="page-head drift-host">
+    <canvas class="drift" data-count="18" aria-hidden="true"></canvas>
     <div class="wrap">
-      <h1 class="display measure">You already pay for every lockout. You pay twice.</h1>
-      <p class="lead measure" style="margin-top:var(--space-4)">A restricted customer contacts support an average of 2.5 times before the case closes. At a fully loaded cost of RM7.79 per contact, a bank with 480,000 customers spends around RM140,000 a year handling access failures — before counting the customers who leave.</p>
+      <h1 class="display">You already pay for every lockout. You pay twice.</h1>
+      <p class="lead">A restricted customer contacts support an average of 2.5 times before the case closes. At RM7.79 per contact, an institution with 480,000 customers spends around RM140,000 a year handling access failures &mdash; before counting the customers who leave.</p>
     </div>
   </section>
 
-  <section class="band tight subtle">
-    <div class="wrap cols cols-2 reveal-group">
-      <div>
+  <section class="band pt subtle">
+    <div class="wrap pt-grid wide reveal">
+      <div class="pt-right">
         <h2>What a mid-sized institution avoids</h2>
-        <div class="table-wrap" style="margin-top:var(--space-4);background:var(--surface)">
+        <p>Contact cost is derived from published Malaysian salary data. Churn, deposit outflow and regulatory escalation are excluded, so the figure is conservative.</p>
+      </div>
+      <div class="pt-visual">
+        <div class="table-wrap" style="background:var(--surface)">
           <table>
             <tbody>
               <tr><td>Access incidents per year</td><td class="num">7,200</td></tr>
@@ -289,38 +337,89 @@
             </tbody>
           </table>
         </div>
-        <p class="note" style="margin-top:var(--space-3)">Contact cost derived from published Malaysian salary data. Churn, deposit outflow and regulatory escalation costs are excluded, so this is conservative.</p>
       </div>
-      <div>
-        <h2>Pricing</h2>
-        <div class="table-wrap" style="margin-top:var(--space-4);background:var(--surface)">
-          <table>
-            <thead><tr><th>Tier</th><th>Institution customer base</th><th class="num">Per month</th></tr></thead>
-            <tbody>
-              <tr><td>Tier 1</td><td>Under 250,000</td><td class="num">RM1,800</td></tr>
-              <tr><td>Tier 2</td><td>250,000 to 1 million</td><td class="num">RM3,000</td></tr>
-              <tr><td>Tier 3</td><td>1 to 5 million</td><td class="num">RM6,000</td></tr>
-              <tr><td>Tier 4</td><td>Over 5 million</td><td class="num">RM12,000</td></tr>
-            </tbody>
-          </table>
+    </div>
+  </section>
+
+  <section class="divider reveal">
+    <div class="wrap">
+      <div class="divider-rule"></div>
+      <h2 class="divider-head">Pricing</h2>
+      <p class="divider-sub">A platform subscription tiered by customer base, plus RM1.20 for each case resolved.</p>
+    </div>
+  </section>
+
+  <section class="band tight">
+    <div class="wrap reveal">
+      <div class="tiers">
+        <div class="tier"><div class="name">Tier 1</div><div class="price">RM1,800</div><div class="band">Under 250,000 customers</div></div>
+        <div class="tier on"><div class="name">Tier 2</div><div class="price">RM3,000</div><div class="band">250,000 to 1 million</div><span class="flag">Reference tier</span></div>
+        <div class="tier"><div class="name">Tier 3</div><div class="price">RM6,000</div><div class="band">1 to 5 million</div></div>
+        <div class="tier"><div class="name">Tier 4</div><div class="price">RM12,000</div><div class="band">Over 5 million</div></div>
+      </div>
+      <p class="pt-note">Per month. One-off integration fee RM25,000. Eight-week paid pilot RM15,000.</p>
+    </div>
+  </section>
+
+  <section class="band pt subtle">
+    <div class="wrap pt-grid wide reveal">
+      <div class="pt-right">
+        <h2>Why we price this way</h2>
+        <p>Enterprise regulatory-technology pricing is not published, so there is no benchmark to copy. We priced against what the institution avoids: roughly a third of the operational cost Jelas removes.</p>
+      </div>
+      <div class="pt-visual">
+        <div class="cols cols-2">
+          <div class="tile"><div class="k">Value captured</div><div class="v">32%</div><div class="s">Of avoided operational cost</div></div>
+          <div class="tile"><div class="k">Return to the institution</div><div class="v">3.1&times;</div><div class="s">Cost avoided against billed</div></div>
         </div>
-        <p class="note" style="margin-top:var(--space-3)">Plus RM1.20 per resolved case. One-off integration fee RM25,000. Eight-week paid pilot RM15,000.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="divider reveal">
+    <div class="wrap">
+      <div class="divider-rule"></div>
+      <h2 class="divider-head">How we compete</h2>
+      <p class="divider-sub">Three reasons an institution buys this rather than extending an existing contract.</p>
+    </div>
+  </section>
+
+  <section class="band pt">
+    <div class="wrap pt-grid reveal">
+      <div class="pt-left"><div class="pt-step">01</div></div>
+      <div class="pt-right">
+        <h2>Detection vendors are paid to flag risk</h2>
+        <p>CTOS Digital, Experian, GBG, Innov8tif and Tookitaki all compete on finding problems. None sells the resolution of the access denial their systems produce.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band pt subtle">
+    <div class="wrap pt-grid reveal">
+      <div class="pt-left"><div class="pt-step">02</div></div>
+      <div class="pt-right">
+        <h2>We integrate, we do not replace</h2>
+        <p>Jelas reads the fraud, AML and eKYC systems an institution already runs. No control is removed and no compliance re-approval is triggered.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band pt">
+    <div class="wrap pt-grid reveal">
+      <div class="pt-left"><div class="pt-step">03</div></div>
+      <div class="pt-right">
+        <h2>Eight weeks, not eighteen months</h2>
+        <p>A paid pilot with agreed success metrics before any annual contract. Enterprise procurement is the barrier in this market; a small scoped pilot is the way through it.</p>
       </div>
     </div>
   </section>
 
   <section class="band tight">
-    <div class="wrap">
-      <h2>Why we price this way</h2>
-      <p class="muted measure" style="margin-top:var(--space-3)">Enterprise regulatory-technology pricing is not published, so there is no benchmark to copy. We priced against what the bank avoids instead: roughly a third of the operational cost Jelas removes. That leaves the institution a return of about three times, and it scales with institution size rather than seat count.</p>
-
-      <h2 style="margin-top:var(--space-12)">How we compete</h2>
-      <div class="cols cols-3 reveal-group" style="margin-top:var(--space-6)">
-        <div class="card"><h3>Detection vendors are paid to flag risk</h3><p>CTOS Digital, Experian, GBG, Innov8tif and Tookitaki all compete on finding problems. None of them sells the resolution of the access denial their systems produce.</p></div>
-        <div class="card"><h3>We integrate, we do not replace</h3><p>Jelas reads the fraud, AML and eKYC systems an institution already runs. No control is removed, no decision overridden, no compliance re-approval triggered.</p></div>
-        <div class="card"><h3>Eight weeks, not eighteen months</h3><p>A paid pilot with agreed success metrics before any annual contract. Enterprise procurement is the barrier in this market; a small scoped pilot is the way through it.</p></div>
+    <div class="wrap reveal" style="text-align:center">
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="#b1">See the operations dashboard</a>
+        <a class="btn btn-ghost" href="#d1">Walk through a case</a>
       </div>
-      <div class="btn-row"><a class="btn btn-primary" href="#b1">See the operations dashboard</a></div>
     </div>
   </section>
 </div>

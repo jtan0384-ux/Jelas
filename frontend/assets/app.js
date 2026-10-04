@@ -133,9 +133,14 @@
 
   /* --- drifting field of the brand mark behind the hero --- */
   function drift() {
-    var c = document.getElementById('drift');
-    if (!c || still) return;
+    if (still) return;
+    var hosts = document.querySelectorAll('canvas.drift');
+    for (var n = 0; n < hosts.length; n++) driftOne(hosts[n]);
+  }
+
+  function driftOne(c) {
     var ctx = c.getContext('2d'), bits = [], raf;
+    var count = parseInt(c.getAttribute('data-count') || '26', 10);
 
     function size() {
       var r = c.getBoundingClientRect(), d = window.devicePixelRatio || 1;
@@ -145,7 +150,7 @@
     }
     var box = size();
 
-    for (var i = 0; i < 26; i++) {
+    for (var i = 0; i < count; i++) {
       bits.push({
         x: Math.random() * box.width,
         y: Math.random() * box.height,
