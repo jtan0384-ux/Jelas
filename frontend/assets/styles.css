@@ -488,10 +488,10 @@ tr.clickable:hover td{background:var(--teal-100)}
 .divider-sub{margin-top:var(--space-3);color:var(--ink-muted);font-size:17px;max-width:48ch}
 
 /* capability icon: tinted plate plus the progress bars */
-.pt-icon{display:flex;flex-direction:column;gap:var(--space-4);align-items:flex-start}
+.pt-icon{display:flex;align-items:flex-start}
 .plate{width:68px;height:68px;border-radius:20px;background:var(--teal-100);
   display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(14,124,134,.1)}
-.pt-bars{display:block;margin-left:6px}
+
 
 @media (max-width:760px){
   .plate{width:56px;height:56px;border-radius:16px}
@@ -508,22 +508,20 @@ tr.clickable:hover td{background:var(--teal-100)}
 .pt-right h2{font-size:clamp(23px,2.4vw,30px)}
 
 /* ---------- capability icons fill the left column ---------- */
-.pt-icon{gap:var(--space-5, 20px);align-items:center}
+.pt-icon{align-items:flex-start}
 .plate{
   width:clamp(118px,13vw,168px);height:clamp(118px,13vw,168px);
   border-radius:clamp(30px,3.4vw,44px);
 }
 .plate svg{width:46%;height:46%}
-.pt-bars{width:clamp(46px,5vw,64px);height:auto;margin-left:0}
+
 
 /* ---------- claim band: one sentence per line ---------- */
 .claim p span{display:block}
 .claim p span + span{margin-top:2px}
 
 @media (max-width:760px){
-  .pt-icon{flex-direction:row;align-items:center;gap:var(--space-4)}
   .plate{width:92px;height:92px;border-radius:26px}
-  .pt-bars{width:40px}
   .divider{padding-top:56px}
   .divider-sub{font-size:16px}
 }
