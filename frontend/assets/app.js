@@ -218,8 +218,30 @@
   window.addEventListener('resize', refreshFields);
   document.addEventListener('visibilitychange', refreshFields);
 
+
+  /* --- sticky chapter headings ------------------------------------
+     A sentinel sits at the top of each chapter. Once it has scrolled
+     past the site header, the chapter's heading is stuck, so it is
+     marked pinned and shrinks out of the way. ---------------------- */
+  function chapters() {
+    var sentinels = document.querySelectorAll('.chapter-sentinel');
+    if (!sentinels.length || !('IntersectionObserver' in window)) return;
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var head = en.target.parentElement.querySelector('.chapter-head');
+        if (!head) return;
+        var past = !en.isIntersecting && en.boundingClientRect.top < 0;
+        head.classList.toggle('pinned', past);
+      });
+    }, { rootMargin: '-69px 0px 0px 0px', threshold: 0 });
+
+    for (var i = 0; i < sentinels.length; i++) io.observe(sentinels[i]);
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     observe();
+    chapters();
     drift();
   });
   window.addEventListener('hashchange', function () {

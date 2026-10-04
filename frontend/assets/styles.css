@@ -697,3 +697,48 @@ tr.total td{border-top-color:var(--ink-muted)}
 @media (prefers-reduced-motion:reduce){
   .subtle{background:var(--surface-subtle)}
 }
+
+/* ==================================================================
+   CHAPTERS — sticky section headings on the landing page
+   The heading pins below the site header while its three points
+   scroll past, then releases into the next chapter. It shrinks once
+   pinned so it does not eat the viewport.
+   ================================================================== */
+.chapter{position:relative}
+.chapter-sentinel{position:absolute;top:0;height:1px;width:100%;pointer-events:none}
+
+.chapter-head{
+  position:sticky;top:68px;z-index:5;
+  background:var(--surface);
+  padding:clamp(56px,7vw,96px) 0 clamp(20px,2.4vw,32px);
+  border-bottom:1px solid transparent;
+  transition:padding .3s ease,border-color .3s ease,background-color .3s ease;
+}
+.chapter-head .divider-rule{transition:width .3s ease,margin .3s ease}
+.chapter-head .divider-head{transition:font-size .3s ease}
+.chapter-head .divider-sub{
+  transition:opacity .25s ease,max-height .3s ease,margin-top .3s ease;
+  overflow:hidden;max-height:4em;
+}
+
+/* pinned state */
+.chapter-head.pinned{
+  padding:16px 0 15px;
+  border-bottom-color:var(--border);
+  background:rgba(10,22,26,.92);
+  backdrop-filter:saturate(140%) blur(10px);
+}
+.chapter-head.pinned .divider-rule{width:40px;margin-bottom:10px}
+.chapter-head.pinned .divider-head{font-size:clamp(20px,2.2vw,26px)}
+.chapter-head.pinned .divider-sub{opacity:0;max-height:0;margin-top:0}
+
+/* the first point sits under the heading rather than against it */
+.chapter .pt:first-of-type{padding-top:clamp(40px,5vw,72px)}
+
+@media (max-width:620px){
+  .chapter-head{top:0}
+  .chapter-head.pinned{padding:12px 0 11px}
+}
+@media (prefers-reduced-motion:reduce){
+  .chapter-head,.chapter-head *{transition:none!important}
+}
