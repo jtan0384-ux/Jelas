@@ -239,9 +239,60 @@
     for (var i = 0; i < sentinels.length; i++) io.observe(sentinels[i]);
   }
 
+
+  /* --- rotisserie --------------------------------------------------
+     Points in a chapter sit on a notional cylinder: the one nearest
+     the centre of the viewport faces the reader square on, and the
+     ones above and below tilt away and recede. Driven by scroll
+     position rather than by discrete states, so it reads as one
+     continuous turn rather than a set of steps. -------------------- */
+  function rotisserie() {
+    var cards = document.querySelectorAll('.chapter .pt > .wrap');
+    if (!cards.length || still) return;
+    var ticking = false;
+
+    function update() {
+      var vh = window.innerHeight;
+      var chrome = 118;                       // site header + pinned bar
+      var focus = chrome + (vh - chrome) / 2; // where a card faces front
+      var span = (vh - chrome) * 0.92;
+
+      for (var i = 0; i < cards.length; i++) {
+        var r = cards[i].getBoundingClientRect();
+        if (r.bottom < -200 || r.top > vh + 200) continue;
+
+        var mid = r.top + r.height / 2;
+        var t = (mid - focus) / span;
+        if (t > 1.25) t = 1.25;
+        if (t < -1.25) t = -1.25;
+
+        var a = Math.abs(t);
+        var rot = -t * 15;                    // below centre tips away
+        var z = -a * 150;
+        var op = 1 - Math.min(a, 1) * 0.78;
+
+        cards[i].style.transform = 'rotateX(' + rot.toFixed(2) + 'deg) translateZ(' + z.toFixed(1) + 'px)';
+        cards[i].style.opacity = op.toFixed(3);
+      }
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    window.addEventListener('hashchange', function () { setTimeout(update, 50); });
+    update();
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     observe();
     chapters();
+    rotisserie();
     drift();
   });
   window.addEventListener('hashchange', function () {

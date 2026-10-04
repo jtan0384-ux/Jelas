@@ -759,20 +759,51 @@ tr.total td{border-top-color:var(--ink-muted)}
   min-height:calc(100svh - 118px);
   display:flex;align-items:center;
   padding-top:clamp(24px,3vw,40px);padding-bottom:clamp(24px,3vw,40px);
-  scroll-snap-align:center;scroll-margin-top:118px;
+  scroll-margin-top:118px;
 }
 .chapter .pt > .wrap{width:min(1120px,calc(100% - var(--space-8)))}
 .chapter .pt:first-of-type{padding-top:clamp(24px,3vw,40px)}
 
 /* gentle snapping: only the chapter points declare an alignment, so
    nothing else on the site snaps */
-html{scroll-snap-type:y proximity}
+/* snapping removed: it interrupted the continuous rotation */
 
 @media (max-width:760px){
   .chapter .pt{min-height:auto;display:block;scroll-snap-align:none;
     padding-top:48px;padding-bottom:48px}
-  html{scroll-snap-type:none}
+}
+
+
+/* ==================================================================
+   HIERARCHY BY COLOUR
+   Section headings take the accent; point headings stay in ink. Two
+   levels of heading in the same white read as one flat level.
+   ================================================================== */
+.divider-head{color:var(--teal-600)}
+.chapter-head.pinned .divider-head{color:var(--teal-600)}
+.pt-right h2{color:var(--ink)}
+.pt-fig{color:var(--ink)}
+
+/* ==================================================================
+   ROTISSERIE
+   Each point rotates about a horizontal axis as it passes through the
+   viewport, as if mounted on a turning cylinder. Positions are set
+   from the scroll position in JS; this only declares the stage.
+   ================================================================== */
+.chapter .pt{perspective:1400px;perspective-origin:50% 50%}
+.chapter .pt > .wrap{
+  transform-style:preserve-3d;
+  will-change:transform,opacity;
+  backface-visibility:hidden;
+}
+/* the generic reveal must not fight the 3D transform on these */
+.chapter .pt > .wrap.reveal,
+.chapter .pt > .wrap.reveal.out{opacity:1;transform:none;transition:none}
+
+@media (max-width:760px){
+  .chapter .pt{perspective:none}
+  .chapter .pt > .wrap{transform:none!important;opacity:1!important}
 }
 @media (prefers-reduced-motion:reduce){
-  html{scroll-snap-type:none}
+  .chapter .pt > .wrap{transform:none!important;opacity:1!important}
 }
