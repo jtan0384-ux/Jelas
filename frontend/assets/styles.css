@@ -851,3 +851,33 @@ tr.total td{border-top-color:var(--ink-muted)}
 @media (prefers-reduced-motion:reduce){
   .card-slide{position:static;transform:none!important;opacity:1!important}
 }
+
+/* ---------- smaller cards: sized to their content, not the screen ---------- */
+.cards{
+  width:min(1000px,calc(100% - var(--space-8)));
+  margin-inline:auto;
+  padding-bottom:clamp(64px,8vw,120px);
+}
+.card-slide{
+  min-height:0;
+  padding:clamp(28px,3.2vw,44px) clamp(28px,3.4vw,48px);
+  margin-bottom:clamp(28px,3.6vw,52px);
+  border-radius:clamp(14px,1.4vw,20px);
+}
+.card-slide > .wrap{width:100%;padding:0;margin:0}
+
+/* the figure and heading step down with the box */
+.cards .pt-grid{gap:clamp(24px,4vw,56px);grid-template-columns:200px 1fr}
+.cards .pt-fig{font-size:clamp(30px,3.6vw,44px)}
+.cards .pt-fig-wide{font-size:clamp(26px,3.1vw,38px)}
+.cards .pt-right h2{font-size:clamp(20px,2vw,25px);max-width:26ch}
+.cards .pt-right p{font-size:15px;line-height:1.56;margin-top:var(--space-3)}
+.cards .plate{width:clamp(74px,7vw,96px);height:clamp(74px,7vw,96px);
+  border-radius:clamp(20px,2vw,26px)}
+
+@media (max-width:900px){
+  .cards .pt-grid{grid-template-columns:1fr;gap:var(--space-4)}
+}
+@media (max-width:760px){
+  .card-slide{padding:28px 24px}
+}
