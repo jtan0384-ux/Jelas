@@ -575,3 +575,125 @@ canvas.drift{position:absolute;inset:0;width:100%;height:100%;pointer-events:non
 /* headings that should break at the sentence, not wherever the line ends */
 .display.two-line span{display:block;text-wrap:nowrap}
 @media (max-width:620px){.display.two-line span{text-wrap:balance}}
+
+/* ==================================================================
+   DARK PALETTE
+   Appended last so it overrides the light tokens above without
+   touching any structure. Nothing here changes content, spacing or
+   placement — only colour.
+
+   The one exception to going dark is the Jelas customer screen. The
+   demo's whole argument is a move from an opaque bank error to a
+   clear explanation, so those screens stay light and read as a lit
+   panel against a dark site. Kira Bank stays dark, as before.
+   ================================================================== */
+:root{
+  --surface:#0A161A;          /* page ground, near-black blue-green */
+  --surface-subtle:#0F2127;   /* alternating bands, one step lifted */
+  --raised:#13282F;           /* cards and tables */
+  --border:#1E3A42;
+  --ink:#E8F1F2;
+  --ink-muted:#94AFB6;
+  --teal-600:#2FB4BD;         /* 7.4:1 on surface */
+  --teal-700:#5FDCE3;
+  --teal-100:#0F3238;
+  --status-restricted:#F08D99;
+  --status-review:#E5B45C;
+  --status-resolved:#63C99A;
+  --focus:#5FDCE3;
+}
+
+body{background:var(--surface);color:var(--ink)}
+
+/* header and footer */
+.site-head{background:rgba(10,22,26,.88);border-bottom-color:var(--border);
+  box-shadow:0 1px 0 rgba(0,0,0,.3)}
+.site-foot{border-top-color:var(--border)}
+
+/* surfaces that were white now sit one step above the ground */
+.card,.tile,.tier,.quote,.table-wrap,.arch .node,.fund,.case{background:var(--raised)}
+.table-wrap{border-color:var(--border)}
+th{background:#0D1E24;color:var(--ink-muted)}
+td,th{border-bottom-color:var(--border)}
+tr.total td{border-top-color:var(--ink-muted)}
+.filters span{background:var(--raised);border-color:var(--border);color:var(--ink)}
+.filters span.on{background:var(--teal-600);color:#06181B;border-color:var(--teal-600)}
+
+/* buttons */
+.btn-primary{background:var(--teal-600);color:#06181B}
+.btn-primary:hover{background:var(--teal-700)}
+.btn-ghost{color:var(--ink);border-color:var(--border)}
+.btn-ghost:hover{border-color:var(--teal-600)}
+
+/* claim bands and dividers */
+.claim{background:var(--teal-100)}
+.claim p{color:var(--ink)}
+.claim::after{border-color:rgba(47,180,189,.12)}
+.divider-rule{background:var(--teal-600)}
+.pt-step{color:#1B3A42}
+
+/* elements that were hardcoded to the old near-black */
+.dash-side{background:#061216}
+.dash{background:var(--surface-subtle);border-color:var(--border);
+  box-shadow:0 18px 44px -30px rgba(0,0,0,.7)}
+.dash-main .tile{background:var(--raised)}
+.arch .node.mid{background:#061216;border-color:#061216}
+.arch .node.mid li{color:#9FC6CC}
+.plate{background:var(--teal-100);box-shadow:inset 0 0 0 1px rgba(47,180,189,.16)}
+
+/* status chips on a dark ground */
+.chip-restricted{color:var(--status-restricted);border-color:#5A2630;background:#2A151A}
+.chip-review{color:var(--status-review);border-color:#50401C;background:#241D10}
+.chip-resolved{color:var(--status-resolved);border-color:#1F4F3A;background:#10251C}
+
+/* shadows need to be darker, not softer, on a dark ground */
+.card:hover{box-shadow:0 8px 24px -16px rgba(0,0,0,.6)}
+.tile:hover{box-shadow:0 10px 26px -18px rgba(0,0,0,.6)}
+.phone{box-shadow:0 26px 60px -26px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.04)}
+
+/* funnel */
+.f1,.f2{background:transparent;border-color:var(--ink-muted);color:var(--ink-muted)}
+.f3{background:var(--teal-600);color:#06181B}
+
+/* ------------------------------------------------------------------
+   LIGHT ISLAND — the Jelas customer screen
+   ------------------------------------------------------------------ */
+.phone:not(.kira){
+  --surface:#FFFFFF;
+  --surface-subtle:#F2F7F8;
+  --raised:#FFFFFF;
+  --border:#D8E4E7;
+  --ink:#0D2430;
+  --ink-muted:#4A6472;
+  --teal-600:#0E7C86;
+  --teal-700:#0A5F67;
+  --teal-100:#D7EDEF;
+  --status-restricted:#B23A48;
+  --status-review:#8F5E0A;
+  --status-resolved:#2E7D5B;
+  background:#FFFFFF;color:#0D2430;border-color:#0A161A;
+}
+.phone:not(.kira) .status-bar{color:#0D2430}
+.phone:not(.kira)::before{background:#D8E4E7}
+.phone:not(.kira) h2{color:#0D2430}
+.phone:not(.kira) p{color:#4A6472}
+.phone:not(.kira) .amount{color:#0D2430}
+.phone:not(.kira) .case{background:#F2F7F8}
+.phone:not(.kira) .fund{background:#F2F7F8;border-color:#D8E4E7}
+.phone:not(.kira) .opt{background:#FFFFFF;border-color:#D8E4E7;color:#0D2430}
+.phone:not(.kira) .opt:hover{border-color:#0E7C86}
+.phone:not(.kira) .btn-primary{background:#0E7C86;color:#FFFFFF}
+.phone:not(.kira) .btn-primary:hover{background:#0A5F67}
+.phone:not(.kira) .btn-ghost{color:#0D2430;border-color:#D8E4E7}
+.phone:not(.kira) .chip-restricted{color:#B23A48;border-color:#B23A48;background:#FBF0F1}
+.phone:not(.kira) .chip-review{color:#8F5E0A;border-color:#8F5E0A;background:#FBF5E9}
+.phone:not(.kira) .chip-resolved{color:#2E7D5B;border-color:#2E7D5B;background:#EDF6F1}
+.phone:not(.kira) .steps i{background:#D7EDEF}
+.phone:not(.kira) .steps i.on{background:#0E7C86}
+.phone:not(.kira) .scan{border-color:#D8E4E7;color:#4A6472}
+.phone:not(.kira) .handoff-note{border-top-color:#D8E4E7;color:#4A6472}
+.phone:not(.kira) .big{color:#2E7D5B}
+
+@media (prefers-reduced-motion:reduce){
+  .subtle{background:var(--surface-subtle)}
+}

@@ -174,7 +174,7 @@
         b.y += b.vy; b.x += b.vx;
         if (b.y < -10) { b.y = state.h + 10; b.x = Math.random() * state.w; }
         ctx.globalAlpha = b.a;
-        ctx.fillStyle = '#0E7C86';
+        ctx.fillStyle = '#2FB4BD';
         if (ctx.roundRect) { ctx.beginPath(); ctx.roundRect(b.x, b.y, b.w, 5, 2.5); ctx.fill(); }
         else { ctx.fillRect(b.x, b.y, b.w, 5); }
       }
