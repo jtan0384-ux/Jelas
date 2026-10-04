@@ -807,3 +807,20 @@ tr.total td{border-top-color:var(--ink-muted)}
 @media (prefers-reduced-motion:reduce){
   .chapter .pt > .wrap{transform:none!important;opacity:1!important}
 }
+
+/* ==================================================================
+   CHAPTER GROUND
+   The heading band and the points below it were sitting on the same
+   tone, so the two blocks read as one. The heading now gets its own
+   lifted ground; the points share a single darker ground, since with
+   one point on screen at a time the alternating bands did nothing but
+   confuse the boundary.
+   ================================================================== */
+.divider-head,
+.chapter-head.pinned .divider-head{color:var(--ink)}
+
+.chapter-head{background:#112730;border-bottom:1px solid rgba(255,255,255,.05)}
+.chapter-head.pinned{background:rgba(17,39,48,.94);border-bottom-color:var(--border)}
+
+.chapter .pt,
+.chapter .pt.subtle{background:var(--surface)}
