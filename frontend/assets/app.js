@@ -131,60 +131,92 @@
     }
   }
 
-  /* --- drifting field of the brand mark behind the hero --- */
+  /* --- drifting field of the brand mark ---------------------------
+     One canvas per page header. A hidden page has no width, so each
+     canvas is measured and started only once its page is on screen,
+     and paused again when the reader leaves it. ------------------- */
+  var fields = [];
+
+  function buildField(c) {
+    var ctx = c.getContext('2d');
+    var count = parseInt(c.getAttribute('data-count') || '26', 10);
+    var state = { c: c, ctx: ctx, count: count, bits: [], raf: 0, w: 0, h: 0, seeded: false };
+
+    state.size = function () {
+      var r = c.getBoundingClientRect();
+      if (!r.width || !r.height) return false;
+      var d = window.devicePixelRatio || 1;
+      c.width = r.width * d; c.height = r.height * d;
+      ctx.setTransform(d, 0, 0, d, 0, 0);
+      state.w = r.width; state.h = r.height;
+      return true;
+    };
+
+    state.seed = function () {
+      state.bits = [];
+      for (var i = 0; i < state.count; i++) {
+        state.bits.push({
+          x: Math.random() * state.w,
+          y: Math.random() * state.h,
+          w: 16 + Math.random() * 30,
+          vy: -(0.08 + Math.random() * 0.16),
+          vx: (Math.random() - 0.5) * 0.06,
+          a: 0.04 + Math.random() * 0.07
+        });
+      }
+      state.seeded = true;
+    };
+
+    state.frame = function () {
+      ctx.clearRect(0, 0, state.w, state.h);
+      for (var i = 0; i < state.bits.length; i++) {
+        var b = state.bits[i];
+        b.y += b.vy; b.x += b.vx;
+        if (b.y < -10) { b.y = state.h + 10; b.x = Math.random() * state.w; }
+        ctx.globalAlpha = b.a;
+        ctx.fillStyle = '#0E7C86';
+        if (ctx.roundRect) { ctx.beginPath(); ctx.roundRect(b.x, b.y, b.w, 5, 2.5); ctx.fill(); }
+        else { ctx.fillRect(b.x, b.y, b.w, 5); }
+      }
+      ctx.globalAlpha = 1;
+      state.raf = requestAnimationFrame(state.frame);
+    };
+
+    state.start = function () {
+      if (state.raf) return;
+      if (!state.size()) return;
+      if (!state.seeded) state.seed();
+      state.frame();
+    };
+
+    state.stop = function () {
+      if (!state.raf) return;
+      cancelAnimationFrame(state.raf);
+      state.raf = 0;
+    };
+
+    return state;
+  }
+
+  function refreshFields() {
+    if (still) return;
+    for (var i = 0; i < fields.length; i++) {
+      var f = fields[i];
+      // offsetParent is null while an ancestor is display:none
+      var visible = f.c.offsetParent !== null && !document.hidden;
+      if (visible) { f.size(); f.start(); } else { f.stop(); }
+    }
+  }
+
   function drift() {
     if (still) return;
     var hosts = document.querySelectorAll('canvas.drift');
-    for (var n = 0; n < hosts.length; n++) driftOne(hosts[n]);
+    for (var n = 0; n < hosts.length; n++) fields.push(buildField(hosts[n]));
+    refreshFields();
   }
 
-  function driftOne(c) {
-    var ctx = c.getContext('2d'), bits = [], raf;
-    var count = parseInt(c.getAttribute('data-count') || '26', 10);
-
-    function size() {
-      var r = c.getBoundingClientRect(), d = window.devicePixelRatio || 1;
-      c.width = r.width * d; c.height = r.height * d;
-      ctx.setTransform(d, 0, 0, d, 0, 0);
-      return r;
-    }
-    var box = size();
-
-    for (var i = 0; i < count; i++) {
-      bits.push({
-        x: Math.random() * box.width,
-        y: Math.random() * box.height,
-        w: 16 + Math.random() * 30,
-        vy: -(0.08 + Math.random() * 0.16),
-        vx: (Math.random() - 0.5) * 0.06,
-        a: 0.04 + Math.random() * 0.07
-      });
-    }
-
-    function frame() {
-      ctx.clearRect(0, 0, box.width, box.height);
-      for (var i = 0; i < bits.length; i++) {
-        var b = bits[i];
-        b.y += b.vy; b.x += b.vx;
-        if (b.y < -10) { b.y = box.height + 10; b.x = Math.random() * box.width; }
-        ctx.globalAlpha = b.a;
-        ctx.fillStyle = '#0E7C86';
-        if (ctx.roundRect) {
-          ctx.beginPath(); ctx.roundRect(b.x, b.y, b.w, 5, 2.5); ctx.fill();
-        } else {
-          ctx.fillRect(b.x, b.y, b.w, 5);
-        }
-      }
-      ctx.globalAlpha = 1;
-      raf = requestAnimationFrame(frame);
-    }
-    frame();
-
-    window.addEventListener('resize', function () { box = size(); });
-    document.addEventListener('visibilitychange', function () {
-      if (document.hidden) { cancelAnimationFrame(raf); } else { frame(); }
-    });
-  }
+  window.addEventListener('resize', refreshFields);
+  document.addEventListener('visibilitychange', refreshFields);
 
   document.addEventListener('DOMContentLoaded', function () {
     observe();
@@ -192,10 +224,13 @@
   });
   window.addEventListener('hashchange', function () {
     setTimeout(function () {
+      refreshFields();
       var t = document.querySelectorAll('.page.is-active .reveal, .page.is-active .reveal-group');
       for (var i = 0; i < t.length; i++) {
-        t[i].classList.add('in'); countUp(t[i]); spin(t[i]);
+        t[i].classList.remove('out');
+        t[i].classList.add('in');
+        countUp(t[i]); spin(t[i]);
       }
-    }, 30);
+    }, 40);
   });
 })();
