@@ -240,39 +240,37 @@
   }
 
 
-  /* --- rotisserie --------------------------------------------------
-     Points in a chapter sit on a notional cylinder: the one nearest
-     the centre of the viewport faces the reader square on, and the
-     ones above and below tilt away and recede. Driven by scroll
-     position rather than by discrete states, so it reads as one
-     continuous turn rather than a set of steps. -------------------- */
-  function rotisserie() {
-    var cards = document.querySelectorAll('.chapter .pt > .wrap');
-    if (!cards.length || still) return;
+  /* --- card deck ---------------------------------------------------
+     Each card sticks a little lower than the one before it, so the
+     stack shows a sliver of every card already passed. As the next
+     card climbs over a card, that card is pushed back slightly and
+     dimmed, which gives the stack depth instead of a flat overlap.
+     ------------------------------------------------------------- */
+  function deck() {
+    var decks = document.querySelectorAll('.cards');
+    if (!decks.length || still) return;
     var ticking = false;
 
     function update() {
-      var vh = window.innerHeight;
-      var chrome = 118;                       // site header + pinned bar
-      var focus = chrome + (vh - chrome) / 2; // where a card faces front
-      var span = (vh - chrome) * 0.92;
+      for (var d = 0; d < decks.length; d++) {
+        var cards = decks[d].querySelectorAll('.card-slide');
+        for (var i = 0; i < cards.length; i++) {
+          var r = cards[i].getBoundingClientRect();
+          var next = cards[i + 1];
+          var t = 0;
 
-      for (var i = 0; i < cards.length; i++) {
-        var r = cards[i].getBoundingClientRect();
-        if (r.bottom < -200 || r.top > vh + 200) continue;
+          if (next) {
+            var nr = next.getBoundingClientRect();
+            // how far the next card has climbed over this one
+            var gap = nr.top - r.top;
+            t = 1 - gap / Math.max(r.height, 1);
+            if (t < 0) t = 0;
+            if (t > 1) t = 1;
+          }
 
-        var mid = r.top + r.height / 2;
-        var t = (mid - focus) / span;
-        if (t > 1.25) t = 1.25;
-        if (t < -1.25) t = -1.25;
-
-        var a = Math.abs(t);
-        var rot = -t * 15;                    // below centre tips away
-        var z = -a * 150;
-        var op = 1 - Math.min(a, 1) * 0.78;
-
-        cards[i].style.transform = 'rotateX(' + rot.toFixed(2) + 'deg) translateZ(' + z.toFixed(1) + 'px)';
-        cards[i].style.opacity = op.toFixed(3);
+          cards[i].style.transform = 'scale(' + (1 - t * 0.055).toFixed(4) + ')';
+          cards[i].style.opacity = (1 - t * 0.42).toFixed(3);
+        }
       }
       ticking = false;
     }
@@ -292,7 +290,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     observe();
     chapters();
-    rotisserie();
+    deck();
     drift();
   });
   window.addEventListener('hashchange', function () {

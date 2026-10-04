@@ -755,14 +755,9 @@ tr.total td{border-top-color:var(--ink-muted)}
 .chapter-head.pinned .divider-head{font-size:clamp(17px,1.9vw,21px);line-height:1.2}
 
 /* one sub-section per screen, vertically centred under the pinned bar */
-.chapter .pt{
-  min-height:calc(100svh - 118px);
-  display:flex;align-items:center;
-  padding-top:clamp(24px,3vw,40px);padding-bottom:clamp(24px,3vw,40px);
-  scroll-margin-top:118px;
-}
-.chapter .pt > .wrap{width:min(1120px,calc(100% - var(--space-8)))}
-.chapter .pt:first-of-type{padding-top:clamp(24px,3vw,40px)}
+
+
+
 
 /* gentle snapping: only the chapter points declare an alignment, so
    nothing else on the site snaps */
@@ -790,15 +785,11 @@ tr.total td{border-top-color:var(--ink-muted)}
    viewport, as if mounted on a turning cylinder. Positions are set
    from the scroll position in JS; this only declares the stage.
    ================================================================== */
-.chapter .pt{perspective:1400px;perspective-origin:50% 50%}
-.chapter .pt > .wrap{
-  transform-style:preserve-3d;
-  will-change:transform,opacity;
-  backface-visibility:hidden;
-}
+
+
 /* the generic reveal must not fight the 3D transform on these */
-.chapter .pt > .wrap.reveal,
-.chapter .pt > .wrap.reveal.out{opacity:1;transform:none;transition:none}
+.card-slide > .wrap.reveal,
+.card-slide > .wrap.reveal.out{opacity:1;transform:none;transition:none}
 
 @media (max-width:760px){
   .chapter .pt{perspective:none}
@@ -822,5 +813,41 @@ tr.total td{border-top-color:var(--ink-muted)}
 .chapter-head{background:#112730;border-bottom:1px solid rgba(255,255,255,.05)}
 .chapter-head.pinned{background:rgba(17,39,48,.94);border-bottom-color:var(--border)}
 
-.chapter .pt,
-.chapter .pt.subtle{background:var(--surface)}
+
+
+/* ==================================================================
+   CARD DECK
+   The points of a chapter are cards in a stack. Each sticks a little
+   lower than the one before, so as a card rises to cover its
+   predecessor a sliver of the old card stays visible above it, and
+   the next card is already on its way up from below.
+   ================================================================== */
+.cards{position:relative;padding-bottom:clamp(40px,6vw,96px)}
+
+.card-slide{
+  position:sticky;
+  top:calc(126px + var(--i) * 16px);
+  min-height:min(62svh,560px);
+  display:flex;align-items:center;
+  background:var(--surface-subtle);
+  border:1px solid var(--border);
+  border-radius:clamp(16px,1.6vw,22px);
+  padding:clamp(32px,4.2vw,56px) 0;
+  margin-bottom:clamp(20px,3vw,40px);
+  box-shadow:0 -1px 0 rgba(255,255,255,.04), 0 28px 60px -34px rgba(0,0,0,.85);
+  transform-origin:50% 0;
+  will-change:transform,opacity;
+}
+.card-slide:last-child{margin-bottom:0}
+.card-slide > .wrap{width:min(1000px,calc(100% - clamp(40px,5vw,80px)))}
+
+/* the deck sits inside the page ground, so the cards read as objects */
+.chapter .cards{background:transparent}
+
+@media (max-width:760px){
+  .card-slide{position:static;min-height:auto;padding:36px 0;
+    transform:none!important;opacity:1!important}
+}
+@media (prefers-reduced-motion:reduce){
+  .card-slide{position:static;transform:none!important;opacity:1!important}
+}
