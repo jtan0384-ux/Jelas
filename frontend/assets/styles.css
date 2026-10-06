@@ -884,3 +884,21 @@ tr.total td{border-top-color:var(--ink-muted)}
 
 /* ---------- breathing room between the heading band and the deck ---------- */
 .cards{padding-top:clamp(40px,5vw,72px)}
+
+/* ---------- cards scroll normally; only the heading stays put ---------- */
+.card-slide{
+  position:static;
+  transform:none!important;
+  opacity:1!important;
+  margin-bottom:clamp(24px,3vw,40px);
+}
+/* the scroll reveal applies to the card contents again */
+.card-slide > .wrap.reveal{opacity:0;transform:translateY(22px);
+  transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+.card-slide > .wrap.reveal.in{opacity:1;transform:none}
+.card-slide > .wrap.reveal.out{opacity:0;transform:translateY(22px)}
+
+@media (prefers-reduced-motion:reduce){
+  .card-slide > .wrap.reveal,
+  .card-slide > .wrap.reveal.out{opacity:1;transform:none;transition:none}
+}

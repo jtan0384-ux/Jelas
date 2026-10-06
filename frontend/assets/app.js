@@ -240,57 +240,9 @@
   }
 
 
-  /* --- card deck ---------------------------------------------------
-     Each card sticks a little lower than the one before it, so the
-     stack shows a sliver of every card already passed. As the next
-     card climbs over a card, that card is pushed back slightly and
-     dimmed, which gives the stack depth instead of a flat overlap.
-     ------------------------------------------------------------- */
-  function deck() {
-    var decks = document.querySelectorAll('.cards');
-    if (!decks.length || still) return;
-    var ticking = false;
-
-    function update() {
-      for (var d = 0; d < decks.length; d++) {
-        var cards = decks[d].querySelectorAll('.card-slide');
-        for (var i = 0; i < cards.length; i++) {
-          var r = cards[i].getBoundingClientRect();
-          var next = cards[i + 1];
-          var t = 0;
-
-          if (next) {
-            var nr = next.getBoundingClientRect();
-            // how far the next card has climbed over this one
-            var gap = nr.top - r.top;
-            t = 1 - gap / Math.max(r.height, 1);
-            if (t < 0) t = 0;
-            if (t > 1) t = 1;
-          }
-
-          cards[i].style.transform = 'scale(' + (1 - t * 0.055).toFixed(4) + ')';
-          cards[i].style.opacity = (1 - t * 0.42).toFixed(3);
-        }
-      }
-      ticking = false;
-    }
-
-    function onScroll() {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(update);
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    window.addEventListener('hashchange', function () { setTimeout(update, 50); });
-    update();
-  }
-
   document.addEventListener('DOMContentLoaded', function () {
     observe();
     chapters();
-    deck();
     drift();
   });
   window.addEventListener('hashchange', function () {
