@@ -968,3 +968,7 @@ tr.total td{border-top-color:var(--ink-muted)}
 .head-photo figcaption{margin-top:var(--space-3);font-size:11.5px;color:var(--ink-muted);opacity:.75}
 .head-photo figcaption a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .head-photo figcaption a:hover{color:var(--teal-600)}
+
+/* the scroll cue has done its job once the reader starts scrolling */
+.head-cue{transition:opacity .3s ease,visibility .3s ease}
+.head-cue.gone{opacity:0;visibility:hidden}

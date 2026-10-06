@@ -272,3 +272,15 @@ document.addEventListener('click', function (e) {
   var y = next.getBoundingClientRect().top + window.pageYOffset - 68;
   window.scrollTo({ top: y, behavior: still ? 'auto' : 'smooth' });
 });
+
+/* Hide the header scroll cues as soon as the reader starts moving. */
+(function () {
+  function sync() {
+    var gone = window.pageYOffset > 40;
+    var cues = document.querySelectorAll('.head-cue');
+    for (var i = 0; i < cues.length; i++) cues[i].classList.toggle('gone', gone);
+  }
+  window.addEventListener('scroll', sync, { passive: true });
+  window.addEventListener('hashchange', function () { setTimeout(sync, 60); });
+  document.addEventListener('DOMContentLoaded', sync);
+})();
