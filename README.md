@@ -30,6 +30,8 @@ frontend/
     app.js            Client-side router that switches screens
     jelas-mark.svg    Logo mark
     jelas-lockup.svg  Full logo lockup
+    art-problem.*     Header photograph, The problem (webp + jpg)
+    art-institutions.* Header photograph, For institutions (webp + jpg)
 plan.txt              System design and logic overview
 README.md             This file
 ```
@@ -154,6 +156,17 @@ Testing was manual, using GitHub Copilot to assist with review:
 - Malaysian FinTech customer pain and market gap dataset 2026 (unit resource) —
   the 71 coded public app reviews
 - Primary survey conducted by the group, [N] respondents, [dates]
+
+## Photography
+
+- Header image, The problem — David Dvořáček, Unsplash
+  https://unsplash.com/photos/QiPe0UpC0_U
+- Header image, For institutions — Annie Spratt, Unsplash
+  https://unsplash.com/photos/dWYU3i-mqEo
+
+Both used under the Unsplash licence, which permits free commercial use
+without attribution; credited here and on the site as good practice.
+Images were cropped, resized and compressed for the web.
 
 ## Use of generative AI
 
