@@ -972,3 +972,13 @@ tr.total td{border-top-color:var(--ink-muted)}
 /* the scroll cue has done its job once the reader starts scrolling */
 .head-cue{transition:opacity .3s ease,visibility .3s ease}
 .head-cue.gone{opacity:0;visibility:hidden}
+
+/* ---------- hero: room for the scroll cue ---------- */
+.hero{position:relative;padding-bottom:clamp(76px,9vw,124px)}
+.hero .phone{
+  min-height:0;
+  max-height:calc(100svh - 300px);
+  overflow:hidden;
+}
+.hero .phone .btn,
+.hero .phone .handoff-note{margin-top:auto}
