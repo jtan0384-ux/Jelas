@@ -240,9 +240,53 @@
   }
 
 
+
+  /* --- chapter handoff ---------------------------------------------
+     Two sticky headings in sequence collide: the second block reaches
+     the first and pushes it out of frame. Instead, the outgoing
+     heading fades and lifts over the last stretch of its own chapter,
+     so it has cleared before the next one arrives. ----------------- */
+  function handoff() {
+    var chapters = document.querySelectorAll('.chapter');
+    if (!chapters.length || still) return;
+    var ticking = false;
+    var FADE = 130;   // px of scroll over which the heading clears
+
+    function update() {
+      for (var i = 0; i < chapters.length; i++) {
+        var head = chapters[i].querySelector('.chapter-head');
+        if (!head) continue;
+        var cr = chapters[i].getBoundingClientRect();
+        var stick = 68 + head.offsetHeight;
+        var left = cr.bottom - stick;        // room before the chapter ends
+
+        var t = 0;
+        if (left < FADE) t = 1 - left / FADE;
+        if (t < 0) t = 0;
+        if (t > 1) t = 1;
+
+        head.style.opacity = (1 - t).toFixed(3);
+        head.style.transform = 'translateY(' + (-t * 14).toFixed(1) + 'px)';
+      }
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    window.addEventListener('hashchange', function () { setTimeout(update, 50); });
+    update();
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     observe();
     chapters();
+    handoff();
     drift();
   });
   window.addEventListener('hashchange', function () {

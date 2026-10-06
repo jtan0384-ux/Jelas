@@ -1008,3 +1008,15 @@ tr.total td{border-top-color:var(--ink-muted)}
 }
 .hero-phone .k-err{margin-top:var(--space-4)}
 .hero-phone .btn-stack{margin-top:auto}
+
+/* the handoff is driven per frame from the scroll position, so the
+   heading must not also run its own transition on these properties */
+.chapter-head{will-change:opacity,transform}
+.chapter-head{transition:padding .3s ease,border-color .3s ease,background-color .3s ease}
+
+/* a little room at the foot of a chapter so the fade has somewhere to happen */
+.cards{padding-bottom:clamp(96px,11vw,168px)}
+
+@media (prefers-reduced-motion:reduce){
+  .chapter-head{opacity:1!important;transform:none!important}
+}
