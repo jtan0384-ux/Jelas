@@ -257,3 +257,18 @@
     }, 40);
   });
 })();
+
+/* The header scroll cue moves the reader past the opening screen
+   rather than navigating anywhere. */
+document.addEventListener('click', function (e) {
+  var cue = e.target.closest ? e.target.closest('[data-scroll]') : null;
+  if (!cue) return;
+  var head = cue.closest('.page-head');
+  if (!head) return;
+  var next = head.nextElementSibling;
+  if (!next) return;
+  var still = window.matchMedia &&
+              window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var y = next.getBoundingClientRect().top + window.pageYOffset - 68;
+  window.scrollTo({ top: y, behavior: still ? 'auto' : 'smooth' });
+});

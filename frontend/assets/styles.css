@@ -902,3 +902,48 @@ tr.total td{border-top-color:var(--ink-muted)}
   .card-slide > .wrap.reveal,
   .card-slide > .wrap.reveal.out{opacity:1;transform:none;transition:none}
 }
+
+/* ==================================================================
+   SPLIT PAGE HEADERS
+   The problem, How it works and For institutions open on their
+   headline alone: one screen of statement and supporting graphic,
+   then the reader scrolls for the substance.
+   ================================================================== */
+.page-head:has(.head-split){
+  min-height:calc(100svh - 68px);
+  display:flex;align-items:center;
+  padding-top:clamp(32px,4vw,56px);padding-bottom:clamp(56px,7vw,96px);
+}
+.head-split{
+  display:grid;grid-template-columns:1.02fr .98fr;
+  gap:clamp(36px,5.5vw,80px);align-items:center;
+}
+.head-copy .display{max-width:16ch}
+.head-copy .lead{margin-top:var(--space-6);max-width:46ch}
+
+.head-art{position:relative}
+.head-art svg{display:block;width:100%;height:auto}
+
+/* scroll cue, so a one-screen header does not read as the whole page */
+.head-cue{
+  position:absolute;left:50%;bottom:clamp(24px,3.5vw,44px);transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--ink-muted);
+  text-decoration:none;
+}
+.head-cue:hover{color:var(--ink)}
+.head-cue i{display:block;width:1px;height:26px;
+  background:linear-gradient(var(--teal-600),transparent)}
+
+@media (max-width:900px){
+  .head-split{grid-template-columns:1fr;gap:var(--space-8)}
+  .page-head:has(.head-split){min-height:auto;display:block;
+    padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(40px,6vw,72px)}
+  .head-cue{display:none}
+}
+
+/* browsers without :has() fall back to the old, shorter header */
+@supports not selector(:has(*)){
+  .page-head{min-height:auto;display:block}
+}
+.head-cue{background:none;border:0;cursor:pointer;font-family:inherit}
