@@ -995,3 +995,16 @@ tr.total td{border-top-color:var(--ink-muted)}
   .hero{min-height:auto;display:block;padding-bottom:clamp(64px,8vw,96px)}
   .hero .phone{min-height:600px}
 }
+
+/* ---------- hero phone: Kira's error state ----------
+   A near-black device on a near-black ground needs an edge to read as
+   an object, so it gets a brighter rim and a wider shadow than the
+   light screens use. */
+.hero-phone{
+  border-color:#1C2C26;
+  box-shadow:0 0 0 1px rgba(198,242,78,.1),
+             0 34px 70px -28px rgba(0,0,0,.9),
+             0 0 90px -40px rgba(198,242,78,.16);
+}
+.hero-phone .k-err{margin-top:var(--space-4)}
+.hero-phone .btn-stack{margin-top:auto}
