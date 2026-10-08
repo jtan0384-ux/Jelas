@@ -705,7 +705,7 @@ tr.total td{border-top-color:var(--ink-muted)}
 .chapter-sentinel{position:absolute;top:0;height:1px;width:100%;pointer-events:none}
 
 .chapter-head{
-  position:sticky;top:68px;z-index:5;
+  position:sticky;top:var(--stick-top,68px);z-index:5;
   background:var(--surface);
   padding:clamp(56px,7vw,96px) 0 clamp(20px,2.4vw,32px);
   border-bottom:1px solid transparent;
@@ -722,8 +722,7 @@ tr.total td{border-top-color:var(--ink-muted)}
 .chapter-head.pinned{
   padding:16px 0 15px;
   border-bottom-color:var(--border);
-  background:rgba(10,22,26,.92);
-  backdrop-filter:saturate(140%) blur(10px);
+  background:#0C1B20;
 }
 .chapter-head.pinned .divider-rule{width:40px;margin-bottom:10px}
 .chapter-head.pinned .divider-head{font-size:clamp(20px,2.2vw,26px)}
@@ -1153,3 +1152,11 @@ body.at-home .brand{display:none}
 body.at-home .nav-toggle,
 body.at-home .site-nav{pointer-events:auto}
 body.at-home .site-nav{top:calc(100% - 8px);border-top:1px solid var(--border);border-radius:14px}
+
+/* ------------------------------------------------------------------
+   How far down a sticky heading parks. Normally it clears the header
+   bar; the homepage has no bar, so it parks flush at the top and
+   nothing can scroll into view above it.
+   ------------------------------------------------------------------ */
+:root{--stick-top:68px}
+body.at-home{--stick-top:0px}

@@ -230,6 +230,14 @@
      A sentinel sits at the top of each chapter. Once it has scrolled
      past the site header, the chapter's heading is stuck, so it is
      marked pinned and shrinks out of the way. ---------------------- */
+  // How far down the page a sticky heading parks, read from CSS so the
+  // homepage (which has no header bar) and the inner pages agree.
+  function stickTop() {
+    var v = getComputedStyle(document.body).getPropertyValue('--stick-top');
+    var n = parseFloat(v);
+    return isNaN(n) ? 68 : n;
+  }
+
   function chapters() {
     var sentinels = document.querySelectorAll('.chapter-sentinel');
     if (!sentinels.length || !('IntersectionObserver' in window)) return;
@@ -241,7 +249,7 @@
         var past = !en.isIntersecting && en.boundingClientRect.top < 0;
         head.classList.toggle('pinned', past);
       });
-    }, { rootMargin: '-69px 0px 0px 0px', threshold: 0 });
+    }, { rootMargin: (-(stickTop() + 1)) + 'px 0px 0px 0px', threshold: 0 });
 
     for (var i = 0; i < sentinels.length; i++) io.observe(sentinels[i]);
   }
@@ -264,7 +272,7 @@
         var head = chapters[i].querySelector('.chapter-head');
         if (!head) continue;
         var cr = chapters[i].getBoundingClientRect();
-        var stick = 68 + head.offsetHeight;
+        var stick = stickTop() + head.offsetHeight;
         var left = cr.bottom - stick;        // room before the chapter ends
 
         var t = 0;
@@ -320,7 +328,8 @@ document.addEventListener('click', function (e) {
   if (!next) return;
   var still = window.matchMedia &&
               window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var y = next.getBoundingClientRect().top + window.pageYOffset - 68;
+  var pad = parseFloat(getComputedStyle(document.body).getPropertyValue('--stick-top'));
+  var y = next.getBoundingClientRect().top + window.pageYOffset - (isNaN(pad) ? 68 : pad);
   window.scrollTo({ top: y, behavior: still ? 'auto' : 'smooth' });
 });
 
