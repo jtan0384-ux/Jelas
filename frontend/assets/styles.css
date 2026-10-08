@@ -1063,7 +1063,7 @@ tr.total td{border-top-color:var(--ink-muted)}
   padding:clamp(48px,6vw,88px) clamp(28px,3.2vw,52px) clamp(96px,10vw,140px) clamp(32px,5.2vw,96px);
 }
 .hero-claim-inner{max-width:none}
-.hero-claim .display{font-size:clamp(36px,4.6vw,62px);line-height:1.04;text-wrap:balance}
+.hero-claim .display{font-size:clamp(38px,5.4vw,74px);line-height:1.02;letter-spacing:-0.035em;text-wrap:balance}
 .hero-claim .display strong{color:var(--teal-700);font-weight:700}
 /* the hero carries no paragraph now, so the buttons answer the headline directly */
 .hero-claim .btn-row{margin-top:clamp(28px,3.2vw,44px)}
@@ -1188,3 +1188,41 @@ body.at-home .site-head .wrap{min-height:82px}
   .chapter-head.pinned{min-height:68px}
   body.at-home .site-head .wrap{min-height:68px}
 }
+
+/* ==================================================================
+   SCROLL CUE
+   A label with a hairline under it reads as a stray caption at this
+   size. It becomes a row instead: an outlined chevron that bobs, with
+   the label beside it, so it reads as one control rather than two
+   small marks stacked on top of each other.
+   ================================================================== */
+.head-cue{
+  flex-direction:row;align-items:center;gap:12px;
+  font-size:14px;font-weight:600;letter-spacing:0;
+  color:var(--ink-muted);
+  padding:0;
+  transition:color .2s ease,opacity .3s ease,visibility .3s ease;
+}
+.hero-claim .head-cue{align-items:center}
+
+/* the hairline becomes a chevron in a ring */
+.head-cue i{
+  position:relative;
+  width:34px;height:34px;flex:0 0 auto;
+  background:none;border:1px solid var(--border);border-radius:50%;
+  transition:border-color .2s ease,background-color .2s ease;
+}
+.head-cue i::before{
+  content:"";position:absolute;left:50%;top:50%;
+  width:7px;height:7px;
+  border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;
+  transform:translate(-50%,-62%) rotate(45deg);
+}
+.head-cue:hover{color:var(--ink)}
+.head-cue:hover i{border-color:var(--teal-600);background:rgba(15,50,56,.55)}
+.head-cue:focus-visible{outline:none}
+.head-cue:focus-visible i{outline:2px solid var(--teal-600);outline-offset:3px}
+
+@keyframes cueBob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.head-cue i{animation:cueBob 2.4s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){ .head-cue i{animation:none} }
