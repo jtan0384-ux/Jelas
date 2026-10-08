@@ -1166,3 +1166,24 @@ body.at-home .site-nav{top:calc(100% - 4px);border-top:1px solid var(--border);b
    ------------------------------------------------------------------ */
 :root{--stick-top:68px}
 body.at-home{--stick-top:0px}
+
+/* ==================================================================
+   PINNED CHAPTER BAR — HEIGHT AND ALIGNMENT
+   The bar is given a height of its own and centres its contents, so
+   the rule-plus-heading block sits on the bar's own middle line
+   rather than wherever its padding happened to leave it. The menu
+   glyph is centred on exactly the same line.
+   ================================================================== */
+.chapter-head{display:flex;align-items:center}
+.chapter-head > .wrap{width:min(1120px,calc(100% - var(--space-8)));margin-inline:auto}
+.chapter-head{transition:padding .3s ease,min-height .3s ease,
+                         border-color .3s ease,background-color .3s ease}
+.chapter-head.pinned{min-height:82px;padding:0}
+
+/* the floating menu glyph shares the bar's centre line */
+body.at-home .site-head .wrap{min-height:82px}
+
+@media (max-width:760px){
+  .chapter-head.pinned{min-height:68px}
+  body.at-home .site-head .wrap{min-height:68px}
+}
