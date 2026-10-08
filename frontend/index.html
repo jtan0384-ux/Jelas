@@ -24,7 +24,10 @@
       </svg>
       <b>Jelas</b>
     </a>
-    <nav class="site-nav" aria-label="Main">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
       <a href="#problem">The problem</a>
       <a href="#how">How it works</a>
       <a href="#banks">For institutions</a>
@@ -38,47 +41,31 @@
 
 <!-- ============ 1. HOME ============ -->
 <div class="page" id="page-home" data-title="Access, explained">
-  <section class="hero drift-host">
-    <canvas class="drift" data-count="20" aria-hidden="true"></canvas>
-    <div class="wrap hero-grid">
-      <div>
-        <h1 class="display">When a bank locks you out, Jelas tells you why &mdash; and gets you back in.</h1>
+  <section class="hero hero-split">
+    <div class="hero-brand drift-host">
+      <canvas class="drift" data-count="16" aria-hidden="true"></canvas>
+      <div class="hero-brand-inner">
+        <svg class="hero-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#17343C"/>
+          <rect class="b" x="16" y="20" width="18" height="6" rx="3" fill="#2FB4BD" opacity=".40"/>
+          <rect class="b b2" x="16" y="29" width="25" height="6" rx="3" fill="#2FB4BD" opacity=".70"/>
+          <rect class="b b3" x="16" y="38" width="32" height="6" rx="3" fill="#7FD4DA"/>
+        </svg>
+        <div class="brand-word">Jelas</div>
+        <div class="brand-pill">Access, <strong>explained</strong></div>
+      </div>
+    </div>
+    <div class="hero-claim">
+      <div class="hero-claim-inner">
+        <h1 class="display">When a bank locks you out, <strong>Jelas tells you why</strong> &mdash; and gets you back in.</h1>
         <p class="lead">The same controls that stopped RM1.2&nbsp;billion of scam losses last year also lock out legitimate customers, with no explanation and no way back. Jelas fixes the second problem without weakening the first.</p>
         <div class="btn-row">
           <a class="btn btn-primary" href="#d1">See the customer flow</a>
           <a class="btn btn-ghost" href="#b1">View the operations dashboard</a>
         </div>
       </div>
-      <div class="phone kira hero-phone">
-        <div class="status-bar"><span class="t">9:14</span><span class="icons">
-          <svg viewBox="0 0 18 12" width="17" height="11"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
-          <svg viewBox="0 0 16 12" width="15" height="11"><path d="M8 11.2 5.6 8.6a3.4 3.4 0 0 1 4.8 0L8 11.2Zm0-5.1a6.6 6.6 0 0 0-4.7 2L1.6 6.3a9 9 0 0 1 12.8 0l-1.7 1.8A6.6 6.6 0 0 0 8 6.1Z"/></svg>
-          <svg viewBox="0 0 26 12" width="24" height="11"><rect x="0.6" y="0.6" width="21" height="10.8" rx="3" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="2.4" y="2.4" width="15" height="7.2" rx="1.6"/><path d="M23.4 4.2v3.6a2.2 2.2 0 0 0 0-3.6Z"/></svg>
-        </span></div>
-        <div class="phone-top">
-          <span class="k-brand"><span class="k-dot"></span>Kira</span>
-          <span class="inst">Personal</span>
-        </div>
-        <div class="k-bal">
-          <div class="lab">Available balance</div>
-          <div class="amt">RM 1,250.00</div>
-        </div>
-        <div class="k-row">
-          <div class="k-act on">Transfer</div>
-          <div class="k-act">Pay</div>
-          <div class="k-act">Top up</div>
-        </div>
-        <div class="k-err">
-          <b>Transfer is unavailable</b>
-          <span>Please try again later.</span>
-        </div>
-        <a class="btn btn-k btn-stack" href="#d1">
-          <span class="l1">Fix now</span>
-          <span class="l2">by Jelas</span>
-        </a>
-      </div>
+      <button class="head-cue" type="button" data-scroll><span>Why this matters</span><i></i></button>
     </div>
-    <button class="head-cue" type="button" data-scroll><span>Why this matters</span><i></i></button>
   </section>
 
   <div class="chapter">

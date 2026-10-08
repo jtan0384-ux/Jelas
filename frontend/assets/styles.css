@@ -280,9 +280,6 @@ tr.clickable:hover td{background:var(--teal-100)}
 .hero-mark rect.b2{animation-delay:.12s}
 .hero-mark rect.b3{animation-delay:.24s}
 
-/* --- phone status transition on the hero --- */
-@keyframes liftIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.hero .phone{animation:liftIn .7s cubic-bezier(.2,.8,.2,1) .15s both}
 
 /* --- counters --- */
 .stat .fig,.tile .v{font-variant-numeric:tabular-nums}
@@ -988,26 +985,10 @@ tr.total td{border-top-color:var(--ink-muted)}
   padding-top:clamp(28px,3.5vw,52px);
   padding-bottom:clamp(84px,9vw,132px);
 }
-.hero .wrap{width:min(1120px,calc(100% - var(--space-8)))}
-.hero .phone{min-height:min(640px,calc(100svh - 268px))}
 
 @media (max-width:900px){
-  .hero{min-height:auto;display:block;padding-bottom:clamp(64px,8vw,96px)}
-  .hero .phone{min-height:600px}
 }
 
-/* ---------- hero phone: Kira's error state ----------
-   A near-black device on a near-black ground needs an edge to read as
-   an object, so it gets a brighter rim and a wider shadow than the
-   light screens use. */
-.hero-phone{
-  border-color:#1C2C26;
-  box-shadow:0 0 0 1px rgba(198,242,78,.1),
-             0 34px 70px -28px rgba(0,0,0,.9),
-             0 0 90px -40px rgba(198,242,78,.16);
-}
-.hero-phone .k-err{margin-top:var(--space-4)}
-.hero-phone .btn-stack{margin-top:auto}
 
 /* the handoff is driven per frame from the scroll position, so the
    heading must not also run its own transition on these properties */
@@ -1019,4 +1000,138 @@ tr.total td{border-top-color:var(--ink-muted)}
 
 @media (prefers-reduced-motion:reduce){
   .chapter-head{opacity:1!important;transform:none!important}
+}
+
+
+/* ==================================================================
+   HOME HERO — TWO-PANEL SPLIT
+   The brand sits in its own panel on the left and the claim on the
+   right, the way the reference site does it. The divider is a real
+   change of ground rather than a line, so the two halves read as two
+   separate statements: who we are, and what we fix.
+   ================================================================== */
+.hero.hero-split{
+  display:grid;
+  grid-template-columns:0.84fr 1.16fr;
+  min-height:calc(100svh - 68px);
+  align-items:stretch;
+  padding:0;
+  position:relative;
+  overflow:hidden;
+}
+
+/* ---------- left: the brand panel ---------- */
+.hero-brand{
+  display:grid;place-items:center;
+  padding:clamp(40px,5vw,72px) clamp(24px,3vw,48px);
+  background:
+    radial-gradient(120% 90% at 50% 18%, rgba(47,180,189,.13), transparent 62%),
+    linear-gradient(170deg,#102830,#0A161A 72%);
+  border-right:1px solid var(--border);
+}
+.hero-brand-inner{
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;align-items:center;gap:clamp(14px,1.6vw,22px);
+  text-align:center;
+}
+.hero-brand .hero-mark{
+  display:block;
+  width:clamp(128px,15vw,208px);height:auto;
+  border-radius:clamp(26px,3.2vw,44px);
+  box-shadow:0 30px 70px -34px rgba(0,0,0,.85),
+             0 0 0 1px rgba(127,212,218,.14),
+             0 0 120px -46px rgba(47,180,189,.4);
+}
+.brand-word{
+  font-size:clamp(46px,6.4vw,84px);
+  font-weight:700;letter-spacing:-0.045em;line-height:1;
+  color:var(--ink);
+}
+.brand-pill{
+  display:inline-block;
+  padding:8px 18px;border-radius:999px;
+  border:1px solid var(--border);
+  background:rgba(15,33,39,.65);
+  font-size:clamp(12.5px,1.1vw,14.5px);
+  letter-spacing:.02em;color:var(--ink-muted);
+}
+.brand-pill strong{color:var(--teal-700);font-weight:600}
+
+/* ---------- right: the claim ---------- */
+.hero-claim{
+  position:relative;
+  display:flex;align-items:center;
+  padding:clamp(48px,6vw,88px) clamp(28px,4.4vw,80px) clamp(96px,10vw,140px);
+}
+.hero-claim-inner{max-width:46ch}
+.hero-claim .display{font-size:clamp(30px,3.5vw,46px);text-wrap:balance}
+.hero-claim .display strong{color:var(--teal-700);font-weight:700}
+.hero-claim .lead{margin-top:var(--space-6);max-width:46ch}
+
+/* the cue belongs under the claim, not centred across both panels */
+.hero-claim .head-cue{left:clamp(28px,4.4vw,80px);right:auto;transform:none;align-items:flex-start}
+.hero-claim .head-cue i{margin-left:2px}
+
+@media (max-width:900px){
+  .hero.hero-split{grid-template-columns:1fr;min-height:auto}
+  .hero-brand{
+    border-right:0;border-bottom:1px solid var(--border);
+    padding:clamp(48px,9vw,72px) var(--space-6);
+  }
+  .hero-claim{padding:clamp(40px,8vw,64px) var(--space-6) clamp(64px,10vw,88px)}
+  .hero-claim-inner{max-width:none}
+}
+
+/* ==================================================================
+   HOMEPAGE MENU BUTTON
+   The home screen leads with the brand, so the nav is folded behind a
+   three-bar button there and shown in full on every other screen.
+   ================================================================== */
+.nav-toggle{
+  display:none;
+  margin-left:auto;
+  width:42px;height:38px;
+  align-items:center;justify-content:center;
+  flex-direction:column;gap:5px;
+  background:rgba(15,33,39,.6);
+  border:1px solid var(--border);border-radius:10px;
+  cursor:pointer;padding:0;
+  transition:border-color .2s ease,background-color .2s ease;
+}
+.nav-toggle:hover{border-color:var(--teal-600);background:rgba(15,50,56,.8)}
+.nav-toggle span{
+  display:block;width:17px;height:1.5px;border-radius:2px;background:var(--ink);
+  transition:transform .26s cubic-bezier(.2,.8,.2,1),opacity .18s ease;
+}
+
+/* only the home screen folds the nav away */
+body.at-home .nav-toggle{display:flex}
+body.at-home .site-nav{
+  position:absolute;top:calc(100% + 1px);right:0;
+  margin-left:0;
+  flex-direction:column;align-items:flex-end;gap:0;
+  min-width:210px;
+  padding:var(--space-2) 0;
+  background:rgba(10,22,26,.97);
+  border:1px solid var(--border);border-radius:0 0 14px 14px;
+  box-shadow:0 26px 50px -28px rgba(0,0,0,.9);
+  opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity .2s ease,transform .22s cubic-bezier(.2,.8,.2,1),visibility .2s ease;
+}
+body.at-home .site-nav a{
+  display:block;width:100%;
+  padding:10px 22px;
+  text-align:right;font-size:14.5px;
+}
+body.at-home .site-nav a:hover{color:var(--ink);background:rgba(15,50,56,.7)}
+body.at-home.nav-open .site-nav{opacity:1;visibility:visible;transform:none}
+body.at-home.nav-open .nav-toggle span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+body.at-home.nav-open .nav-toggle span:nth-child(2){opacity:0}
+body.at-home.nav-open .nav-toggle span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* the panel hangs off the header, so the header has to be a frame for it */
+.site-head .wrap{position:relative}
+
+@media (prefers-reduced-motion:reduce){
+  .nav-toggle span,body.at-home .site-nav{transition:none}
 }

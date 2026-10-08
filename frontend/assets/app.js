@@ -39,6 +39,13 @@
     document.title = 'Jelas — ' + (document.getElementById('page-' + id)
       .getAttribute('data-title') || 'Access, explained');
 
+    // Home leads with the brand, so the nav folds behind the menu button
+    // there and shows in full everywhere else. Either way it starts shut.
+    document.body.classList.toggle('at-home', id === 'home');
+    document.body.classList.remove('nav-open');
+    var tog = document.querySelector('.nav-toggle');
+    if (tog) tog.setAttribute('aria-expanded', 'false');
+
     window.scrollTo(0, 0);
   }
 
@@ -307,7 +314,7 @@
 document.addEventListener('click', function (e) {
   var cue = e.target.closest ? e.target.closest('[data-scroll]') : null;
   if (!cue) return;
-  var head = cue.closest('.page-head');
+  var head = cue.closest('.page-head') || cue.closest('.hero');
   if (!head) return;
   var next = head.nextElementSibling;
   if (!next) return;
@@ -327,4 +334,32 @@ document.addEventListener('click', function (e) {
   window.addEventListener('scroll', sync, { passive: true });
   window.addEventListener('hashchange', function () { setTimeout(sync, 60); });
   document.addEventListener('DOMContentLoaded', sync);
+})();
+
+/* The homepage menu button. The nav itself is the same list used on
+   every other screen; only its presentation changes. */
+(function () {
+  function closeNav() {
+    document.body.classList.remove('nav-open');
+    var t = document.querySelector('.nav-toggle');
+    if (t) t.setAttribute('aria-expanded', 'false');
+  }
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('.nav-toggle') : null;
+    if (btn) {
+      var open = document.body.classList.toggle('nav-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      return;
+    }
+    // a click on a nav link, or anywhere off the panel, closes it
+    if (!document.body.classList.contains('nav-open')) return;
+    var inside = e.target.closest ? e.target.closest('.site-nav') : null;
+    if (!inside || e.target.closest('.site-nav a')) closeNav();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeNav();
+  });
 })();
