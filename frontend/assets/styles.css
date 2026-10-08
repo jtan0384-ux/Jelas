@@ -1090,19 +1090,24 @@ tr.total td{border-top-color:var(--ink-muted)}
 .nav-toggle{
   display:none;
   margin-left:auto;
-  width:42px;height:38px;
+  width:44px;height:44px;
   align-items:center;justify-content:center;
-  flex-direction:column;gap:5px;
-  background:rgba(15,33,39,.6);
-  border:1px solid var(--border);border-radius:10px;
+  flex-direction:column;gap:6px;
+  background:none;border:0;border-radius:8px;
   cursor:pointer;padding:0;
-  transition:border-color .2s ease,background-color .2s ease;
+  -webkit-tap-highlight-color:transparent;
 }
-.nav-toggle:hover{border-color:var(--teal-600);background:rgba(15,50,56,.8)}
 .nav-toggle span{
-  display:block;width:17px;height:1.5px;border-radius:2px;background:var(--ink);
-  transition:transform .26s cubic-bezier(.2,.8,.2,1),opacity .18s ease;
+  display:block;width:22px;height:1.5px;border-radius:2px;background:var(--ink-muted);
+  transition:transform .26s cubic-bezier(.2,.8,.2,1),opacity .18s ease,
+             background-color .2s ease,width .2s ease;
 }
+.nav-toggle:hover span{background:var(--ink)}
+.nav-toggle:focus-visible{outline:2px solid var(--teal-600);outline-offset:3px}
+/* the middle bar is shorter, so the glyph has a shape of its own rather
+   than reading as three identical rules */
+.nav-toggle span:nth-child(2){width:15px;margin-right:7px}
+.nav-toggle:hover span:nth-child(2){width:22px;margin-right:0}
 
 /* only the home screen folds the nav away */
 body.at-home .nav-toggle{display:flex}
@@ -1126,9 +1131,10 @@ body.at-home .site-nav a{
 }
 body.at-home .site-nav a:hover{color:var(--ink);background:rgba(15,50,56,.7)}
 body.at-home.nav-open .site-nav{opacity:1;visibility:visible;transform:none}
-body.at-home.nav-open .nav-toggle span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-body.at-home.nav-open .nav-toggle span:nth-child(2){opacity:0}
-body.at-home.nav-open .nav-toggle span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+body.at-home.nav-open .nav-toggle span{background:var(--ink)}
+body.at-home.nav-open .nav-toggle span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+body.at-home.nav-open .nav-toggle span:nth-child(2){opacity:0;width:22px;margin-right:0}
+body.at-home.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 
 /* the panel hangs off the header, so the header has to be a frame for it */
 .site-head .wrap{position:relative}
@@ -1147,11 +1153,11 @@ body.at-home .site-head{
   background:none;border-bottom:0;box-shadow:none;backdrop-filter:none;
   pointer-events:none;
 }
-body.at-home .site-head .wrap{min-height:clamp(60px,6vw,76px)}
+body.at-home .site-head .wrap{min-height:66px}
 body.at-home .brand{display:none}
 body.at-home .nav-toggle,
 body.at-home .site-nav{pointer-events:auto}
-body.at-home .site-nav{top:calc(100% - 8px);border-top:1px solid var(--border);border-radius:14px}
+body.at-home .site-nav{top:calc(100% - 4px);border-top:1px solid var(--border);border-radius:14px}
 
 /* ------------------------------------------------------------------
    How far down a sticky heading parks. Normally it clears the header
