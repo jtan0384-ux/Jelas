@@ -1183,6 +1183,15 @@ body.at-home{--stick-top:0px}
 
 /* the floating menu glyph shares the bar's centre line */
 body.at-home .site-head .wrap{min-height:82px}
+/* the homepage has no bar for the glyph to belong to, so it anchors to
+   the window's own corner rather than to the 1120px content column */
+body.at-home .site-head .wrap{
+  width:100%;max-width:none;margin-inline:0;
+  padding-inline:clamp(18px,2.4vw,40px);
+}
+/* absolute offsets resolve against the padding box, so the panel needs
+   the same inset or it hangs further right than the glyph it drops from */
+body.at-home .site-nav{right:clamp(18px,2.4vw,40px)}
 
 @media (max-width:760px){
   .chapter-head.pinned{min-height:68px}
