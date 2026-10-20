@@ -538,15 +538,54 @@
 <div class="page" id="page-about" data-title="About">
   <section class="page-head drift-host">
     <canvas class="drift" data-count="20" aria-hidden="true"></canvas>
+    <div class="wrap head-split">
+      <div class="head-copy">
+        <h1 class="display">Built at Monash University Malaysia.</h1>
+        <p class="lead">Jelas began as an individual project in BFM 3130: 71 public reviews of Malaysian fintech apps, coded one by one. Twenty-six described the same failure &mdash; a customer locked out of their own money, with no explanation and no way back. The group took the idea on, surveyed <span class="ph">[N]</span> Malaysians to find out how common it really is, and built the prototype you have just used.</p>
+      </div>
+      <figure class="head-art head-wave">
+        <img src="assets/art-about.webp" alt="" width="1200" height="675" loading="lazy" decoding="async">
+      </figure>
+    </div>
+    <button class="head-cue" type="button" data-scroll><span>Where the name came from</span><i></i></button>
+  </section>
+
+  <section class="divider reveal">
     <div class="wrap">
-      <h1 class="display">Built at Monash University Malaysia.</h1>
-      <p class="lead measure" style="margin-top:var(--space-4)">Jelas began as an individual project in BFM 3130, built by coding 71 public reviews of Malaysian fintech applications and finding that 26 of them described the same failure: a customer denied access to their own money, with no explanation and no way to resolve it. The group selected the concept, surveyed <span class="ph">[N]</span> Malaysians to test how common that experience is, and built the prototype you have just used.</p>
+      <div class="divider-rule"></div>
+      <h2 class="divider-head">The name</h2>
+      <p class="divider-sub">One Malay word, carrying the entire design brief.</p>
+    </div>
+  </section>
 
-      <h2 style="margin-top:var(--space-12)">The name</h2>
-      <p class="muted measure" style="margin-top:var(--space-3)"><em>Jelas</em> is the Malay word for clear, or explained. The product is named after the thing it does.</p>
+  <section class="band">
+    <div class="wrap">
+      <div class="claim reveal"><p><span>Jelas means clear.</span><span>That is the whole job, in one word.</span></p></div>
+    </div>
+  </section>
 
-      <h2 style="margin-top:var(--space-12)">Team</h2>
-      <p class="muted measure" style="margin-top:var(--space-3)">Six students across business, communication and technology, at Monash University Malaysia.</p>
+  <section class="band pt subtle">
+    <div class="wrap reveal">
+      <div class="namecopy">
+        <h2>Why we took it</h2>
+        <p class="lead">It is the word you reach for when something finally makes sense &mdash; when an explanation lands and the confusion lifts. Nobody has ever said <em>jelas</em> about a reason code.</p>
+        <p>Because that is how banks speak. Risk scores, velocity flags, verification states. And when one of them fires, the person on the other end gets four words: <strong>transfer is unavailable</strong>. No cause, no timeline, no way forward.</p>
+        <p>So we named the company after the thing we owe that person. Every screen has to pass one test: could someone read this while angry, confused and standing at a counter &mdash; and know exactly what happened and what to do next?</p>
+        <p class="pt-note">If the answer is no, it is not finished.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="divider reveal">
+    <div class="wrap">
+      <div class="divider-rule"></div>
+      <h2 class="divider-head">The team</h2>
+      <p class="divider-sub">Who built it, and what each of them owns.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
       <div class="team reveal-group" style="margin-top:var(--space-8)">
         <figure class="person">
           <picture>
@@ -615,450 +654,18 @@
           </figcaption>
         </figure>
       </div>
+    </div>
+  </section>
 
-      <h2 style="margin-top:var(--space-12)">Acknowledgements</h2>
-      <p class="note measure" style="margin-top:var(--space-3)">Prototype, brand and copy produced with assistance from generative AI (Claude, Anthropic); all content reviewed and verified by the team. Market data from Bank Negara Malaysia, the Financial Markets Ombudsman Service, and unit-provided Malaysian FinTech datasets. Survey data collected by the group. Team photographs supplied by the members themselves. Other photography by David Dvo&#345;&#225;&#269;ek and Annie Spratt via Unsplash, used under the Unsplash licence. Contact: hello@jelas.my</p>
+  <section class="band pt subtle">
+    <div class="wrap pt-grid wide reveal">
+      <div class="pt-right">
+        <h2>Acknowledgements</h2>
+        <p class="note">Prototype, brand and copy produced with assistance from generative AI (Claude, Anthropic); all content reviewed and verified by the team. Market data from Bank Negara Malaysia, the Financial Markets Ombudsman Service, and unit-provided Malaysian FinTech datasets. Survey data collected by the group. Team photographs supplied by the members themselves. Other photography by David Dvo&#345;&#225;&#269;ek and Annie Spratt via Unsplash, used under the Unsplash licence. Contact: hello@jelas.my</p>
+      </div>
     </div>
   </section>
 </div>
-
-<!-- ============ 7–11. CUSTOMER FLOW ============ -->
-
-<div class="page" id="page-d1" data-title="Transfer unavailable">
-  <div class="wrap backbar"><a href="#home">&larr; Back to site</a></div>
-  <section class="band tight subtle" style="margin:0"><div class="wrap demo-grid">
-    <div class="phone kira">
-      <div class="status-bar" aria-hidden="true">
-        <span class="t">9:14</span>
-        <span class="icons">
-          <svg viewBox="0 0 18 12" width="17" height="11"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
-          <svg viewBox="0 0 16 12" width="15" height="11"><path d="M8 11.2 5.6 8.6a3.4 3.4 0 0 1 4.8 0L8 11.2Zm0-5.1a6.6 6.6 0 0 0-4.7 2L1.6 6.3a9 9 0 0 1 12.8 0l-1.7 1.8A6.6 6.6 0 0 0 8 6.1Z"/></svg>
-          <svg viewBox="0 0 26 12" width="24" height="11"><rect x="0.6" y="0.6" width="21" height="10.8" rx="3" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="2.4" y="2.4" width="15" height="7.2" rx="1.6"/><path d="M23.4 4.2v3.6a2.2 2.2 0 0 0 0-3.6Z"/></svg>
-        </span>
-      </div>
-      <div class="phone-top">
-        <span class="k-brand"><span class="k-dot"></span>Kira</span>
-        <span class="inst">Personal</span>
-      </div>
-      <div class="k-bal">
-        <div class="lab">Available balance</div>
-        <div class="amt">RM 1,250.00</div>
-      </div>
-      <div class="k-row">
-        <div class="k-act on">Transfer</div>
-        <div class="k-act">Pay</div>
-        <div class="k-act">Top up</div>
-      </div>
-      <h2 style="font-size:17px">Transfer to Lim Wei Jian</h2>
-      <p style="font-size:13px">Maybank &middot; 5141 2290 8871</p>
-      <div class="k-err">
-        <b>Transfer is unavailable</b>
-        <span>Please try again later.</span>
-      </div>
-      <a class="btn btn-k btn-stack" href="#d2">
-        <span class="l1">Fix now</span>
-        <span class="l2">by Jelas</span>
-      </a>
-      <span class="btn btn-k-ghost">Try again</span>
-    </div>
-    <div class="reveal in">
-      <h2>Step 1 &mdash; What the bank shows today</h2>
-      <p class="muted measure" style="margin-top:var(--space-4)">This is a real failure mode, reproduced. A newly opened digital bank account cannot send money out until it has received a deposit from an account in the same person's name. The control is correct: first-party funding verification is how banks keep accounts from being opened and sold on as money-mule accounts.</p>
-      <p class="muted measure" style="margin-top:var(--space-3)">The customer is told none of that. They see four words and a suggestion to try again later. There is nothing to act on, so they call support &mdash; or they stop using the account.</p>
-      <div class="claim" style="margin-top:var(--space-6);padding:var(--space-6)"><p style="font-size:19px"><span>The fix takes one RM10 transfer.</span><span>Almost nobody discovers it on their own.</span></p></div>
-      <p class="note" style="margin-top:var(--space-4)">Kira Bank is a fictional institution created for this prototype. The scenario is drawn from a team member's operational experience at a Malaysian digital bank.</p>
-    </div>
-  </div></section>
-</div>
-
-<div class="page" id="page-d2" data-title="Why">
-  <div class="wrap backbar"><a href="#home">&larr; Back to site</a></div>
-  <section class="band tight subtle" style="margin:0"><div class="wrap demo-grid">
-    <div class="phone">
-      <div class="status-bar" aria-hidden="true">
-        <span class="t">9:14</span>
-        <span class="icons">
-          <svg viewBox="0 0 18 12" width="17" height="11"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
-          <svg viewBox="0 0 16 12" width="15" height="11"><path d="M8 11.2 5.6 8.6a3.4 3.4 0 0 1 4.8 0L8 11.2Zm0-5.1a6.6 6.6 0 0 0-4.7 2L1.6 6.3a9 9 0 0 1 12.8 0l-1.7 1.8A6.6 6.6 0 0 0 8 6.1Z"/></svg>
-          <svg viewBox="0 0 26 12" width="24" height="11"><rect x="0.6" y="0.6" width="21" height="10.8" rx="3" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="2.4" y="2.4" width="15" height="7.2" rx="1.6"/><path d="M23.4 4.2v3.6a2.2 2.2 0 0 0 0-3.6Z"/></svg>
-        </span>
-      </div>
-      <div class="phone-top"><svg viewBox="0 0 64 64" width="22" height="22" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0D2430"/><rect x="16" y="20" width="18" height="6" rx="3" fill="#0E7C86" opacity=".38"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#0E7C86" opacity=".66"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#2FA7B0"/></svg><span class="inst">Kira Bank</span></div>
-      <div class="steps"><i class="on"></i><i></i><i></i></div>
-      <span class="chip chip-restricted">Transfers unavailable</span>
-      <h2>Your account needs one deposit from your own account first</h2>
-      <p>Before a new account can send money out, we have to confirm it belongs to you. The way we do that is to receive one transfer from another bank account in your own name.</p>
-      <p style="color:var(--ink);font-weight:600">Nothing is wrong with your account, and your balance is untouched.</p>
-      <p class="small">This is a one-time check. Once it clears, transfers work normally.</p>
-      <a class="btn btn-primary" href="#d3">Show me how</a>
-      <div class="handoff-note">
-        <svg viewBox="0 0 64 64" width="13" height="13" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0D2430"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#0E7C86"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#2FA7B0"/></svg>
-        Powered by Jelas
-      </div>
-    </div>
-    <div class="reveal in">
-      <h2>Step 2 &mdash; The same restriction, explained</h2>
-      <p class="muted measure" style="margin-top:var(--space-4)">Nothing about the bank's decision has changed. The account is still restricted, the control still holds, and no rule has been relaxed. The only difference is that the customer now knows what happened and what it is for.</p>
-      <p class="muted measure" style="margin-top:var(--space-3)">Note what the screen avoids saying. It does not mention money laundering, mule accounts, or first-party funding verification. Those are the bank's words, and they belong on the bank's dashboard. In front of a customer they read as an accusation.</p>
-      <p class="muted measure" style="margin-top:var(--space-3)">The line confirming the balance is untouched is there because it answers the question the customer actually has, which is whether their money is gone.</p>
-    </div>
-  </div></section>
-</div>
-
-<div class="page" id="page-d3" data-title="How to fix it">
-  <div class="wrap backbar"><a href="#home">&larr; Back to site</a></div>
-  <section class="band tight subtle" style="margin:0"><div class="wrap demo-grid">
-    <div class="phone">
-      <div class="status-bar" aria-hidden="true">
-        <span class="t">9:14</span>
-        <span class="icons">
-          <svg viewBox="0 0 18 12" width="17" height="11"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
-          <svg viewBox="0 0 16 12" width="15" height="11"><path d="M8 11.2 5.6 8.6a3.4 3.4 0 0 1 4.8 0L8 11.2Zm0-5.1a6.6 6.6 0 0 0-4.7 2L1.6 6.3a9 9 0 0 1 12.8 0l-1.7 1.8A6.6 6.6 0 0 0 8 6.1Z"/></svg>
-          <svg viewBox="0 0 26 12" width="24" height="11"><rect x="0.6" y="0.6" width="21" height="10.8" rx="3" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="2.4" y="2.4" width="15" height="7.2" rx="1.6"/><path d="M23.4 4.2v3.6a2.2 2.2 0 0 0 0-3.6Z"/></svg>
-        </span>
-      </div>
-      <div class="phone-top"><svg viewBox="0 0 64 64" width="22" height="22" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0D2430"/><rect x="16" y="20" width="18" height="6" rx="3" fill="#0E7C86" opacity=".38"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#0E7C86" opacity=".66"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#2FA7B0"/></svg><span class="inst">Kira Bank</span></div>
-      <div class="steps"><i class="on"></i><i class="on"></i><i></i></div>
-      <span class="chip chip-review">One step to go</span>
-      <h2>Send any amount from your own account</h2>
-      <p>Open your other bank's app and transfer to the details below. Any amount works &mdash; RM10 is enough.</p>
-      <div class="fund">
-        <div class="amt">RM 10.00</div>
-        <dl>
-          <dt>Account</dt><dd>8800 4471 2093</dd>
-          <dt>Name</dt><dd>Nur Aisyah binti Rahim</dd>
-          <dt>Bank</dt><dd>Kira Bank Berhad</dd>
-        </dl>
-      </div>
-      <p class="small">It must come from an account in your own name. A transfer from someone else will not clear the check.</p>
-      <a class="btn btn-primary" href="#d4">Copy details and continue</a>
-      <div class="handoff-note"><svg viewBox="0 0 64 64" width="13" height="13" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0D2430"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#0E7C86"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#2FA7B0"/></svg>Powered by Jelas</div>
-    </div>
-    <div class="reveal in">
-      <h2>Step 3 &mdash; The route back in</h2>
-      <p class="muted measure" style="margin-top:var(--space-4)">The account details are filled in already, the amount is suggested, and the one condition that actually matters &mdash; that the money comes from an account in the customer's own name &mdash; is stated plainly.</p>
-      <p class="muted measure" style="margin-top:var(--space-3)">This screen is the difference between a support call and a self-serve resolution. Without it the customer either contacts the bank or abandons the account, and both outcomes cost the bank money.</p>
-      <p class="muted measure" style="margin-top:var(--space-3)">Jelas does not move money, hold funds, or process the deposit. It reads the bank's own verification status and tells the customer what will clear it.</p>
-    </div>
-  </div></section>
-</div>
-
-<div class="page" id="page-d4" data-title="Deposit received">
-  <div class="wrap backbar"><a href="#home">&larr; Back to site</a></div>
-  <section class="band tight subtle" style="margin:0"><div class="wrap demo-grid">
-    <div class="phone">
-      <div class="status-bar" aria-hidden="true">
-        <span class="t">9:14</span>
-        <span class="icons">
-          <svg viewBox="0 0 18 12" width="17" height="11"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
-          <svg viewBox="0 0 16 12" width="15" height="11"><path d="M8 11.2 5.6 8.6a3.4 3.4 0 0 1 4.8 0L8 11.2Zm0-5.1a6.6 6.6 0 0 0-4.7 2L1.6 6.3a9 9 0 0 1 12.8 0l-1.7 1.8A6.6 6.6 0 0 0 8 6.1Z"/></svg>
-          <svg viewBox="0 0 26 12" width="24" height="11"><rect x="0.6" y="0.6" width="21" height="10.8" rx="3" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="2.4" y="2.4" width="15" height="7.2" rx="1.6"/><path d="M23.4 4.2v3.6a2.2 2.2 0 0 0 0-3.6Z"/></svg>
-        </span>
-      </div>
-      <div class="phone-top"><svg viewBox="0 0 64 64" width="22" height="22" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0D2430"/><rect x="16" y="20" width="18" height="6" rx="3" fill="#0E7C86" opacity=".38"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#0E7C86" opacity=".66"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#2FA7B0"/></svg><span class="inst">Kira Bank</span></div>
-      <div class="steps"><i class="on"></i><i class="on"></i><i class="on"></i></div>
-      <span class="chip chip-review">Checking</span>
-      <h2>Deposit received</h2>
-      <p>RM10.00 arrived from Maybank at 09:19. We are confirming the sending account is in your name.</p>
-      <div class="fund">
-        <dl>
-          <dt>From</dt><dd>Nur Aisyah binti Rahim</dd>
-          <dt>Account held</dt><dd>Nur Aisyah binti Rahim</dd>
-          <dt>Name match</dt><dd style="color:var(--status-resolved)">Confirmed</dd>
-        </dl>
-      </div>
-      <p class="small">Usually takes under a minute.</p>
-      <a class="btn btn-primary" href="#d5">Continue</a>
-      <div class="handoff-note"><svg viewBox="0 0 64 64" width="13" height="13" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0D2430"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#0E7C86"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#2FA7B0"/></svg>Powered by Jelas</div>
-    </div>
-    <div class="reveal in">
-      <h2>Step 4 &mdash; The check clears</h2>
-      <p class="muted measure" style="margin-top:var(--space-4)">The name on the sending account is matched against the name on the receiving account. That match is the entire control, and it is performed by the bank, not by Jelas.</p>
-      <p class="muted measure" style="margin-top:var(--space-3)">Showing the customer the comparison does two things. It makes the check legible, and it explains in advance why a transfer from a parent or a partner would not have worked &mdash; which is the second support call this screen prevents.</p>
-    </div>
-  </div></section>
-</div>
-
-<div class="page" id="page-d5" data-title="Resolved">
-  <div class="wrap backbar"><a href="#home">&larr; Back to site</a></div>
-  <section class="band tight subtle" style="margin:0"><div class="wrap demo-grid">
-    <div class="phone">
-      <div class="status-bar" aria-hidden="true">
-        <span class="t">9:14</span>
-        <span class="icons">
-          <svg viewBox="0 0 18 12" width="17" height="11"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
-          <svg viewBox="0 0 16 12" width="15" height="11"><path d="M8 11.2 5.6 8.6a3.4 3.4 0 0 1 4.8 0L8 11.2Zm0-5.1a6.6 6.6 0 0 0-4.7 2L1.6 6.3a9 9 0 0 1 12.8 0l-1.7 1.8A6.6 6.6 0 0 0 8 6.1Z"/></svg>
-          <svg viewBox="0 0 26 12" width="24" height="11"><rect x="0.6" y="0.6" width="21" height="10.8" rx="3" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="2.4" y="2.4" width="15" height="7.2" rx="1.6"/><path d="M23.4 4.2v3.6a2.2 2.2 0 0 0 0-3.6Z"/></svg>
-        </span>
-      </div>
-      <div class="phone-top"><svg viewBox="0 0 64 64" width="22" height="22" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0D2430"/><rect x="16" y="20" width="18" height="6" rx="3" fill="#0E7C86" opacity=".38"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#0E7C86" opacity=".66"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#2FA7B0"/></svg><span class="inst">Kira Bank</span></div>
-      <div class="steps"><i class="on"></i><i class="on"></i><i class="on"></i></div>
-      <span class="chip chip-resolved">Resolved</span>
-      <h2>Transfers are now available</h2>
-      <p>Your account is verified. You can send money as normal, and this check will not happen again.</p>
-      <div class="case">
-        <div class="ref">JLS-4471-20B</div>
-        <div class="t">Opened 09:14 &middot; Resolved 09:21</div>
-        <div class="big">7 minutes</div>
-      </div>
-      <p class="small" style="margin-top:var(--space-3)">A record of this case has been saved to your account.</p>
-      <a class="btn btn-primary" href="#home">Done</a>
-      <a class="btn btn-ghost" href="#b3">View the bank's side of this case</a>
-      <div class="handoff-note"><svg viewBox="0 0 64 64" width="13" height="13" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0D2430"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#0E7C86"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#2FA7B0"/></svg>Powered by Jelas</div>
-    </div>
-    <div class="reveal in">
-      <h2>Seven minutes, or an abandoned account</h2>
-      <p class="muted measure" style="margin-top:var(--space-4)">Without the explanation, this customer had two options: call support and wait, or give up on an account they had just opened. Digital banks spend heavily to acquire customers, and this failure lands on day one, before any of that spend has been earned back.</p>
-      <p class="muted measure" style="margin-top:var(--space-3)">The case reference is the same one the bank sees on its own dashboard, with the full decision trail attached.</p>
-      <div class="btn-row"><a class="btn btn-primary" href="#b3">See the bank's record of this case</a></div>
-    </div>
-  </div></section>
-</div>
-
-<!-- ============ 12–14. BANK DASHBOARD ============ -->
-<div class="page" id="page-b1" data-title="Operations dashboard">
-  <div class="wrap backbar"><a href="#home">&larr; Back to site</a></div>
-  <div class="wrap" style="padding-bottom:var(--space-12)">
-    <div class="dash">
-      <div class="dash-side">
-        <a class="brand" href="#home"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#12272F"/><rect x="16" y="20" width="18" height="6" rx="3" fill="#4FBCC4" opacity=".38"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#4FBCC4" opacity=".66"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#7FD4DA"/></svg><b>Jelas</b></a>
-        <nav aria-label="Dashboard">
-          <a class="on" href="#b1">Overview</a>
-          <a  href="#b2">Cases</a>
-          <a  href="#b4">Triage</a>
-          <a  href="#b5">Reports</a>
-          <a  href="#b6">Billing</a>
-        </nav>
-      </div>
-      <div class="dash-main">
-        <div class="dash-top"><h1 style="font-size:22px;font-weight:700">Operations overview</h1><span class="inst">Kira Bank &middot; September 2026</span></div>
-        <div class="tiles reveal-group">
-          <div class="tile"><div class="k">Cases resolved</div><div class="v"><span data-count="600">0</span></div><div class="s">this month</div></div>
-          <div class="tile"><div class="k">Median resolution</div><div class="v">11 min</div><div class="s">down from 3 days</div></div>
-          <div class="tile"><div class="k">Support contacts avoided</div><div class="v"><span data-count="1500">0</span></div><div class="s">2.5 per case</div></div>
-          <div class="tile"><div class="k">Operational cost avoided</div><div class="v"><span data-count="11685" data-pre="RM">0</span></div><div class="s">at RM7.79 per contact</div></div>
-          <div class="tile"><div class="k">False positives cleared</div>
-            <div class="ring" data-pct="73"><span>73%</span></div>
-            <div class="s" style="margin-top:var(--space-2)">441 of 600 cases</div></div>
-          <div class="tile"><div class="k">Open cases</div><div class="v">12</div><div class="s">2 past service-level target</div></div>
-        </div>
-        <div class="ledger">
-          <div class="l">RM11,685 avoided &middot; RM3,720 billed</div>
-          <div class="r">Net operational saving this month: RM7,965</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="page" id="page-b2" data-title="Case queue">
-  <div class="wrap backbar"><a href="#home">&larr; Back to site</a></div>
-  <div class="wrap" style="padding-bottom:var(--space-12)">
-    <div class="dash">
-      <div class="dash-side">
-        <a class="brand" href="#home"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#12272F"/><rect x="16" y="20" width="18" height="6" rx="3" fill="#4FBCC4" opacity=".38"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#4FBCC4" opacity=".66"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#7FD4DA"/></svg><b>Jelas</b></a>
-        <nav aria-label="Dashboard">
-          <a  href="#b1">Overview</a>
-          <a class="on" href="#b2">Cases</a>
-          <a  href="#b4">Triage</a>
-          <a  href="#b5">Reports</a>
-          <a  href="#b6">Billing</a>
-        </nav>
-      </div>
-      <div class="dash-main">
-        <div class="dash-top"><h1 style="font-size:22px;font-weight:700">Cases</h1><span class="inst">Kira Bank &middot; September 2026</span></div>
-        <div class="filters"><span class="on">All 612</span><span>Resolved 600</span><span>In review 10</span><span>Escalated 2</span></div>
-        <div class="table-wrap" style="background:var(--surface)">
-          <table>
-            <thead><tr><th>Case</th><th>Opened</th><th>Type</th><th>Triage</th><th>Status</th><th class="num">Open for</th></tr></thead>
-            <tbody>
-              <tr class="clickable" data-goto="#b3" tabindex="0"><td class="mono">JLS-4471-20B</td><td>09:14</td><td>First-party funding</td><td><span class="risk risk-low">Low risk</span></td><td><span class="chip chip-resolved">Resolved</span></td><td class="num">7 min</td></tr>
-              <tr><td class="mono">JLS-4470-11C</td><td>08:52</td><td>Device change</td><td><span class="risk risk-low">Low risk</span></td><td><span class="chip chip-resolved">Resolved</span></td><td class="num">4 min</td></tr>
-              <tr><td class="mono">JLS-4469-02A</td><td>08:40</td><td>Document mismatch</td><td><span class="risk risk-rev">Review</span></td><td><span class="chip chip-review">In review</span></td><td class="num">1h 22m</td></tr>
-              <tr><td class="mono">JLS-4468-77D</td><td>08:11</td><td>Mule-pattern match</td><td><span class="risk risk-high">High risk</span></td><td><span class="chip chip-restricted">Escalated</span></td><td class="num">2h 05m</td></tr>
-              <tr><td class="mono">JLS-4467-19F</td><td>07:58</td><td>Code undelivered</td><td><span class="risk risk-low">Low risk</span></td><td><span class="chip chip-resolved">Resolved</span></td><td class="num">3 min</td></tr>
-              <tr><td class="mono">JLS-4466-40E</td><td>07:30</td><td>First-party funding</td><td><span class="risk risk-rev">Review</span></td><td><span class="chip chip-review">In review</span></td><td class="num">2h 33m</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="note" style="margin-top:var(--space-3)">Select the first row to open the case the customer resolved in the demo flow.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="page" id="page-b3" data-title="Case detail">
-  <div class="wrap backbar"><a href="#home">&larr; Back to site</a></div>
-  <div class="wrap" style="padding-bottom:var(--space-12)">
-    <div class="dash">
-      <div class="dash-side">
-        <a class="brand" href="#home"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#12272F"/><rect x="16" y="20" width="18" height="6" rx="3" fill="#4FBCC4" opacity=".38"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#4FBCC4" opacity=".66"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#7FD4DA"/></svg><b>Jelas</b></a>
-        <nav aria-label="Dashboard">
-          <a  href="#b1">Overview</a>
-          <a class="on" href="#b2">Cases</a>
-          <a  href="#b4">Triage</a>
-          <a  href="#b5">Reports</a>
-          <a  href="#b6">Billing</a>
-        </nav>
-      </div>
-      <div class="dash-main">
-        <div class="dash-top">
-          <h1 style="font-size:22px;font-weight:700" class="mono">JLS-4471-20B</h1>
-          <span class="inst"><span class="chip chip-resolved">Resolved</span> &nbsp;Opened 09:14, 29 September 2026</span>
-        </div>
-        <div class="cols cols-2">
-          <div class="card">
-            <h3>What happened</h3>
-            <div class="trail" style="margin-top:var(--space-3)">
-              <div><time>09:14</time><span>Outbound transfers withheld. Account has not received a first-party deposit.</span></div>
-              <div><time>Source</time><span>Onboarding verification, rule FPF-01. Jelas did not make this decision.</span></div>
-              <div><time>Triage</time><span>Low risk. Account passed eKYC at opening; no adverse signals on file.</span></div>
-              <div><time>09:19</time><span>RM10.00 received from Maybank. Sender name matched account holder.</span></div>
-            </div>
-          </div>
-          <div class="card">
-            <h3>What the customer was told</h3>
-            <div class="trail" style="margin-top:var(--space-3)">
-              <div><time>09:14</time><span>Explanation delivered in place of "transfer unavailable"</span></div>
-              <div><time>09:16</time><span>Customer opened the funding instructions</span></div>
-              <div><time>09:18</time><span>Account details copied</span></div>
-              <div><time>09:19</time><span>Deposit received, name match confirmed</span></div>
-              <div><time>09:21</time><span>Transfers enabled, customer notified</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="footbar">
-          <span>Time to resolution <b>7 minutes</b></span>
-          <span>Service-level target <b>30 minutes</b></span>
-          <span>Contacts to support <b>0</b></span>
-          <span>Billable resolved case <b>RM1.20</b></span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="page" id="page-b4" data-title="Triage">
-  <div class="wrap backbar"><a href="#home">&larr; Back to site</a></div>
-  <div class="wrap" style="padding-bottom:var(--space-12)">
-    <div class="dash">
-      <div class="dash-side">
-        <a class="brand" href="#home"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#12272F"/><rect x="16" y="20" width="18" height="6" rx="3" fill="#4FBCC4" opacity=".38"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#4FBCC4" opacity=".66"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#7FD4DA"/></svg><b>Jelas</b></a>
-        <nav aria-label="Dashboard">
-          <a  href="#b1">Overview</a>
-          <a  href="#b2">Cases</a>
-          <a class="on" href="#b4">Triage</a>
-          <a  href="#b5">Reports</a>
-          <a  href="#b6">Billing</a>
-        </nav>
-      </div>
-      <div class="dash-main">
-        <div class="dash-top"><h1 style="font-size:22px;font-weight:700">Triage rules</h1><span class="inst">Kira Bank &middot; September 2026</span></div>
-        <p class="note" style="margin-bottom:var(--space-4)">Rules are configured by the institution. Jelas scores each restriction against them and routes the result; it does not change what the rule does.</p>
-        <div class="table-wrap" style="background:var(--surface)">
-          <table>
-            <thead><tr><th>Rule</th><th>Source system</th><th class="num">Cases</th><th class="num">Cleared as false positive</th><th>Routing</th></tr></thead>
-            <tbody>
-              <tr><td class="mono">FPF-01</td><td>Onboarding verification</td><td class="num">312</td><td class="num">89%</td><td><span class="risk risk-low">Expedited</span></td></tr>
-              <tr><td class="mono">DEV-07</td><td>Device trust</td><td class="num">148</td><td class="num">81%</td><td><span class="risk risk-low">Expedited</span></td></tr>
-              <tr><td class="mono">OTP-02</td><td>Verification delivery</td><td class="num">77</td><td class="num">94%</td><td><span class="risk risk-low">Expedited</span></td></tr>
-              <tr><td class="mono">KYC-11</td><td>Document mismatch</td><td class="num">41</td><td class="num">38%</td><td><span class="risk risk-rev">Manual review</span></td></tr>
-              <tr><td class="mono">VEL-03</td><td>Transaction velocity</td><td class="num">22</td><td class="num">12%</td><td><span class="risk risk-high">Escalate</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="cols cols-2" style="margin-top:var(--space-4)">
-          <div class="tile"><div class="k">Expedited threshold</div><div class="v">75%</div><div class="s">Cases scoring above this route for fast release</div></div>
-          <div class="tile"><div class="k">Average time saved per expedited case</div><div class="v">2.8 days</div><div class="s">Against the institution&rsquo;s standard review queue</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="page" id="page-b5" data-title="Reports">
-  <div class="wrap backbar"><a href="#home">&larr; Back to site</a></div>
-  <div class="wrap" style="padding-bottom:var(--space-12)">
-    <div class="dash">
-      <div class="dash-side">
-        <a class="brand" href="#home"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#12272F"/><rect x="16" y="20" width="18" height="6" rx="3" fill="#4FBCC4" opacity=".38"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#4FBCC4" opacity=".66"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#7FD4DA"/></svg><b>Jelas</b></a>
-        <nav aria-label="Dashboard">
-          <a  href="#b1">Overview</a>
-          <a  href="#b2">Cases</a>
-          <a  href="#b4">Triage</a>
-          <a class="on" href="#b5">Reports</a>
-          <a  href="#b6">Billing</a>
-        </nav>
-      </div>
-      <div class="dash-main">
-        <div class="dash-top"><h1 style="font-size:22px;font-weight:700">Reports</h1><span class="inst">Kira Bank &middot; September 2026</span></div>
-        <p class="note" style="margin-bottom:var(--space-4)">Conduct and complaint-handling reports, generated from the case record. Every figure is traceable to individual cases.</p>
-        <div class="cols cols-3">
-          <div class="tile"><div class="k">Cases this month</div><div class="v">612</div><div class="s">600 resolved, 12 open</div></div>
-          <div class="tile"><div class="k">Within service-level target</div><div class="v">98%</div><div class="s">Target is 30 minutes</div></div>
-          <div class="tile"><div class="k">Escalated to complaint</div><div class="v">2</div><div class="s">Down from 31 before Jelas</div></div>
-        </div>
-        <div class="table-wrap" style="background:var(--surface);margin-top:var(--space-4)">
-          <table>
-            <thead><tr><th>Report</th><th>Period</th><th>Prepared for</th><th>Status</th></tr></thead>
-            <tbody>
-              <tr><td>Conduct summary</td><td>September 2026</td><td>Board risk committee</td><td><span class="chip chip-resolved">Ready</span></td></tr>
-              <tr><td>Complaint-handling record</td><td>September 2026</td><td>Internal audit</td><td><span class="chip chip-resolved">Ready</span></td></tr>
-              <tr><td>Access-restriction register</td><td>Q3 2026</td><td>Regulatory reporting</td><td><span class="chip chip-review">Compiling</span></td></tr>
-              <tr><td>False-positive analysis</td><td>Q3 2026</td><td>Financial crime team</td><td><span class="chip chip-resolved">Ready</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="note" style="margin-top:var(--space-3)">Reports export to PDF and CSV. Retention follows the institution&rsquo;s own schedule.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="page" id="page-b6" data-title="Billing">
-  <div class="wrap backbar"><a href="#home">&larr; Back to site</a></div>
-  <div class="wrap" style="padding-bottom:var(--space-12)">
-    <div class="dash">
-      <div class="dash-side">
-        <a class="brand" href="#home"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#12272F"/><rect x="16" y="20" width="18" height="6" rx="3" fill="#4FBCC4" opacity=".38"/><rect x="16" y="29" width="25" height="6" rx="3" fill="#4FBCC4" opacity=".66"/><rect x="16" y="38" width="32" height="6" rx="3" fill="#7FD4DA"/></svg><b>Jelas</b></a>
-        <nav aria-label="Dashboard">
-          <a  href="#b1">Overview</a>
-          <a  href="#b2">Cases</a>
-          <a  href="#b4">Triage</a>
-          <a  href="#b5">Reports</a>
-          <a class="on" href="#b6">Billing</a>
-        </nav>
-      </div>
-      <div class="dash-main">
-        <div class="dash-top"><h1 style="font-size:22px;font-weight:700">Billing</h1><span class="inst">Kira Bank &middot; September 2026</span></div>
-        <p class="note" style="margin-bottom:var(--space-4)">Billing is a fixed platform subscription plus a fee for each case Jelas resolves, so cost moves with delivered value rather than with headcount.</p>
-        <div class="table-wrap" style="background:var(--surface)">
-          <table>
-            <thead><tr><th>Line</th><th>Basis</th><th class="num">Quantity</th><th class="num">Rate</th><th class="num">Amount</th></tr></thead>
-            <tbody>
-              <tr><td>Platform subscription</td><td>Tier 2, 250,000 to 1 million customers</td><td class="num">1 month</td><td class="num">RM3,000.00</td><td class="num">RM3,000.00</td></tr>
-              <tr><td>Resolved cases</td><td>Usage</td><td class="num">600</td><td class="num">RM1.20</td><td class="num">RM720.00</td></tr>
-              <tr><td>Integration fee</td><td>One-off, settled March 2026</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">RM0.00</td></tr>
-              <tr class="total"><td>Total due</td><td></td><td class="num"></td><td class="num"></td><td class="num">RM3,720.00</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="ledger" style="margin-top:var(--space-4)">
-          <div class="l">RM11,685 avoided &middot; RM3,720 billed</div>
-          <div class="r">Net operational saving this month: RM7,965</div>
-        </div>
-        <div class="cols cols-3" style="margin-top:var(--space-4)">
-          <div class="tile"><div class="k">Billing period</div><div class="v" style="font-size:19px">1&ndash;30 Sept</div><div class="s">Invoiced on the 1st</div></div>
-          <div class="tile"><div class="k">Cost per resolved case</div><div class="v">RM6.20</div><div class="s">All-in, including subscription</div></div>
-          <div class="tile"><div class="k">Return on spend</div><div class="v">3.1&times;</div><div class="s">Operational cost avoided against billed</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-</main>
 
 <footer class="site-foot">
   <div class="wrap">

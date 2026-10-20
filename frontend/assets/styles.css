@@ -1303,3 +1303,17 @@ body.at-home .site-nav{right:clamp(18px,2.4vw,40px)}
 .getapp-copy a:hover{color:var(--ink)}
 
 @media (max-width:560px){ .getapp{text-align:center} .getapp-copy{flex-basis:100%} }
+
+/* the About header art is a generated graphic, not a photograph, so it
+   needs no frame, caption or tint - just room to sit */
+.head-wave{margin:0}
+.head-wave img{display:block;width:100%;height:auto}
+@media (max-width:900px){ .head-wave{display:none} }
+
+/* the name story is prose, not a split block, so it gets a reading
+   measure instead of a half-empty two-column grid */
+.namecopy{max-width:62ch}
+.namecopy h2{font-size:clamp(26px,3vw,38px);letter-spacing:-0.025em}
+.namecopy p{margin-top:var(--space-4)}
+.namecopy .lead{font-size:clamp(18px,1.6vw,21px);color:var(--ink)}
+.namecopy .pt-note{margin-top:var(--space-6)}
