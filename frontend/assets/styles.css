@@ -1267,9 +1267,9 @@ body.at-home .site-nav{right:clamp(18px,2.4vw,40px)}
   background:linear-gradient(170deg,rgba(10,22,26,.20),transparent 42%,rgba(15,50,56,.34));
   mix-blend-mode:multiply;
 }
-.person figcaption{display:block;margin-top:var(--space-4)}
+.person figcaption{display:block;margin-top:var(--space-3)}
 .person strong{display:block;font-size:16.5px;letter-spacing:-0.01em;color:var(--ink)}
-.person .role{display:block;margin-top:3px;font-size:13px;font-weight:600;color:var(--teal-600)}
+.person .role{display:block;margin-top:4px;font-size:13px;font-weight:600;color:var(--teal-600)}
 .person .did{display:block;margin-top:7px;font-size:13.5px;line-height:1.5;color:var(--ink-muted)}
 
 @media (max-width:860px){ .team{grid-template-columns:repeat(2,1fr)} }
